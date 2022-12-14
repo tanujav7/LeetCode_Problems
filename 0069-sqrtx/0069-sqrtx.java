@@ -6,7 +6,7 @@ class Solution {
             return 1;
         
         
-       int left = 1;
+        int left = 1;
         int right = x/2;
         
         while(left<=right){
