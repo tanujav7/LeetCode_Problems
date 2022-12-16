@@ -15,7 +15,7 @@ class Solution {
         while(low<=high){
             int mid = low+(high-low)/2;
             
-            if(mid==high || mid==low || low==high || (nums[mid]!=nums[mid+1] && nums[mid]!=nums[mid-1]))
+            if(mid==high || mid==low || (nums[mid]!=nums[mid+1] && nums[mid]!=nums[mid-1]))
                 return nums[mid];
             
             else if((mid%2==0 && nums[mid]==nums[mid+1])||(mid%2!=0 && nums[mid]==nums[mid-1]))
