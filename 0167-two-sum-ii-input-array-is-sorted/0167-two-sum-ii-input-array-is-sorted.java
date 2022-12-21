@@ -12,6 +12,7 @@ class Solution {
             if(numbers[left]+numbers[right]==target){
                     res[0] = left+1;
                     res[1] = right+1;
+                //Dont't forget to break the loop after finding the answer
                 break;
             }
             
