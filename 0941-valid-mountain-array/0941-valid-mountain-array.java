@@ -16,6 +16,6 @@ class Solution {
         while(i+1<n && arr[i]>arr[i+1])
             i++;
         
-        return i==n-1;
+        return (i==n-1)?true:false;
     }
 }
