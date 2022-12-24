@@ -1,24 +1,24 @@
 class Solution {
     public int arrangeCoins(int n) {
-        long left = 0;
+        long left = 1;
         long right = n;
         
         while(left<=right){
+
             long mid = left+(right-left)/2;
+            long K = (mid)*(mid+1)/2;
             
-           long total = (mid)*(mid+1)/2;
+            if(K>n)
+                right = mid-1;
             
-            if(total==n)
-                return (int)mid;
-            
-            else if(total<n)
+            else if(K<n)
                 left = mid+1;
             
             else
-                right = mid-1;
-                
+                return (int)mid;
         }
         
         return (int)right;
+        
     }
 }
