@@ -1,5 +1,6 @@
 class Solution {
     public boolean validMountainArray(int[] arr) {
+        //If arr.length<3, it cannot be a mountain array -> Given in the problem statement
         if(arr.length<3)
             return false;
        
