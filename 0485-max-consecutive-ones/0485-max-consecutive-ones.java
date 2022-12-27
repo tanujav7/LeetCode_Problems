@@ -5,6 +5,7 @@ class Solution {
 
         for(int i=0; i<nums.length; i++){
             if(nums[i]==0){
+            //Reset the count_one to zero to start counting again if at next iteration the array element if one
                 oneCount = 0;
             }
             else{
