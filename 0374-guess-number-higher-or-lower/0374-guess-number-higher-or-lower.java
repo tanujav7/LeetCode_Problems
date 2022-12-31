@@ -7,48 +7,27 @@
  * int guess(int num);
  */
 
-public class Solution extends GuessGame{
+public class Solution extends GuessGame {
     public int guessNumber(int n) {
-
-          int low = 1; 
-          int high = n;
-         
-        while(low<=high){
-            int mid = low+(high-low)/2;
+        
+        int left = 1;
+        int right = n;
+        
+        while(left<=right){
             
-            int pick = guess(mid);
+            int mid = left+(right-left)/2;
+            int guess = guess(mid);
             
-            if(pick==0)
+            if(guess==0)
                 return mid;
             
-            else if(pick<0)
-                high = mid-1;
+            else if(guess==1)
+                left = mid+1;
             
             else
-                low = mid+1;
+                right = mid-1;
         }
         
         return -1;
-    
-         }
-     }
-
-
-/*public class Solution extends GuessGame {
-    public int guessNumber(int n) {
-        int low = 1;
-        int high = n;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            int res = guess(mid);
-            if (res == 0)
-                return mid;
-            else if (res < 0)
-                high = mid - 1;
-            else
-                low = mid + 1;
-        }
-        return -1;
     }
 }
-    */
