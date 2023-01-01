@@ -3,18 +3,14 @@ class Solution {
         //For output
       HashSet <Integer> res = new HashSet<>();
         
-      HashSet <Integer> set = new HashSet<>();
-        
-        for(int i=0; i<nums1.length; i++){
-            set.add(nums1[i]);
-        }
+       //For binary search atleast one array needs to be sorted
+        Arrays.sort(nums1);
         
         for(int i=0; i<nums2.length; i++){
-            if(set.contains(nums2[i]))
-               res.add(nums2[i]);
-           }
+             if(binarySearch(nums1, nums1.length, nums2[i])==true)
+                 res.add(nums2[i]);
+        }
         
-        //Converting the output (res which is a hashset) into array -> That's what the return type is specified
         
         int output[] = new int[res.size()];
         int j=0;
@@ -24,6 +20,26 @@ class Solution {
         }
         
         return output;
+    }
+    
+    public boolean binarySearch(int arr[], int n, int Key){
+         int start = 0;
+         int end = n-1;
+        
+        while(start<=end){
+            int mid = start+(end-start)/2;
+            
+            if(arr[mid]==Key)
+                return true;
+            
+            else if(arr[mid]<Key)
+                start = mid+1;
+            
+            else
+                end = mid-1;
+        }
+        
+        return false;
     }
 }
 
