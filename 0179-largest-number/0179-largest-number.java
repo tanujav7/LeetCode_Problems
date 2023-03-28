@@ -7,15 +7,30 @@ class Solution {
             str[i] = String.valueOf(nums[i]);
         }
         
-        Arrays.sort(str,(s1,s2) -> (s2+s1).compareTo(s1+s2));
+        Arrays.sort(str,(a,b) -> {
+
+            long v1 = Long.parseLong(a+b);
+            long v2 = Long.parseLong(b+a);
+            
+            if(v1>v2)
+                return 1;
+            
+            else if(v1<v2)
+                return -1;
+            
+            else
+                return 0;
+            
+    
+        });
         
         StringBuilder res = new StringBuilder();
         
-        for(String i:str){
-            res.append(i);
+        for(int i=str.length-1; i>=0; --i){
+            res.append(str[i]);
         }
         
-        if(str[0].equals("0"))
+        if(res.charAt(0)=='0')
             return "0";
         
         return res.toString();
