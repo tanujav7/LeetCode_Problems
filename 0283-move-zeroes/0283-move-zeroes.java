@@ -1,21 +1,20 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-    
-        // In this problem, 'i' will be pointing to non-zero number
-        //and 'j' will be pointing to zero.
+
+        int left = 0;
         
-       int n = nums.length;
-       int j = 0;
-       for(int i=0; i<n; i++){
-           if(nums[i]!=0){
-           swap(nums,i,j);
-           j++;
-           }
-       }
+        for(int right=0; right<nums.length; right++){
+            if(nums[right]!=0){
+                swap(nums,left,right);
+                left++;
+            }
+        }
     }
-        static void swap(int nums[], int i, int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
+    
+    void swap(int arr[], int a, int b){
+
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 }
