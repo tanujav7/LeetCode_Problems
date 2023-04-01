@@ -1,28 +1,22 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-       //Two pointer initializations
-        int left = 0;
-        int right = numbers.length-1;
+       
+        //Two pointers initialization
+        int i=0;
+        int j=numbers.length-1;
         
-        // Result array of size 2
-        int res[] = new int[2];
-        
-        while(left<right){
+        while(i<j){
+
+            if(numbers[i]+numbers[j]<target)
+                i++;
             
-            if(numbers[left]+numbers[right]==target){
-                    res[0] = left+1;
-                    res[1] = right+1;
-                //Dont't forget to break the loop after finding the answer
-                break;
-            }
-            
-            else if(numbers[left]+numbers[right]<target)
-                left++;
+            else if(numbers[i]+numbers[j]>target)
+                j--;
             
             else
-                right--; 
+                return new int[] {i+1,j+1};
         }
         
-        return res;
+        return null;
     }
 }
