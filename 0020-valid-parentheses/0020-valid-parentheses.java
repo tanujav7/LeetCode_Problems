@@ -3,34 +3,35 @@ class Solution {
         
         if(s.length()%2!=0)
             return false;
+       
+         char arr[] = s.toCharArray();
         
         Stack<Character> stack = new Stack<>();
-        char ch[] = s.toCharArray();
         
-        for(int i=0; i<ch.length; i++){
+        for(int i=0; i<arr.length; i++){
+                char ch = arr[i];
             
-          if(ch[i]=='(' || ch[i]=='{' || ch[i]=='[')
-              stack.push(ch[i]);
+            if(ch=='(' || ch=='[' || ch=='{')
+                stack.push(ch);
             
-          else if(!stack.isEmpty()){
-
-           if(ch[i]=='}' && stack.peek()=='{')
-              stack.pop();
-              
-          else if(ch[i]==')' && stack.peek()=='(')
-              stack.pop();
-          
-          else if(ch[i]==']' && stack.peek()=='[')
-              stack.pop();
-              
-          else
-              stack.push(ch[i]);
-          }
-          
-        else
-        return false;
-               
-       }
+            else if(!stack.isEmpty()){
+                
+            if(ch==')' && stack.peek()=='(')
+                stack.pop();
+            
+            else if(ch=='}' && stack.peek()=='{')
+                stack.pop();
+            
+            else if(ch==']' && stack.peek()=='[')
+                stack.pop();
+                
+            else
+                stack.push(ch);
+            
+            }
+            else
+                stack.push(ch);
+        }
         
         return stack.isEmpty();
     }
