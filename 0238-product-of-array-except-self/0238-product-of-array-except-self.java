@@ -1,23 +1,24 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-              int product = nums[nums.length-1];
-        int res[] = nums.clone();
-        //Left traversal
+        int n = nums.length;
+        int res[] = new int[n];
+        res[0] = nums[0];
         
-        for(int i=1; i<nums.length; i++){
-            res[i] = res[i]*res[i-1];
-        }
+        for(int i=1; i<n; i++)
+            res[i] = nums[i]*res[i-1];
         
-  
-        res[nums.length-1] = res[nums.length-2];
+        int product = nums[n-1];
+        res[n-1] = res[n-2];
         
-        // Right traversal
-        for(int i=res.length-2; i>0; --i){
-            res[i] = res[i-1]*product;
-                product = product*nums[i];
+        for(int i=n-2; i>0; --i){
+
+            res[i] = product*res[i-1];
+            product = product*nums[i];
+            
         }
         
         res[0] = product;
+        
         return res;
     }
 }
