@@ -7,9 +7,9 @@ class Solution {
         
         for(int i=0; i<nums.length; i++){
 
-            maximum_ending_here = maximum_ending_here+nums[i];
+            maximum_ending_here = maximum_ending_here + nums[i];
             
-            if(nums[i]>maximum_ending_here)
+            if(maximum_ending_here<nums[i])
                 maximum_ending_here = nums[i];
             
             if(maximum_ending_here>maximum_so_far)
