@@ -2,9 +2,9 @@ class Solution {
     public int[] twoSum(int[] numbers, int target) {
        
         //Two pointers initialization
-  
-        int left = 0;
-        int right = numbers.length-1;
+         int n = numbers.length;
+         int left = 0;
+         int right = n-1;
         
         while(left<right){
 
