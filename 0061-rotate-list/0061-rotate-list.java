@@ -14,32 +14,33 @@ class Solution {
         if(head==null)
             return null;
         
+        int length = 0;
+        ListNode tempNode = head;
+        
+        while(tempNode!=null){
+            length++;
+            tempNode = tempNode.next;
+        }
+        
         ListNode slow = head;
         ListNode fast = head;
         
-        //To get the length of the list, we traverse through the list
-        ListNode temp = head;
-        int length = 0;
-        
-        while(temp!=null){
-            temp = temp.next;
-            length++;
-        }
-        
         k = k%length;
         
-        for(int i=0; i<k; i++)
+        for(int i=0; i<k; i++){
             fast = fast.next;
-        
-        while(fast.next!=null){
-              slow = slow.next;
-              fast = fast.next;
         }
         
+        while(fast.next!=null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+       
         fast.next = head;
         ListNode result = slow.next;
         slow.next = null;
-        return result;
         
+        return result;
     }
 }
