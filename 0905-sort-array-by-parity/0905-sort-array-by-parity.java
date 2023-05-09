@@ -1,7 +1,7 @@
 class Solution {
     public int[] sortArrayByParity(int[] nums) {
-      
-        //Two pointer initialization
+        
+         //Two pointer initialization
          int i=0;
          int j=nums.length-1;
         
