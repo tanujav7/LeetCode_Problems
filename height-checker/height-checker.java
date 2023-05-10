@@ -7,7 +7,7 @@ class Solution {
         
         for(int i=0; i<heights.length; i++){
             if(heights[i]!=res[i])
-               ++count;
+               count++;
         }
         
          return count;
