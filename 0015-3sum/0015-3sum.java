@@ -2,50 +2,41 @@ class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-       
         Arrays.sort(nums);
+        int n = nums.length;
         
-        for(int i=0; i<nums.length; i++){
-
-        //Two-sum
-        int j=i+1;
-        int k=nums.length-1;
+        for(int i=0; i<n; i++){
             
-           if(i>0 && nums[i]==nums[i-1])
-              continue;
+        if(i>0 && nums[i]==nums[i-1])
+               continue;
             
-        while(j<k){
+            int j = i+1;
+            int k = n-1;
             
-            if(k < (nums.length - 1) && nums[k] == nums[k + 1]) {
-                   k--;
-                   continue;
-               }
+            while(j<k){
+                
+               if(k<n-1 && nums[k]==nums[k+1]){
+                  k--;
+                    continue;
+                }
             
             if(nums[i]+nums[j]+nums[k]<0)
                 j++;
-            
+                
             else if(nums[i]+nums[j]+nums[k]>0)
                 k--;
-            
-            else{
                 
-                List<Integer> triples = new ArrayList<Integer>();
+            else{
+                List<Integer> triples = new ArrayList<>();
                 triples.add(nums[i]);
                 triples.add(nums[j]);
                 triples.add(nums[k]);
-                Collections.sort(triples);
-            
+                result.add(triples);
                 j++;
                 k--;
-                
-                result.add(triples);
             }
-                
-        }
-        
-        
-        }
-    
+          }
+      }
         
         return result;
         
