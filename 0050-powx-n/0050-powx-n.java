@@ -1,22 +1,21 @@
 class Solution {
     public double myPow(double x, int n) {
         
+        int exp = n;
         double res = 1;
-        int k = Math.abs(n);
+        n = Math.abs(n);
         
-        while(k>=1){
-            
-            if(k % 2 == 1)
+        while(n>=1){
+            if(n%2==1)
                 res = res*x;
-            
             x = x*x;
-            k = k/2;
-            
+            n = n/2;
         }
-        if (n == Integer.MIN_VALUE) 
-        return (x == 1 || x == -1) ? 1 : 0;
+      
+        if(n==Integer.MIN_VALUE)
+            return (x==1 || x==-1) ? 1 : 0;
         
-        return (n<0) ? (1/res) : res;
         
+        return (exp<0) ? (1/res) : res;
     }
 }
