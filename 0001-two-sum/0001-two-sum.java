@@ -3,7 +3,7 @@ class Solution {
 
         int n = nums.length;
         
-    Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         
         for(int i=0; i<n; i++)
             map.put(nums[i],i);
