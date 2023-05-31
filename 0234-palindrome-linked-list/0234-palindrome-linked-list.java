@@ -11,24 +11,43 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
         
-        List<Integer> list = new ArrayList<>();
-        ListNode tempNode = head;
+        ListNode firstHalfEnd = endOfFirstHalf(head);
+        ListNode secondHalfStart = startOfSecondHalf(firstHalfEnd);
         
-        while(tempNode!=null){
-            list.add(tempNode.val);
-            tempNode = tempNode.next;
-        }
+        ListNode p1 = head, p2 = secondHalfStart;
         
-        int i=0, j=list.size()-1;
-        
-        while(i<j){
-            if(!list.get(i).equals(list.get(j)))
+        while(p2!=null){
+            if(p1.val!=p2.val)
                 return false;
-            
-            i++;
-            j--;
+            p1 = p1.next;
+            p2 = p2.next;
         }
         
         return true;
+        
+    }
+    
+   ListNode endOfFirstHalf(ListNode head){
+       ListNode slow = head, fast = head;
+       
+       while(fast!=null && fast.next!=null){
+           slow = slow.next;
+           fast = fast.next.next;
+       }
+       
+       return slow;
+   }
+    
+    ListNode startOfSecondHalf(ListNode head){
+        ListNode currentNode = head, prevNode = null, nextNode = null;
+        
+        while(currentNode!=null){
+            nextNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+            currentNode = nextNode;
+        }
+        
+        return prevNode;
     }
 }
