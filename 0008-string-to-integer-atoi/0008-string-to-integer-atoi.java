@@ -1,19 +1,16 @@
 class Solution {
     public int myAtoi(String s) {
-       
-                s = s.trim();
         
-        if(s.equals(" ") || s.length()==0 || s==null)
+        s = s.trim();
+        
+        if(s==null ||s.equals(" ")||s.length()==0)
             return 0;
         
-        
-
+        char flag = '+';
         
         double res = 0;
         
         int i = 0;
-        
-        char flag = '+';
         
         if(s.charAt(0)=='+'){
             flag = '+';
@@ -24,10 +21,10 @@ class Solution {
             flag = '-';
             i++;
         }
-            
+        
         while(i<s.length() && s.charAt(i)>='0' && s.charAt(i)<='9'){
-            res = res*10+(s.charAt(i)-'0');
-                i++;
+            res = res*10 + (s.charAt(i)-'0');
+            i++;
         }
         
         if(flag=='-')
