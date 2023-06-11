@@ -1,23 +1,20 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
         
-        if(s==null)
-            return false;
+        //Using two pointers
+        int i=0;//Pointing to 's' string
+        int j=0;//Pointing to 't' string
         
-        
-        
-        //Using pointers
-        int i = 0; 
-        int j = 0;
         while(i<s.length() && j<t.length()){
-            
             if(s.charAt(i)==t.charAt(j))
                 i++;
-            
             j++;
-        
         }
         
-        return i==s.length();
+        if(i==s.length())
+            return true;
+        
+        return false;
+
     }
 }
