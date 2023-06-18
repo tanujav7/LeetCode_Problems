@@ -1,12 +1,12 @@
 class Solution {
     public boolean isHappy(int n) {
-        HashSet <Integer> seen = new HashSet<>();
         
-        while(!seen.contains(n)){
-             
-            seen.add(n);
+        Set<Integer> set = new HashSet<>();
+        
+        while(!set.contains(n)){
+            set.add(n);
             
-            n = sumSquareofDigits(n);
+            n = sumOfSquare(n);
             
             if(n==1)
                 return true;
@@ -15,14 +15,15 @@ class Solution {
         return false;
     }
     
-    int sumSquareofDigits(int num){
-        int rem = 0;
-        int sq = 0;
+    int sumOfSquare(int num){
+        
+        int res = 0;
         while(num!=0){
-            rem = num%10;
-            sq = sq+(int)Math.pow(rem,2);
+            int rem = num%10;
+            res+=Math.pow(rem,2);
             num = num/10;
         }
-        return sq;
+        
+        return res;
     }
 }
