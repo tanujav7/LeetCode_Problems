@@ -3,7 +3,7 @@ class Solution {
         
         int count = -1;
         
-        int freq[] = new int[505];
+        int freq[] = new int[501];
         
         for(int i=0; i<arr.length; i++)
             freq[arr[i]]++;
