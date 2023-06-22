@@ -1,12 +1,16 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
         
-        Set<Character> set = new HashSet<>();
+        boolean freq[] = new boolean[26];
         
-        for(char currentChar:sentence.toCharArray()){
-            set.add(currentChar);
+        for(int i=0; i<sentence.length(); i++)
+            freq[sentence.charAt(i)-'a'] = true;
+        
+        for(int i=0; i<26; i++){
+            if(freq[i]==false)
+                return false;
         }
         
-        return set.size()==26;
+        return true;
     }
 }
