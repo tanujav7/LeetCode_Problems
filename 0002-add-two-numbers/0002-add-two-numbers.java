@@ -13,14 +13,15 @@ class Solution {
         
         ListNode dummyHead = new ListNode(0);
         ListNode currentNode = dummyHead;
-        int carry = 0;
+        
+        int sum = 0, carry = 0;
         
         while(l1!=null || l2!=null || carry>0){
             
             int sum1 = (l1==null) ? 0 : l1.val;
             int sum2 = (l2==null) ? 0 : l2.val;
             
-            int sum = sum1 + sum2 + carry;
+            sum = sum1+sum2+carry;
             
             carry = sum/10;
             
@@ -32,10 +33,8 @@ class Solution {
             
             if(l2!=null)
                 l2 = l2.next;
-            
         }
         
         return dummyHead.next;
-        
     }
 }
