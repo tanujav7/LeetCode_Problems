@@ -14,22 +14,22 @@ class Solution {
         if(head==null)
             return null;
         
-        int length = 0;
-        ListNode tempNode = head;
+        ListNode temp = head;
+        int length=0;
         
-        while(tempNode!=null){
-            tempNode = tempNode.next;
+        while(temp!=null){
+            temp = temp.next;
             length++;
         }
         
         k = k%length;
         
-        ListNode slow = head, fast = head;
+        ListNode fast=head, slow=head;
         
         for(int i=0; i<k; i++)
             fast = fast.next;
-            
-        while(fast.next!=null){
+        
+        while(fast!=null && fast.next!=null){
             slow = slow.next;
             fast = fast.next;
         }
@@ -37,7 +37,8 @@ class Solution {
         fast.next = head;
         ListNode result = slow.next;
         slow.next = null;
-        
+            
         return result;
+        
     }
 }
