@@ -11,42 +11,36 @@
 class Solution {
     public void reorderList(ListNode head) {
         
-        ListNode middleNode = middleOfTheList(head);
-        
-        ListNode midNode = middleNode.next;
+        ListNode middleNode = middleofTheList(head);
+        ListNode middleNextNode = middleNode.next;
         
         middleNode.next = null;
         
-        ListNode node2 = reverseList(midNode);
-        ListNode node1 = head;
-        
+        ListNode p1 = head;
+        ListNode p2 = reverseList(middleNextNode);
         
         ListNode dummyHead = new ListNode(0);
+        
         ListNode currentNode = dummyHead;
         
-        while(node1!=null || node2!=null){
-            
-            if(node1!=null){
-                currentNode.next = node1;
+        while(p1!=null || p2!=null){
+            if(p1!=null){
+                currentNode.next = p1;
                 currentNode = currentNode.next;
-                node1 = node1.next;
+                p1 = p1.next;
             }
-            
-            if(node2!=null){
-                currentNode.next = node2;
+            if(p2!=null){
+                currentNode.next = p2;
                 currentNode = currentNode.next;
-                node2 = node2.next;
+                p2 = p2.next;
             }
-            
         }
         
-        head = dummyHead.next;
-        
+       head = dummyHead.next;
     }
     
-    ListNode middleOfTheList(ListNode head){
-        
-        ListNode slow = head, fast = head;
+    ListNode middleofTheList(ListNode head){
+        ListNode slow=head, fast=head;
         
         while(fast!=null && fast.next!=null){
             slow = slow.next;
@@ -57,16 +51,16 @@ class Solution {
     }
     
     ListNode reverseList(ListNode head){
-        
-        ListNode currentNode = head, previous = null, next = null;
+
+        ListNode currentNode = head, nextNode = null, prevNode = null;
         
         while(currentNode!=null){
-            next = currentNode.next;
-            currentNode.next = previous;
-            previous = currentNode;
-            currentNode = next;
+            nextNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+            currentNode = nextNode;
         }
         
-        return previous;
+        return prevNode;
     }
 }
