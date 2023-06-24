@@ -36,7 +36,7 @@ class Solution {
             }
         }
         
-       head = dummyHead.next;
+      // head = dummyHead.next;
     }
     
     ListNode middleofTheList(ListNode head){
