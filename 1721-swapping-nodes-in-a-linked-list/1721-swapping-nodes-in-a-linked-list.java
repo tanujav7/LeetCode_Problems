@@ -11,31 +11,25 @@
 class Solution {
     public ListNode swapNodes(ListNode head, int k) {
         
-       if (head == null) {
-            return head;
+        if(head==null)
+            return null;
+        
+        ListNode slow=head, fast=head;
+        
+        for(int i=1; i<k; i++)
+            fast = fast.next;
+        
+        ListNode tempNode = fast;
+        
+        while(tempNode.next!=null){
+            slow = slow.next;
+            tempNode = tempNode.next;
         }
         
-        // find the first node to be swapped
-        ListNode node1 = head;
-        for (int i = 1; i < k; i++) {
-            node1 = node1.next;
-        }
-        
-        // find the second node to be swapped
-        ListNode node2 = head;
-        ListNode current = node1;
-        while (current.next != null) {
-            current = current.next;
-            node2 = node2.next;
-        }
-        
-        // swap the nodes by changing the pointers
-        int temp = node1.val;
-        node1.val = node2.val;
-        node2.val = temp;
+        int tempVal = slow.val;
+        slow.val = fast.val;
+        fast.val = tempVal;
         
         return head;
-
-        
     }
 }
