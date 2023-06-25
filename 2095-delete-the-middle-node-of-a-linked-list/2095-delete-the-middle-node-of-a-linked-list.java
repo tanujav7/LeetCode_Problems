@@ -10,25 +10,26 @@
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
-        
+       
         if(head.next==null)
             return null;
-     
-        ListNode p1 = head, p2 = head;
         
-        int length = 0;
+        int length=0;
+        ListNode tempNode = head;
         
-        while(p1!=null){
+        while(tempNode!=null){
+            tempNode = tempNode.next;
             length++;
-            p1 = p1.next;
         }
         
         int middleIndex = (length/2)-1;
         
-        for(int i=0; i<middleIndex; i++)
-            p2 = p2.next;
+        ListNode pointer = head;
         
-        p2.next = p2.next.next;
+        for(int i=0; i<middleIndex; i++)
+            pointer = pointer.next;
+        
+        pointer.next = pointer.next.next;
         
         return head;
         
