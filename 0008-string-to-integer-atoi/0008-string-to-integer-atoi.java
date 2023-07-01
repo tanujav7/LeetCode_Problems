@@ -1,29 +1,30 @@
 class Solution {
     public int myAtoi(String s) {
-        
+      
+      
         s = s.trim();
         
-        if(s==null ||s.equals(" ")||s.length()==0)
+          if(s==null || s.equals(""))
             return 0;
         
+        
         char flag = '+';
+        int i=0;
         
-        double res = 0;
-        
-        int i = 0;
-        
-        if(s.charAt(0)=='+'){
+        if(s.charAt(i)=='+'){
             flag = '+';
             i++;
         }
         
-        else if(s.charAt(0)=='-'){
+        else if(s.charAt(i)=='-'){
             flag = '-';
             i++;
         }
         
+        double res = 0;
+        
         while(i<s.length() && s.charAt(i)>='0' && s.charAt(i)<='9'){
-            res = res*10 + (s.charAt(i)-'0');
+            res = res*10 +(s.charAt(i)-'0');
             i++;
         }
         
