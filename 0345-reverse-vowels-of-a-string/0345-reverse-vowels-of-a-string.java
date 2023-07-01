@@ -12,33 +12,31 @@ class Solution {
         set.add('I');
         set.add('O');
         set.add('U');
+
+        //Two pointers initialization
         
         char arr[] = s.toCharArray();
         
-        //Using two pointers
+        int i=0, j=arr.length-1;
         
-        int start = 0, end = arr.length-1;
-        
-        while(start<end){
-            
-            if(!set.contains(arr[start]))
-                start++;
-            
-            else if(!set.contains(arr[end]))
-                end--;
-            
+        while(i<j){
+            if(!set.contains(arr[i]))
+                i++;
+            else if(!set.contains(arr[j]))
+                j--;
             else{
-                char temp = arr[start];
-                arr[start] = arr[end];
-                arr[end] = temp;
-                start++;
-                end--;
+                char temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
             }
         }
         
-        String res = new String(arr);
+       String res = new String(arr);
         
-        return res;
+      return res.toString();
         
+       // return arr.toString();
     }
 }
