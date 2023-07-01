@@ -3,7 +3,7 @@ class Solution {
        
          if(s==null){
         return false;
-    }
+      }
  
     s = s.toLowerCase();
  
@@ -11,13 +11,11 @@ class Solution {
     int j=s.length()-1;
  
     while(i<j){
-        while(i<j && !((s.charAt(i)>='a' && s.charAt(i)<='z') 
-                    || (s.charAt(i)>='0'&&s.charAt(i)<='9'))){
+        while(i<j && !((s.charAt(i)>='a' && (s.charAt(i)<='z')  || (s.charAt(i)>='0'&&s.charAt(i)<='9')))){
             i++;
         }
  
-        while(i<j && !((s.charAt(j)>='a' && s.charAt(j)<='z') 
-                    || (s.charAt(j)>='0'&&s.charAt(j)<='9'))){
+        while(i<j && !((s.charAt(j)>='a' && (s.charAt(j)<='z')  || (s.charAt(j)>='0'&&s.charAt(j)<='9')))){
             j--;
         }
  
