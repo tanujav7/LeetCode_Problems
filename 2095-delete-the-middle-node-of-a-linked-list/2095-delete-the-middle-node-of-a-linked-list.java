@@ -14,23 +14,15 @@ class Solution {
         if(head.next==null)
             return null;
         
-        ListNode temp = head, pointer = head;
+        ListNode slow = head, fast = head.next.next;
         
-        int length = 0;
-        
-        while(temp!=null){
-            temp = temp.next;
-            length++;
+        while(fast!=null && fast.next!=null){
+              slow = slow.next;
+              fast = fast.next.next;
         }
         
-        int middleButOne = (length/2)-1;
-        
-        for(int i=0; i<middleButOne; i++)
-            pointer = pointer.next;
-        
-        pointer.next = pointer.next.next;
+        slow.next = slow.next.next;
         
         return head;
-        
     }
 }
