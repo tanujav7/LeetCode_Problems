@@ -23,7 +23,7 @@ class Solution {
         int i=0, j=list.size()-1;
         int res = 0;
         
-        while(i<=j){
+        while(i<j){
             int sum = list.get(i)+list.get(j);
             res = Math.max(sum,res);
             i++;
