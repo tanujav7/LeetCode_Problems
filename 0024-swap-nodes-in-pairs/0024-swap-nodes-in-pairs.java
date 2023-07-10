@@ -16,9 +16,7 @@ class Solution {
         ListNode currentNode = dummyHead;
         
         while(currentNode.next!=null && currentNode.next.next!=null){
-            
             ListNode firstNode = currentNode.next;
-            
             ListNode secondNode = currentNode.next.next;
             
             firstNode.next = secondNode.next;
@@ -28,6 +26,5 @@ class Solution {
         }
         
         return dummyHead.next;
-        
     }
 }
