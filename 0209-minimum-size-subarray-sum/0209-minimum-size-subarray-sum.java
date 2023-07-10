@@ -6,19 +6,20 @@ class Solution {
         
         //left will help in shrinking the window
         //right will go through the array
-        int currentSum = 0;
-        int minLength = Integer.MAX_VALUE;
+       
+        int currentWindowSum = 0;
+        int res = Integer.MAX_VALUE;
         
         for(int right = 0; right<nums.length; right++){
-            currentSum +=nums[right];
+            currentWindowSum +=nums[right];
             
-           while(currentSum>=target){
-                currentSum = currentSum - nums[left];
-                minLength = Math.min(minLength, right-left+1);
+            while(currentWindowSum>=target){
+                currentWindowSum = currentWindowSum - nums[left];
+                res = Math.min(res,right-left+1);
                 left++;
             }
         }
-      
-        return minLength==Integer.MAX_VALUE ? 0 : minLength;
+        
+        return res==Integer.MAX_VALUE ? 0 : res;
     }
 }
