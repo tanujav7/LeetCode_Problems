@@ -11,25 +11,44 @@
 class Solution {
     public int pairSum(ListNode head) {
         
-        List<Integer> list = new ArrayList<>();
-        ListNode tempNode = head;
+        ListNode p1 = head;
+        ListNode tempNode = middleOfTheList(head);
+        ListNode p2 = reverseList(tempNode);
         
-        while(tempNode!=null){
-            list.add(tempNode.val);
-            tempNode = tempNode.next;
-        }
-        
-        //Two pointers
-        int i=0, j=list.size()-1;
         int res = 0;
         
-        while(i<j){
-            int sum = list.get(i)+list.get(j);
-            res = Math.max(sum,res);
-            i++;
-            j--;
+        while(p2.next!=null){
+            int sum = p1.val+p2.val;
+            res = Math.max(res,sum);
+            p1 = p1.next;
+            p2 = p2.next;
         }
         
         return res;
+    }
+    
+    ListNode middleOfTheList(ListNode head){
+        ListNode slow = head, fast = head;
+        
+        while(fast.next!=null && fast.next.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        return slow;
+    }
+    
+    ListNode reverseList(ListNode head){
+        
+        ListNode currentNode = head, nextNode = null, prevNode = null;
+        
+        while(currentNode!=null){
+            nextNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+            currentNode = nextNode;
+        }
+        
+        return prevNode;
     }
 }
