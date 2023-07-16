@@ -1,25 +1,21 @@
 class Solution {
     public void rotate(int[] nums, int k) {
-  
-        int n = nums.length;
-        k = k%n;
         
-        reversalAlgorithm(nums,0,n-k-1);
-        reversalAlgorithm(nums,n-k,n-1);
-        reversalAlgorithm(nums,0,n-1);
+        int n = nums.length;
+        k = k % n;
+        reversalAlgorithm(nums, 0, n-1);
+        reversalAlgorithm(nums, 0, k-1);
+        reversalAlgorithm(nums, k, n-1);
         
     }
     
-   void reversalAlgorithm(int arr[], int start, int end){
-
-         while(start<end){
-       
-             int temp = arr[start];
-             arr[start] = arr[end];
-             arr[end] = temp;
-             start++;
-             end--;
-
-         }
-   }
+    void reversalAlgorithm(int arr[], int i, int j){
+        while(i<j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
 }
