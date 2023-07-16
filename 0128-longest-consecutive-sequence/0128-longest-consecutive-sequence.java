@@ -6,22 +6,20 @@ class Solution {
         for(int i:nums)
             set.add(i);
         
-        int longestStreak = 0;
+        int longestConsecutive = 0;
         
         for(int i=0; i<nums.length; i++){
             if(!set.contains(nums[i]-1)){
-            int currentNum = nums[i];
-            int currentStreak = 1;
-            
-            while(set.contains(currentNum+1)){
-                currentNum++;
-                currentStreak++;
+                int currentNum = nums[i];
+                int consecutiveLength = 1;
+                while(set.contains(currentNum+1)){
+                    currentNum++;
+                    consecutiveLength++;
+                }
+                longestConsecutive = Math.max(consecutiveLength,longestConsecutive);
             }
-            
-            longestStreak = Math.max(longestStreak, currentStreak);
         }
-      }
         
-        return longestStreak;
+        return longestConsecutive;
     }
 }
