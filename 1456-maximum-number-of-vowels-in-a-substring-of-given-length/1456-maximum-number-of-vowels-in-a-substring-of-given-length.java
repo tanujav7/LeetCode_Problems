@@ -2,25 +2,29 @@ class Solution {
     public int maxVowels(String s, int k) {
         
         Set<Character> set = new HashSet<>();
-        set.add('a');
-        set.add('e');
-        set.add('i');
-        set.add('o');
-        set.add('u');
         
+         set.add('a');
+         set.add('e');
+         set.add('i');
+         set.add('o');
+         set.add('u');
+        
+       
         int count = 0;
         
-        for(int i=0; i<k; i++)
-            count += set.contains(s.charAt(i)) ? 1 : 0;
         
-        int maxCount = count;
-        
-        for(int i=k; i<s.length(); i++){
-            count += set.contains(s.charAt(i)) ? 1 : 0;
-            count -= set.contains(s.charAt(i-k)) ? 1 : 0;
-            maxCount = Math.max(maxCount, count);
+        for(int i=0; i<k; i++){
+            if(set.contains(s.charAt(i)))
+                count++;
         }
         
-        return maxCount;
+         int maxVowels = count;
+        for(int i=k; i<s.length(); i++){
+            count -= (set.contains(s.charAt(i-k))) ? 1 : 0;
+            count += (set.contains(s.charAt(i))) ? 1 : 0;
+            maxVowels = Math.max(maxVowels, count);
+        }
+        
+        return maxVowels;
     }
 }
