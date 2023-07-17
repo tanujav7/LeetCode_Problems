@@ -1,6 +1,6 @@
 class Solution {
     public String reverseWords(String s) {
-         
+        
         s = s.trim();
         
         String arr[] = s.split(" ");
@@ -8,7 +8,7 @@ class Solution {
         StringBuilder str = new StringBuilder();
         
         for(int i=arr.length-1; i>=0; --i){
-            if(!arr[i].equals(""))
+            if(arr[i]!="")
                 str.append(arr[i]).append(" ");
         }
         
