@@ -4,21 +4,18 @@
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
         
-        int left = 1;
+        int left = 1; 
         int right = n;
-
-        while(left<right){
-            int mid = left+(right-left)/2;
-
-            boolean api = isBadVersion(mid);
-
+        
+        while(left<=right){
+            int version = left+(right-left)/2;
+            boolean api = isBadVersion(version);
             if(api==false)
-            left = mid+1;
-
+                left = version+1;
             else
-            right = mid;
+                right = version-1;
         }
-
-        return right;
+        
+        return left;
     }
 }
