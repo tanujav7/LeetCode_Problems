@@ -1,23 +1,19 @@
 class Solution {
     public boolean wordPattern(String pattern, String s) {
         
-        String str[] = s.split(" ");
+        String arr[] = s.split(" ");
+        Map<Character, String> map = new HashMap<>();
         
-        if(str.length!=pattern.length())
+        if(arr.length!=pattern.length())
             return false;
         
-        HashMap <Character, String> bijection = new HashMap<>();
-        
-        for(int i=0; i<str.length; i++){
-                char ch = pattern.charAt(i);
-            
-            if(bijection.containsKey(ch) && !bijection.get(ch).equals(str[i]))
+        for(int i=0; i<pattern.length(); i++){
+            char ch = pattern.charAt(i);
+            if(map.containsKey(ch) && !(map.get(ch).equals(arr[i])))
                 return false;
-            
-            else if(!bijection.containsKey(ch) && bijection.containsValue(str[i]))
+            if(!map.containsKey(ch) && map.containsValue(arr[i]))
                 return false;
-            
-            bijection.put(ch, str[i]);
+            map.put(ch,arr[i]);
         }
         
         return true;
