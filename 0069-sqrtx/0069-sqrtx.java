@@ -1,24 +1,24 @@
 class Solution {
     public int mySqrt(int x) {
+       
+        long left = 1;
+        long right = x;
         
-        int low = 1;
-        int high = x;
-        
-        while(low<=high){
-            int mid = low+(high-low)/2;
+        while(left<=right){
+            long mid = left+(right-left)/2;
             
-            long sq = (long)mid*(long)mid;
+            long sq = mid*mid;
             
             if(sq==x)
-                return mid;
+                return (int)mid;
             
-            else if(sq>x)
-                high = mid-1;
+            else if(sq<x)
+                left = mid+1;
             
             else
-                low = mid+1;
+                right = mid-1;
         }
         
-        return high;
+        return (int)right;
     }
 }
