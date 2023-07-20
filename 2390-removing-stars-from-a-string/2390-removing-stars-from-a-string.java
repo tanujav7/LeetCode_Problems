@@ -3,23 +3,22 @@ class Solution {
         
         Stack<Character> stack = new Stack<>();
         
-        for(int i=0; i<s.length(); i++){
-           
-            if(s.charAt(i) == '*'){
-                stack.pop();
-           }
-            
-            else{
-                stack.push(s.charAt(i));
-            }
+        char arr[] = s.toCharArray();
         
+        for(int i=0; i<arr.length; i++){
+            char ch = arr[i];
+            
+            if(ch!='*')
+                stack.push(ch);
+            else
+                stack.pop();
         }
         
-        StringBuilder sb = new StringBuilder();
+        StringBuilder res = new StringBuilder();
         
         while(!stack.isEmpty())
-            sb.append(stack.pop());
+            res.append(stack.pop());
         
-        return sb.reverse().toString();
+        return res.reverse().toString();
     }
 }
