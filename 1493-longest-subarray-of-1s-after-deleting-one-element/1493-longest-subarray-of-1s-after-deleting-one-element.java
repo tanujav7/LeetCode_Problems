@@ -2,10 +2,11 @@ class Solution {
     public int longestSubarray(int[] nums) {
         
         int zeroCount = 0;
-        int left = 0;
         int longestSubarray = 0;
+        int n = nums.length;
+        int left = 0;
         
-        for(int right=0; right<nums.length; right++){
+        for(int right=0; right<n; right++){
             zeroCount += (nums[right]==0) ? 1 : 0;
             
             while(zeroCount>1){
@@ -13,9 +14,12 @@ class Solution {
                 left++;
             }
             
-            longestSubarray = Math.max(longestSubarray,right-left);
+            longestSubarray = Math.max(longestSubarray, right-left);
         }
         
+        
         return longestSubarray;
+        
+        
     }
 }
