@@ -17,7 +17,7 @@ class Solution {
             int count = map.containsKey(ch) ? map.get(ch)-1 : -1;
                if(count==-1)
                    return false;
-                map.put(ch,map.get(ch)-1);
+                map.put(ch,count);
         }
         
         return true;
