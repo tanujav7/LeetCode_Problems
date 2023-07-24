@@ -16,6 +16,7 @@ class MinStack {
         
         stack.push(val);
         minStack.push(min);
+        
     }
     
     public void pop() {
