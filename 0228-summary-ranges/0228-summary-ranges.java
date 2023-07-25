@@ -5,7 +5,7 @@ class Solution {
         int n = nums.length;
         
         for(int i=0; i<n; i++){
-            
+           
             int start = nums[i];
             
             while(i+1<n && nums[i+1]==nums[i]+1)
@@ -14,7 +14,7 @@ class Solution {
             int end = nums[i];
             
             if(start==end)
-                list.add(""+start);
+                list.add(start+"");
             
             else
                 list.add(start+"->"+end);
@@ -22,5 +22,6 @@ class Solution {
         }
         
         return list;
+        
     }
 }
