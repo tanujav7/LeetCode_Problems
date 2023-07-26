@@ -1,9 +1,7 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
         
-        //Using two pointers
-        int i=0;//Pointing to 's' string
-        int j=0;//Pointing to 't' string
+        int i=0, j=0;
         
         while(i<s.length() && j<t.length()){
             if(s.charAt(i)==t.charAt(j))
@@ -11,7 +9,6 @@ class Solution {
             j++;
         }
         
-        return i==s.length();
-
+        return (i==s.length());
     }
 }
