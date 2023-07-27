@@ -1,6 +1,7 @@
 class Solution {
     public String largestNumber(int[] nums) {
         
+                
         String str[] = new String[nums.length];
         
         for(int i=0; i<str.length; i++){
@@ -9,8 +10,8 @@ class Solution {
         
         Arrays.sort(str,(a,b) -> {
 
-            long v1 = Long.parseLong(a+b);
-            long v2 = Long.parseLong(b+a);
+            double v1 = Double.parseDouble(a+b);
+            double v2 = Double.parseDouble(b+a);
             
             if(v1>v2)
                 return 1;
