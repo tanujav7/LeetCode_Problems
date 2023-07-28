@@ -7,24 +7,14 @@ class Solution {
         for(int i=0; i<n; i++)
             arr[i] = String.valueOf(nums[i]);
         
-        Arrays.sort(arr,(a,b)->{
-            Double v1 = Double.parseDouble(a+b);
-            Double v2 = Double.parseDouble(b+a);
-            
-            if(v1>v2)
-                return 1;
-            else if(v1<v2)
-                return -1;
-            else
-                return 0;
-        });
+        Arrays.sort(arr,(s1,s2)->(s2+s1).compareTo(s1+s2));
         
         StringBuilder str = new StringBuilder();
         
-        for(int i=arr.length-1; i>=0; --i)
-            str.append(arr[i]);
+        for(String i:arr)
+            str.append(i);
         
-        if(str.charAt(0)=='0')
+        if(arr[0].equals("0"))
             return "0";
         
         return str.toString();
