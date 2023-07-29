@@ -9,13 +9,15 @@ class Solution {
             char t_ch = t.charAt(i);
             
             if(map_S.containsKey(s_ch) && !(map_S.get(s_ch).equals(t_ch)))
-               return false;
+                return false;
+            
             if(map_T.containsKey(t_ch) && !(map_T.get(t_ch).equals(s_ch)))
-               return false;
+                return false;
+            
             map_S.put(s_ch,t_ch);
             map_T.put(t_ch,s_ch);
         }
-               
+        
         return true;
     }
 }
