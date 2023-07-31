@@ -6,16 +6,18 @@ class Solution {
                          "---",".--.","--.-",".-.","...","-","..-",
                          "...-",".--","-..-","-.--","--.."};
         
-        Set<String> set = new HashSet<>();
+      Set<String> set = new HashSet<>();
         
-        for(String word:words){
-            StringBuilder code = new StringBuilder();
-            for(char ch:word.toCharArray())
-                code.append(MORSE[ch-'a']);
-            set.add(code.toString());
-        }
+      for(int i=0; i<words.length; i++){
+          String code = words[i];
+          char arr[] = code.toCharArray();
+          StringBuilder str = new StringBuilder();
+          for(char ch:arr)
+              str.append(MORSE[ch-'a']);
+          set.add(str.toString());
+      }
         
-        return set.size();
+      return set.size();
         
     }
 }
