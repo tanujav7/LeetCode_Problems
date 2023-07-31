@@ -7,9 +7,8 @@ class Solution {
         
         for(int i=0; i<n; i++){
             char ch = s.charAt(i);
-            
             if(ch=='*')
-                arr[j--] = ch;
+                j--;
             else
                 arr[j++] = ch;
         }
