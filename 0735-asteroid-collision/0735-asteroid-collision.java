@@ -24,8 +24,8 @@ class Solution {
         int k = 0;
         
         for(int i=size-1; i>=0; --i){
-            res[i] = stack.peek();
-            stack.pop();
+            res[i] = stack.pop();
+            
         }
         
         return res;
