@@ -3,22 +3,18 @@ class Solution {
         int n1 = str1.length();
         int n2 = str2.length();
         
-        for(int i=Math.min(n1,n2); i>=1; --i){
-            if(checkGCD(str1,str2,i))
-                return str1.substring(0,i);
-        }
+        if(!((str1+str2).equals(str2+str1)))
+            return "";
         
-        return "";
+        int k = gcdOfLength(n1,n2);
+        return str1.substring(0,k);
+        
     }
     
-    boolean checkGCD(String s1, String s2, int k){
-        int len1 = s1.length();
-        int len2 = s2.length();
-        if(len1%k>0 || len2%k>0)
-            return false;
-        else{
-            String s = s1.substring(0,k);
-            return s1.replace(s,"").isEmpty() && s2.replace(s,"").isEmpty();
-        }
+    int gcdOfLength(int x, int y){
+        if(y==0)
+            return x;
+        else
+            return gcdOfLength(y,x%y);
     }
 }
