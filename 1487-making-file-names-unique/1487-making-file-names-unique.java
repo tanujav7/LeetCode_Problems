@@ -2,25 +2,27 @@ class Solution {
     public String[] getFolderNames(String[] names) {
         
         Map<String, Integer> map = new HashMap<>();
+        int n = names.length;
+        String arr[] = new String[n];
         
-        String str[] = new String[names.length];
-        
-        for(int i=0; i<names.length; i++){
-            if(map.containsKey(names[i])){
-                int index = map.get(names[i]);
-                while(map.containsKey(names[i]+"("+index+")"))
+        for(int i=0; i<n; i++){
+            String s = names[i];
+            if(map.containsKey(s)){
+                int index = map.get(s);
+                while(map.containsKey(s+"("+index+")"))
                     index++;
-                map.put(names[i]+"("+index+")",1);
-                map.put(names[i],map.get(names[i])+1);
-                str[i] = names[i]+"("+index+")";
+                map.put(s+"("+index+")",1);
+                map.put(s, map.get(s)+1);
+                arr[i] = s+"("+index+")";
+           
             }
+            
             else{
-                map.put(names[i],1);
-                str[i] = names[i];
+                map.put(s,1);
+                arr[i] = s;
             }
         }
         
-        return str;
-
+        return arr;
     }
 }
