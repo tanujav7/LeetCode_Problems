@@ -9,12 +9,12 @@ class Solution {
         
         int GCDLength = findGCD(n1,n2);
         return str1.substring(0,GCDLength);
-     
     }
     
     int findGCD(int x, int y){
         if(y==0)
             return x;
-        return findGCD(y,x%y);
+        else
+            return findGCD(y,x%y);
     }
 }
