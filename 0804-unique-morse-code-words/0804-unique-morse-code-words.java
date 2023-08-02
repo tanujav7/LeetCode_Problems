@@ -8,15 +8,14 @@ class Solution {
         
         
         Set<String> set = new HashSet<>();
-        
-        for(String word:words){
+        for(String word : words){
             String s = word;
-            StringBuilder str = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             for(char ch:s.toCharArray())
-                str.append(MORSE[ch-'a']);
-            set.add(str.toString());
+                sb.append(MORSE[ch-'a']);
+            set.add(sb.toString());
         }
-        
+            
         return set.size();
     }
 }
