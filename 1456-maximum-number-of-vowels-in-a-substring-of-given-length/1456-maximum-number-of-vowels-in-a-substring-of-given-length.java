@@ -9,22 +9,27 @@ class Solution {
          set.add('o');
          set.add('u');
         
-       
+        int n = s.length();
+        
         int count = 0;
         
-        
+            
         for(int i=0; i<k; i++){
-            if(set.contains(s.charAt(i)))
-                count++;
-        }
-        
-         int maxVowels = count;
-        for(int i=k; i<s.length(); i++){
-            count -= (set.contains(s.charAt(i-k))) ? 1 : 0;
             count += (set.contains(s.charAt(i))) ? 1 : 0;
-            maxVowels = Math.max(maxVowels, count);
         }
         
-        return maxVowels;
+        
+        int max = count;
+       
+        
+        for(int i=k; i<n; i++){
+            count += (set.contains(s.charAt(i))) ? 1 : 0;
+            count -= (set.contains(s.charAt(i-k))) ? 1 : 0;
+            if(count>max)
+                max = count;
+        }
+        
+        
+        return max;
     }
 }
