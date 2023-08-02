@@ -17,6 +17,6 @@ class Solution {
             }
         }
         
-        return new ArrayList(map.values());
+        return new ArrayList<>(map.values());
     }
 }
