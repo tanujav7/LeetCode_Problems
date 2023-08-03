@@ -5,11 +5,10 @@ class Solution {
         
         for(int asteroid : asteroids){
             boolean flag = true;
-            
-            while(!stack.isEmpty() && asteroid<0 && stack.peek()>0){
-                if(stack.peek()==Math.abs(asteroid))
+            while(!stack.isEmpty() && stack.peek()>0 && asteroid<0){
+                if(Math.abs(stack.peek()) == Math.abs(asteroid))
                     stack.pop();
-                else if(Math.abs(stack.peek())<Math.abs(asteroid)){
+                else if(Math.abs(stack.peek()) < Math.abs(asteroid)){
                     stack.pop();
                     continue;
                 }
@@ -17,16 +16,13 @@ class Solution {
                 flag = false;
                 break;
             }
-            
             if(flag)
-                stack.push(asteroid);
+            stack.push(asteroid);
         }
         
-        
-        int res[] = new int[stack.size()];
-        int n = stack.size();
-        
-        for(int i=n-1; i>=0; --i){
+        int size = stack.size();
+        int res[] = new int[size];
+        for(int i=size-1; i>=0; --i){
             res[i] = stack.pop();
         }
         
