@@ -11,13 +11,14 @@
 class Solution {
     public ListNode middleNode(ListNode head) {
         
-        ListNode slow = head, fast = head;
+        ListNode Arr[] = new ListNode[100];
+        int index = 0;
         
-        while(fast!=null && fast.next!=null){
-            slow = slow.next;
-            fast = fast.next.next;
+        while(head!=null){
+            Arr[index++] = head;
+            head = head.next;
         }
         
-        return slow;
+        return Arr[index/2];
     }
 }
