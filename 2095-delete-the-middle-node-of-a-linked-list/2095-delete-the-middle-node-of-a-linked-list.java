@@ -14,23 +14,25 @@ class Solution {
         if(head.next==null)
             return null;
         
-        ListNode temp=head;
-        
         int length = 0;
         
+        ListNode temp = head;
+        
         while(temp!=null){
-            temp = temp.next;
             length++;
+            temp = temp.next;
         }
         
-        int middleButOne = (length/2)-1;
+        int middleButIndex = (length/2)-1;
         
-        ListNode ptr = head;
+        ListNode currentNode = head;
         
-        for(int i=0; i<middleButOne; i++)
-            ptr = ptr.next;
+        for(int i=0; i<middleButIndex; i++){
+            currentNode = currentNode.next;
+        }
         
-        ptr.next = ptr.next.next;
+        if(currentNode.next!=null)
+        currentNode.next = currentNode.next.next;
         
         return head;
     }
