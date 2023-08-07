@@ -14,25 +14,14 @@ class Solution {
         if(head.next==null)
             return null;
         
-        int length = 0;
+        ListNode slow = head, fast = head.next.next;
         
-        ListNode temp = head;
-        
-        while(temp!=null){
-            length++;
-            temp = temp.next;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
         
-        int middleButIndex = (length/2)-1;
-        
-        ListNode currentNode = head;
-        
-        for(int i=0; i<middleButIndex; i++){
-            currentNode = currentNode.next;
-        }
-        
-        if(currentNode.next!=null)
-        currentNode.next = currentNode.next.next;
+        slow.next = slow.next.next;
         
         return head;
     }
