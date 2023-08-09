@@ -10,11 +10,11 @@ class Solution {
                 flag = false;
             }
             if(flag)
-            stack.push(ch);
+                stack.push(ch);
         }
         
-        
         StringBuilder sb = new StringBuilder();
+        
         while(!stack.isEmpty()){
             sb.append(stack.pop());
         }
