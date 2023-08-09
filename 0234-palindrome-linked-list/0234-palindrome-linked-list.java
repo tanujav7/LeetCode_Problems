@@ -13,17 +13,14 @@ class Solution {
         
         List<Integer> list = new ArrayList<>();
         
-        ListNode temp = head;
+        ListNode tempNode = head;
         
-        int length = 0;
-
-        while(temp!=null){
-            length++;
-            list.add(temp.val);
-            temp = temp.next;
+        while(tempNode!=null){
+            list.add(tempNode.val);
+            tempNode = tempNode.next;
         }
         
-        int i = 0, j = length-1;
+        int i=0, j=list.size()-1;
         
         while(i<j){
             if(list.get(i)!=list.get(j))
