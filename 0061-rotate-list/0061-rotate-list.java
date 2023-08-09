@@ -10,19 +10,19 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
+        
         if(head==null)
             return null;
         
         int length = 0;
+        ListNode tempNode = head;
         
-        ListNode temp = head;
-        
-        while(temp!=null){
+        while(tempNode!=null){
+            tempNode = tempNode.next;
             length++;
-            temp = temp.next;
         }
         
-            k = k%length;
+        k = k%length;
         
         ListNode slow = head, fast = head;
         
@@ -37,9 +37,10 @@ class Solution {
         fast.next = head;
         
         ListNode res = slow.next;
-   
+        
         slow.next = null;
         
         return res;
+        
     }
 }
