@@ -16,19 +16,20 @@ class Solution {
         for(int i=1; i<k; i++)
             p1 = p1.next;
         
-       ListNode tempNode = p1;
+        ListNode tempNode = p1;
         
-       while(tempNode.next!=null){
-           tempNode = tempNode.next;
-           p2 = p2.next;
-       }
+        while(tempNode.next!=null){
+            p2 = p2.next;
+            tempNode = tempNode.next;
+        }
         
-        //Swap the values
+        //Swap the Values
         
-        int temp = p1.val;
+        int tempVal = p1.val;
         p1.val = p2.val;
-        p2.val = temp;
+        p2.val = tempVal;
         
         return head;
+        
     }
 }
