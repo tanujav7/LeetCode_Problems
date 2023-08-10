@@ -38,9 +38,8 @@ class Solution {
         return slow;
     }
     
-    
     ListNode reverseList(ListNode head){
-        ListNode currentNode = head, nextNode = null, prevNode = null;
+        ListNode currentNode = head, prevNode = null, nextNode = null;
         
         while(currentNode!=null){
             nextNode = currentNode.next;
