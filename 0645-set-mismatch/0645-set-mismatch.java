@@ -12,8 +12,11 @@ class Solution {
             }
             if(count==2)
                 duplicate = i;
-            if(count==0)
+           else if(count==0)
                 missing = i;
+        
+            else if(duplicate>0 && missing>0)
+                break;
         }
         
         
