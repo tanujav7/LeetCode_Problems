@@ -11,12 +11,10 @@
 class Solution {
     public void reorderList(ListNode head) {
         
-        ListNode middleNode = middleOfTheList(head);
-        ListNode middleNext = middleNode.next;
-        middleNode.next = null;
-        
         ListNode p1 = head;
-        ListNode p2 = reverseList(middleNext);
+        ListNode middleNode = middleOfTheList(head);
+        ListNode p2 = reverseList(middleNode.next);
+        middleNode.next = null;
         
         ListNode dummyHead = new ListNode(0);
         ListNode currentNode = dummyHead;
@@ -27,16 +25,17 @@ class Solution {
                 p1 = p1.next;
                 currentNode = currentNode.next;
             }
-            
-             if(p2!=null){
+            if(p2!=null){
                 currentNode.next = p2;
                 p2 = p2.next;
                 currentNode = currentNode.next;
             }
         }
+        currentNode.next = null;
         
         head = dummyHead.next;
     }
+    
     
     ListNode middleOfTheList(ListNode head){
         ListNode slow = head, fast = head;
@@ -50,7 +49,7 @@ class Solution {
     }
     
     ListNode reverseList(ListNode head){
-        ListNode currentNode = head, prevNode = null, nextNode = null;
+        ListNode currentNode = head, nextNode = null, prevNode = null;
         
         while(currentNode!=null){
             nextNode = currentNode.next;
