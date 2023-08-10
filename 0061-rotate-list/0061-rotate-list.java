@@ -18,8 +18,8 @@ class Solution {
         ListNode tempNode = head;
         
         while(tempNode!=null){
-            tempNode = tempNode.next;
             length++;
+            tempNode = tempNode.next;
         }
         
         k = k%length;
@@ -41,6 +41,5 @@ class Solution {
         slow.next = null;
         
         return res;
-        
     }
 }
