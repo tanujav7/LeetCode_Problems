@@ -21,6 +21,5 @@ class Solution {
             sb.append(stack.pop());
         
         return sb.reverse().toString();
-        
     }
 }
