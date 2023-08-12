@@ -16,7 +16,7 @@ class Solution {
         if(head==null || head.next==null)
         return head;
         
-        head = prevNode;
+         head = prevNode;
         
         while(currentNode!=null && currentNode.next!=null){
             if(currentNode.next!=null && currentNode.val == currentNode.next.val){
