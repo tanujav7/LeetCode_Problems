@@ -2,8 +2,8 @@ class Solution {
     public int[] findErrorNums(int[] nums) {
         // Approach 1 - Brute Force
         
-      /*  int duplicate = -1; 
-        int missing = -1;
+        int duplicate = 0; 
+        int missing = 0;
         int n = nums.length;
         
         for(int i=1; i<=n; i++){
@@ -22,7 +22,7 @@ class Solution {
             
         }
         
-        return new int[]{duplicate, missing};*/
+        return new int[]{duplicate, missing};
         
         
         //Approach 2 - Better Brute Force
@@ -90,7 +90,7 @@ class Solution {
         */
         // Approach - 5 -> Using Constant Space
         
-         int duplicate = 0, missing = 0;
+        /* int duplicate = 0, missing = 0;
         
           int len = nums.length;
         
@@ -108,7 +108,7 @@ class Solution {
                 missing = i+1;
         }
         
-        return new int[]{duplicate, missing};
+        return new int[]{duplicate, missing};*/
         
       //  Approach 6: Using Map
         
