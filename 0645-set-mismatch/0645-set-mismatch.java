@@ -55,7 +55,7 @@ class Solution {
         
         //Approach 3 - Sorting
         
-        Arrays.sort(nums);
+       /* Arrays.sort(nums);
         
         int dup = 0, missing = 1;
         
@@ -70,15 +70,15 @@ class Solution {
         
         return new int[] {dup, nums[nums.length - 1] != nums.length ? nums.length : missing};
         
-    
+    */
         
         
         //Approach 4 - Using Extra Array
         
-      /*  int n = nums.length;
+        int n = nums.length;
         int arr[] = new int[n+1];
-        int duplicate = -1; 
-        int missing = 1;
+        int duplicate = 0; 
+        int missing = 0;
         
         for(int i=0; i<n; i++)
             arr[nums[i]]++;
@@ -92,7 +92,7 @@ class Solution {
         
         return new int[]{duplicate, missing};
         
-        */
+        
         // Approach - 5 -> Using Constant Space
         
         /* int duplicate = 0, missing = 0;
