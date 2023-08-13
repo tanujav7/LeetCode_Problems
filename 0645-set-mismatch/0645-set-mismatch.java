@@ -119,17 +119,17 @@ class Solution {
       //  Approach 6: Using Map
         
         Map < Integer, Integer > map = new HashMap();
-        int dup = 0, missing = 0;
+        int duplicate = 0, missing = 0;
         for (int n: nums) {
             map.put(n, map.getOrDefault(n, 0) + 1);
         }
         for (int i = 1; i <= nums.length; i++) {
             if (map.containsKey(i)) {
                 if (map.get(i) == 2)
-                    dup = i;
+                    duplicate = i;
             } else
                 missing = i;
         }
-        return new int[]{dup, missing};
+        return new int[]{duplicate, missing};
     }
 }
