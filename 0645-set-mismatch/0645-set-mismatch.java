@@ -90,7 +90,7 @@ class Solution {
         */
         // Approach - 5 -> Using Constant Space
         
-        /*  int duplicate = -1, missing = 1;
+         int duplicate = 0, missing = 0;
         
           int len = nums.length;
         
@@ -108,11 +108,11 @@ class Solution {
                 missing = i+1;
         }
         
-        return new int[]{duplicate, missing};*/
+        return new int[]{duplicate, missing};
         
       //  Approach 6: Using Map
         
-         Map < Integer, Integer > map = new HashMap();
+        /* Map < Integer, Integer > map = new HashMap();
         int dup = 0, missing = 0;
         for (int n: nums) {
             map.put(n, map.getOrDefault(n, 0) + 1);
@@ -124,6 +124,6 @@ class Solution {
             } else
                 missing = i;
         }
-        return new int[]{dup, missing};
+        return new int[]{dup, missing};*/
     }
 }
