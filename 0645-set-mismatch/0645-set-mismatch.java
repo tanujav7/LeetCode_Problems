@@ -2,7 +2,7 @@ class Solution {
     public int[] findErrorNums(int[] nums) {
         // Approach 1 - Brute Force
         
-        int duplicate = 0; 
+      /*  int duplicate = 0; 
         int missing = 0;
         int n = nums.length;
         
@@ -23,11 +23,11 @@ class Solution {
         }
         
         return new int[]{duplicate, missing};
-        
+        */
        
         //Approach 2 - Better Brute Force
         
-       /* int duplicate = 0; 
+      /*  int duplicate = 0; 
         int missing = 0;
         int n = nums.length;
         
@@ -55,22 +55,23 @@ class Solution {
         
         //Approach 3 - Sorting
         
-       /* Arrays.sort(nums);
+         Arrays.sort(nums);
         
-        int dup = 0, missing = 1;
+        int duplicate = 0, missing = 1;
+        int n = nums.length;
         
-        for (int i = 1; i < nums.length; i++) {
+        for (int i = 1; i < n; i++) {
             
             if (nums[i] == nums[i - 1])
-                dup = nums[i];
+                duplicate = nums[i];
             else if (nums[i] > nums[i - 1] + 1)
                 missing = nums[i - 1] + 1;
             
         }
         
-        return new int[] {dup, nums[nums.length - 1] != nums.length ? nums.length : missing};
+        return new int[] {duplicate, nums[n - 1] != n ? n : missing};
         
-    */
+
         
         
         //Approach 4 - Using Extra Array
