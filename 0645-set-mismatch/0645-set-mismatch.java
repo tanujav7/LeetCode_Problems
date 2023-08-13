@@ -2,7 +2,7 @@ class Solution {
     public int[] findErrorNums(int[] nums) {
         // Approach 1 - Brute Force
         
-       /* int duplicate = 0; 
+        int duplicate = 0; 
         int missing = 0;
         int n = nums.length;
         
@@ -24,7 +24,7 @@ class Solution {
         
         return new int[]{duplicate, missing};
         
-        */
+       
         //Approach 2 - Better Brute Force
         
        /* int duplicate = 0; 
@@ -75,7 +75,7 @@ class Solution {
         
         //Approach 4 - Using Extra Array
         
-        int n = nums.length;
+     /*   int n = nums.length;
         int arr[] = new int[n+1];
         int duplicate = 0; 
         int missing = 0;
@@ -91,7 +91,7 @@ class Solution {
         }
         
         return new int[]{duplicate, missing};
-        
+        */
         
         // Approach - 5 -> Using Constant Space
         
