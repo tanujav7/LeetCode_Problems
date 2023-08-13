@@ -55,7 +55,7 @@ class Solution {
         
         //Approach 3 - Sorting
         
-        Arrays.sort(nums);
+     /*   Arrays.sort(nums);
         int dup = -1, missing = 1;
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1])
@@ -64,6 +64,27 @@ class Solution {
                 missing = nums[i - 1] + 1;
         }
         return new int[] {dup, nums[nums.length - 1] != nums.length ? nums.length : missing};
-   
+        
+        */
+        
+        
+        //Approach 4 - Using Extra Array
+        
+        int n = nums.length;
+        int arr[] = new int[n+1];
+        int duplicate = -1; 
+        int missing = 1;
+        
+        for(int i=0; i<n; i++)
+            arr[nums[i]]++;
+        
+        for(int i=1; i<arr.length; i++){
+            if(arr[i]==0)
+                missing = i;
+            else if(arr[i]==2)
+                duplicate = i;
+        }
+        
+        return new int[]{duplicate, missing};
     }
 }
