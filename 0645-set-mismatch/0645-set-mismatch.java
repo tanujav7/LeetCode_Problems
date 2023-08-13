@@ -55,7 +55,7 @@ class Solution {
         
         //Approach 3 - Sorting
         
-         Arrays.sort(nums);
+    /*     Arrays.sort(nums);
         
         int duplicate = 0, missing = 1;
         int n = nums.length;
@@ -71,12 +71,12 @@ class Solution {
         
         return new int[] {duplicate, nums[n - 1] != n ? n : missing};
         
-
+*/
         
         
         //Approach 4 - Using Extra Array
-        
-     /*   int n = nums.length;
+       /* 
+        int n = nums.length;
         int arr[] = new int[n+1];
         int duplicate = 0; 
         int missing = 0;
@@ -92,8 +92,8 @@ class Solution {
         }
         
         return new int[]{duplicate, missing};
+    
         */
-        
         // Approach - 5 -> Using Constant Space
         
         /* int duplicate = 0, missing = 0;
@@ -118,7 +118,7 @@ class Solution {
         
       //  Approach 6: Using Map
         
-        /* Map < Integer, Integer > map = new HashMap();
+        Map < Integer, Integer > map = new HashMap();
         int dup = 0, missing = 0;
         for (int n: nums) {
             map.put(n, map.getOrDefault(n, 0) + 1);
@@ -130,6 +130,6 @@ class Solution {
             } else
                 missing = i;
         }
-        return new int[]{dup, missing};*/
+        return new int[]{dup, missing};
     }
 }
