@@ -24,15 +24,18 @@ class Solution {
                 small.next = new ListNode(tempNode.val);
                 small = small.next;
             }
+            
             else{
                 high.next = new ListNode(tempNode.val);
                 high = high.next;
-            } 
+            }
+            
             tempNode = tempNode.next;
         }
         
         small.next = higherHead.next;
         
         return smallerHead.next;
+        
     }
 }
