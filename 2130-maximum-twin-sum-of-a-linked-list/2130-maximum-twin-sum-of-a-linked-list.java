@@ -14,10 +14,11 @@ class Solution {
         ListNode p1 = head;
         ListNode middleNode = middleOfTheList(head);
         ListNode p2 = reverseList(middleNode);
-        int max_sum = 0;
+        
+        int sum = 0, max_sum = 0;
         
         while(p2.next!=null){
-            int sum = p1.val + p2.val;
+            sum = p1.val + p2.val;
             if(sum>max_sum)
                 max_sum = sum;
             p1 = p1.next;
@@ -25,7 +26,6 @@ class Solution {
         }
         
         return max_sum;
-        
     }
     
     ListNode middleOfTheList(ListNode head){
@@ -39,16 +39,18 @@ class Solution {
         return slow;
     }
     
+    
     ListNode reverseList(ListNode head){
-        ListNode currentNode = head, nextNode = null, prevNode = null;
+
+    ListNode currentNode = head, prevNode = null, nextNode = null;
         
-        while(currentNode!=null){
-            nextNode = currentNode.next;
-            currentNode.next = prevNode;
-            prevNode = currentNode;
-            currentNode = nextNode;
-        }
-        
-        return prevNode;
+    while(currentNode!=null){
+        nextNode = currentNode.next;
+        currentNode.next = prevNode;
+        prevNode = currentNode;
+        currentNode = nextNode;
+    }
+    
+    return prevNode;
     }
 }
