@@ -17,20 +17,21 @@ class Solution {
         ListNode small = smallerHead;
         ListNode high = higherHead;
         
-        ListNode currentNode = head;
+        ListNode tempNode = head;
         
-        while(currentNode!=null){
+        while(tempNode!=null){
             
-            if(currentNode.val<x){
-                small.next = new ListNode(currentNode.val);
+            if(tempNode.val<x){
+                small.next = new ListNode(tempNode.val);
                 small = small.next;
             }
+            
             else{
-                high.next = new ListNode(currentNode.val);
+                high.next = new ListNode(tempNode.val);
                 high = high.next;
             }
             
-            currentNode = currentNode.next;
+            tempNode = tempNode.next;
         }
         
         small.next = higherHead.next;
