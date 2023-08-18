@@ -1,23 +1,20 @@
 class Solution {
     public int longestSubarray(int[] nums) {
         
-        int longestSubarray = 0;
-        int zeroCount = 0;
-        
+        int max_subarray = 0;
+        int zero_count = 0;
         int left = 0;
         
         for(int right=0; right<nums.length; right++){
-            zeroCount += (nums[right]==0) ? 1 : 0;
-            
-            while(zeroCount>1){
-                  zeroCount -= (nums[left]==0) ? 1 : 0;
+            zero_count += (nums[right]==0) ? 1 : 0;
+            if(zero_count>1){
+                zero_count -= (nums[left]==0) ? 1 : 0;
                 left++;
             }
             
-            
-           longestSubarray = Math.max(longestSubarray,right-left);
+            max_subarray = Math.max(max_subarray, right-left);
         }
         
-        return longestSubarray;
+        return max_subarray;
     }
 }
