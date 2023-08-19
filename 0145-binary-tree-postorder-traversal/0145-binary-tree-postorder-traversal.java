@@ -18,18 +18,16 @@ class Solution {
     List<Integer> list = new ArrayList<>();
     
     public List<Integer> postorderTraversal(TreeNode root) {
-        postOrderTreeTraversal(root);
+        postOrderTraversal(root);
         return list;
     }
     
-    void postOrderTreeTraversal(TreeNode node){
+    void postOrderTraversal(TreeNode node){
         if(node==null)
-          return;
-
-        postOrderTreeTraversal(node.left);
-        postOrderTreeTraversal(node.right);
-        list.add(node.val);
+            return;
         
+        postOrderTraversal(node.left);
+        postOrderTraversal(node.right);
+        list.add(node.val);
     }
-    
 }
