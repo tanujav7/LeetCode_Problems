@@ -3,20 +3,16 @@ class Solution {
         
         int min_subarray = Integer.MAX_VALUE;
         int sum = 0;
-        int n = nums.length;
         int left = 0;
         
-        for(int right=0; right<n; right++){
-            sum += nums[right];
-            
+        for(int right=0; right<nums.length; right++){
+            sum = sum + nums[right];
             while(sum>=target){
-                sum -= nums[left];
                 min_subarray = Math.min(min_subarray, right-left+1);
-                left++;
+                sum = sum - nums[left++];
             }
-            
         }
         
-        return (min_subarray == Integer.MAX_VALUE) ? 0 : min_subarray; 
+        return (min_subarray == Integer.MAX_VALUE) ? 0 : min_subarray;
     }
 }
