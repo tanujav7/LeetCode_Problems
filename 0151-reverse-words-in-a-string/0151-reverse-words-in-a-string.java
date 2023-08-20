@@ -5,13 +5,16 @@ class Solution {
         
         String arr[] = s.split(" ");
         
-        StringBuilder str = new StringBuilder();
+      //  if(s.isEmpty())
+       //     return null;
+        
+        StringBuilder sb = new StringBuilder();
         
         for(int i=arr.length-1; i>=0; --i){
             if(!arr[i].equals(""))
-            str.append(arr[i]).append(" ");
+                sb.append(arr[i]).append(" ");
         }
         
-        return str.substring(0,str.length()-1);
+        return sb.substring(0, sb.length()-1);
     }
 }
