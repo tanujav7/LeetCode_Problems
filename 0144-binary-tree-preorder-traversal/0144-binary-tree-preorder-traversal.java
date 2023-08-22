@@ -24,12 +24,14 @@ class Solution {
         
         while(!stack.isEmpty()){
             TreeNode currentNode = stack.pop();
+            
             if(currentNode!=null){
                 list.add(currentNode.val);
                 stack.add(currentNode.right);
                 stack.add(currentNode.left);
             }
         }
+        
         
         return list;
     }
