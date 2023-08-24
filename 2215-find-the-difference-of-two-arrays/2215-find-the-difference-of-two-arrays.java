@@ -2,9 +2,11 @@ class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         
         return Arrays.asList(getDifference(nums1, nums2), getDifference(nums2, nums1));
+        
     }
     
     List<Integer> getDifference(int nums1[], int nums2[]){
+        
         Set<Integer> set1 = new HashSet<>();
         Set<Integer> set2 = new HashSet<>();
         
@@ -17,5 +19,6 @@ class Solution {
         }
         
         return new ArrayList<>(set1);
+        
     }
 }
