@@ -3,24 +3,25 @@ class Solution {
         
         s = s.toLowerCase();
         
-        char arr[] = s.toCharArray();
-        
-        int n = arr.length;
         int i = 0;
-        int j = arr.length-1;
+        int j = s.length()-1;
         
         while(i<j){
-            while(i<j && !Character.isLetter(arr[i]) && !Character.isDigit(arr[i]))
+            while(i<j && ((!(s.charAt(i)>='a' && s.charAt(i)<='z')) && (!(s.charAt(i)>='0' && s.charAt(i)<='9'))))
                 i++;
-             while(i<j && !Character.isLetter(arr[j]) && !Character.isDigit(arr[j]))
+            
+            while(i<j && ((!(s.charAt(j)>='a' && s.charAt(j)<='z')) && (!(s.charAt(j)>='0' && s.charAt(j)<='9'))))
                 j--;
-            if(arr[i]!=(arr[j]))
+            
+            if(s.charAt(i)!=(s.charAt(j)))
                 return false;
+            
             else{
                 i++;
                 j--;
-            }
+            }    
         }
+        
         
         return true;
     }
