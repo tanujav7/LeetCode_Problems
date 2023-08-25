@@ -5,9 +5,6 @@ class Solution {
         
         String arr[] = s.split(" ");
         
-      //  if(s.isEmpty())
-       //     return null;
-        
         StringBuilder sb = new StringBuilder();
         
         for(int i=arr.length-1; i>=0; --i){
@@ -16,5 +13,6 @@ class Solution {
         }
         
         return sb.substring(0, sb.length()-1);
+        
     }
 }
