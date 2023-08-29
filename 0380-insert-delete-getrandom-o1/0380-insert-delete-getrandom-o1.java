@@ -26,8 +26,7 @@ class RandomizedSet {
         
         if(!map.containsKey(val))
             return false;
-        
-     // if(map.get(val) != list.size()-1){  
+
         int index = map.get(val);
         
         //To get the last element
@@ -38,7 +37,6 @@ class RandomizedSet {
         
         list.set(index, lastElement);
         
-   //   }
         
         map.remove(val);
         
