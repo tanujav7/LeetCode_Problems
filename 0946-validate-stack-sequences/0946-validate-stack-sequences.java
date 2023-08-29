@@ -4,8 +4,7 @@ class Solution {
         
         Stack<Integer> stack = new Stack<>();
         
-        int j = 0;
-        int i = 0;
+        int i = 0, j = 0;
         
         int n = pushed.length;
         
