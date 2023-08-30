@@ -3,23 +3,20 @@ class Solution {
         
         Set<Character> set = new HashSet<>();
         
+        int maxLength = 0;
         int left = 0;
         
-        int n = s.length();
-        
-        int longestSubstring = 0;
-        
-        for(int right=0; right<n; right++){
-            
+        for(int right=0; right<s.length(); right++){
             while(set.contains(s.charAt(right))){
-                set.remove(s.charAt(left++));
+                set.remove(s.charAt(left));
+                left++;
             }
-
-                set.add(s.charAt(right));
             
-            longestSubstring = Math.max(longestSubstring, right-left+1);
+            set.add(s.charAt(right));
+            
+            maxLength = Math.max(maxLength, right-left+1);
         }
         
-        return longestSubstring;
+        return maxLength;
     }
 }
