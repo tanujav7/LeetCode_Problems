@@ -1,12 +1,13 @@
 class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
         
-        HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(0,-1);
-        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        
         int sum = 0;
         
-        for(int i=0; i<n; i++){
+        map.put(0, -1);
+        
+        for(int i=0; i<nums.length; i++){
             sum = sum + nums[i];
             
             if(!map.containsKey(sum%k))
