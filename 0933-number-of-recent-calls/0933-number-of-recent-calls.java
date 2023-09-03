@@ -1,18 +1,17 @@
 class RecentCounter {
     
-    LinkedList<Integer> slidingWindow;
-    
+    Queue<Integer> queue;
     public RecentCounter() {
-        slidingWindow = new LinkedList<>();
+        queue = new LinkedList<>();
     }
     
     public int ping(int t) {
-        slidingWindow.addLast(t);
+        queue.offer(t);
         
-        while(slidingWindow.getFirst()<t-3000)
-            slidingWindow.removeFirst();
+        while(queue.peek()<t-3000)
+            queue.poll();
         
-        return slidingWindow.size();
+        return queue.size();
     }
 }
 
