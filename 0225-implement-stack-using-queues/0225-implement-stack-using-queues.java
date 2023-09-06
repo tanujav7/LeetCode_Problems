@@ -5,12 +5,12 @@ class MyStack {
     int top;
     
     public MyStack() {
-       q1 = new LinkedList<>();
-       q2 = new LinkedList<>();
+        q1 = new LinkedList<>();
+        q2 = new LinkedList<>();
     }
     
     public void push(int x) {
-        q1.add(x);
+        q1.offer(x);
         top = x;
     }
     
@@ -18,7 +18,7 @@ class MyStack {
         
         while(q1.size()>1){
             top = q1.remove();
-            q2.add(top);
+            q2.offer(top);
         }
         
         int tempVal = q1.remove();
@@ -26,7 +26,7 @@ class MyStack {
         Queue<Integer> temp = q1;
         q1 = q2;
         q2 = temp;
-        
+          
         return tempVal;
     }
     
