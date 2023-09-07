@@ -10,24 +10,24 @@ class MyStack {
     }
     
     public void push(int x) {
-        q1.add(x);
+        q2.offer(x);
         top = x;
-    }
-    
-    public int pop() {
         
-        while(q1.size()>1){
-            top = q1.remove();
-            q2.offer(top);
+        while(!q1.isEmpty()){
+            q2.offer(q1.remove());
         }
-        int removedVal = q1.remove();
         
         Queue<Integer> tempQueue = q1;
         q1 = q2;
         q2 = tempQueue;
+    }
+    
+    public int pop() {
+        int removedVal = q1.remove();
+        if(!q1.isEmpty())
+            top = q1.peek();
         
         return removedVal;
-        
     }
     
     public int top() {
