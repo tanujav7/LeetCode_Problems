@@ -19,7 +19,6 @@ class Solution {
         inOrderTraversal(root);
         return list;
     }
-    
     void inOrderTraversal(TreeNode node){
         if(node==null)
             return;
