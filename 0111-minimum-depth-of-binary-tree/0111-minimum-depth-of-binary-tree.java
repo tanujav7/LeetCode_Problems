@@ -15,21 +15,21 @@
  */
 class Solution {
     public int minDepth(TreeNode root) {
-        return dfs(root);
+        
+        return minimumDepth(root);
+        
     }
-        private int dfs(TreeNode root) {
-        if (root == null) {
+    
+    int minimumDepth(TreeNode node){
+        if(node==null)
             return 0;
-        }
         
-        // If only one of child is non-null, then go into that recursion.
-        if (root.left == null) {
-            return 1 + dfs(root.right);
-        } else if (root.right == null) {
-            return 1 + dfs(root.left);
-        }
+        if(node.right==null)
+            return 1 + minimumDepth(node.left);
         
-        // Both children are non-null, hence call for both childs.
-        return 1 + Math.min(dfs(root.left), dfs(root.right));
+        if(node.left==null)
+            return 1 + minimumDepth(node.right);
+        
+        return 1 + Math.min(minimumDepth(node.left), minimumDepth(node.right));
     }
 }
