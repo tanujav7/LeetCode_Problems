@@ -1,25 +1,19 @@
 class Solution {
     public int[] sortArrayByParity(int[] nums) {
         
-         //Two pointer initialization
-         int i=0;
-         int j=nums.length-1;
+        int n = nums.length;
+        int res[] = new int[n];
         
-        while(i<j){
-            
-            if(nums[i]%2>nums[j]%2){
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-            }
-            
+        int j = 0; 
+        int k = n-1;
+        
+        for(int i=0; i<n; i++){
             if(nums[i]%2==0)
-                i++;
-            
-            if(nums[j]%2==1)
-                j--;
+                res[j++] = nums[i];
+            else
+                res[k--] = nums[i];
         }
         
-        return nums;
+        return res;
     }
 }
