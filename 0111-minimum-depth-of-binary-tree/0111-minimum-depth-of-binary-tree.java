@@ -24,12 +24,13 @@ class Solution {
         if(node==null)
             return 0;
         
-        if(node.right==null)
-            return 1 + minimumDepth(node.left);
-        
         if(node.left==null)
-            return 1 + minimumDepth(node.right);
+            return 1+minimumDepth(node.right);
         
-        return 1 + Math.min(minimumDepth(node.left), minimumDepth(node.right));
+        if(node.right==null)
+            return 1+minimumDepth(node.left);
+        
+        
+        return 1+Math.min(minimumDepth(node.left), minimumDepth(node.right));
     }
 }
