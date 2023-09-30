@@ -22,11 +22,11 @@ class Solution {
         getLeafNodes(root1, leafNodes1);
         getLeafNodes(root2, leafNodes2);
         
-        return leafNodes1.equals(leafNodes2);
+        return (leafNodes1.equals(leafNodes2));
+        
     }
     
-    
-        void getLeafNodes(TreeNode node, List<Integer> leafNodes){
+    void getLeafNodes(TreeNode node, List<Integer> leafNodes){
         if(node!=null){
             if(node.left==null && node.right==null)
                 leafNodes.add(node.val);
