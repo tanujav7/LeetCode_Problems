@@ -1,8 +1,9 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
         
-        int i = 0;
-        int j = 0;
+        //Two pointer initialization
+        
+        int i = 0, j = 0;
         
         int s_len = s.length();
         int t_len = t.length();
@@ -14,6 +15,5 @@ class Solution {
         }
         
         return i==s_len;
-        
     }
 }
