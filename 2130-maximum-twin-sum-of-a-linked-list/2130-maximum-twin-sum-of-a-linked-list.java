@@ -12,14 +12,13 @@ class Solution {
     public int pairSum(ListNode head) {
         
         ListNode p1 = head;
-        ListNode middleNode = middleNode(head);
+        ListNode middleNode = middleOfTheList(head);
         ListNode p2 = reverseList(middleNode);
-        int sum = 0;
-        int max_sum = 0;
+        int max_sum = Integer.MIN_VALUE;
         
         while(p2.next!=null){
-            sum = p1.val + p2.val;
-            max_sum = Math.max(max_sum, sum);
+           int sum = p1.val + p2.val;
+           max_sum = Math.max(sum, max_sum);
             p1 = p1.next;
             p2 = p2.next;
         }
@@ -27,7 +26,7 @@ class Solution {
         return max_sum;
     }
     
-    ListNode middleNode(ListNode head){
+    ListNode middleOfTheList(ListNode head){
         ListNode slow = head, fast = head;
         
         while(fast.next!=null && fast.next.next!=null){
@@ -39,7 +38,7 @@ class Solution {
     }
     
     ListNode reverseList(ListNode head){
-        ListNode currentNode = head, prevNode = null, nextNode = null;
+        ListNode currentNode = head, nextNode = null, prevNode = null;
         
         while(currentNode!=null){
             nextNode = currentNode.next;
