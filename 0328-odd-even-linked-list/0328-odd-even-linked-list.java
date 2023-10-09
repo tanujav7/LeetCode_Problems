@@ -14,7 +14,8 @@ class Solution {
         if(head==null)
             return null;
         
-        ListNode odd = head, even = head.next, evenHead = head.next;
+        ListNode odd = head, even = head.next;
+        ListNode evenHead = even;
         
         while(even!=null && even.next!=null){
             odd.next = even.next;
