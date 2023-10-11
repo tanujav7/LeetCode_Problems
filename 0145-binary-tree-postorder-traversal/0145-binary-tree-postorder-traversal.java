@@ -14,10 +14,10 @@
  * }
  */
 class Solution {
-    List<Integer> list = new ArrayList<>();
+    List<Integer> resList = new ArrayList<>();
     public List<Integer> postorderTraversal(TreeNode root) {
         postOrderTraversal(root);
-        return list;
+        return resList;
     }
     
     void postOrderTraversal(TreeNode node){
@@ -26,6 +26,6 @@ class Solution {
         
         postOrderTraversal(node.left);
         postOrderTraversal(node.right);
-        list.add(node.val);
+        resList.add(node.val);
     }
 }
