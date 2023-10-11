@@ -42,5 +42,6 @@ class Solution {
             resList.add(s2.pop().val);
         
         return resList;
+        
     }
 }
