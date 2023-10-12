@@ -18,17 +18,11 @@ class Solution {
         int res = maximumDepth(root);
         return res;
     }
+    
     int maximumDepth(TreeNode node){
         if(node==null)
             return 0;
         
-        int leftHeight = maximumDepth(node.left);
-        int rightHeight = maximumDepth(node.right);
-       
-        if(leftHeight>rightHeight)
-           return leftHeight+1;
-        
-        else
-           return rightHeight+1;
+        return 1 + Math.max(maximumDepth(node.left), maximumDepth(node.right));
     }
 }
