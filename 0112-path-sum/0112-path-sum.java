@@ -17,6 +17,7 @@ class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if(root==null)
             return false;
+
         
         return findSumPath(root, 0, targetSum);
     }
@@ -28,7 +29,8 @@ class Solution {
         currentSum += node.val;
         
         if(node.left==null && node.right==null && currentSum==targetSum)
-            return true;
+         return true;
+      
         
         return (findSumPath(node.left, currentSum, targetSum) || findSumPath(node.right, currentSum, targetSum));
     }
