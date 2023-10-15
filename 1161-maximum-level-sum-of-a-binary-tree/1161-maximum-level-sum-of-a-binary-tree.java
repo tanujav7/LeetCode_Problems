@@ -20,7 +20,7 @@ class Solution {
         Queue<TreeNode> queue = new LinkedList<>();
         
         int max = Integer.MIN_VALUE;
-        int level = 1;
+        int level = 0;
         //if(root==null)
          //   return res;
         int k = 0;
