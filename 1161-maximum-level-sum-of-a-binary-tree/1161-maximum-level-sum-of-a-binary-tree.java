@@ -16,38 +16,38 @@
 class Solution {
     public int maxLevelSum(TreeNode root) {
         
-       // List<Integer> res = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        List<Integer> sumofNodesAtLevel = new ArrayList<>();
         
-        int max = Integer.MIN_VALUE;
+        dfs(root, 0, sumofNodesAtLevel);
+        
+        int maxSum = Integer.MIN_VALUE;
+        
         int level = 0;
-        //if(root==null)
-         //   return res;
-        int k = 0;
-        queue.add(root);
         
-        while(!queue.isEmpty()){
-            k++;
-            int size = queue.size();
-            int sum = 0;
-            for(int i=0; i<size; i++){
-                TreeNode temp = queue.remove();
-                sum += temp.val;
-                
-                if(temp.left!=null)
-                    queue.add(temp.left);
-                
-                if(temp.right!=null)
-                    queue.add(temp.right);
-                
-            }
-            
-            if(sum>max){
-                max = sum;
-                level = k;
+        for(int i=0; i<sumofNodesAtLevel.size(); i++){
+            if(maxSum<sumofNodesAtLevel.get(i)){
+                maxSum = sumofNodesAtLevel.get(i);
+                level = i+1;
             }
         }
         
         return level;
+    }
+    
+    
+    void dfs(TreeNode node, int level, List<Integer> sumofNodesAtLevel){
+        if(node==null)
+            return;
+        
+        if(sumofNodesAtLevel.size()==level){
+            sumofNodesAtLevel.add(node.val);
+        }
+        
+        else{
+            sumofNodesAtLevel.set(level, sumofNodesAtLevel.get(level)+node.val);
+        }
+        
+        dfs(node.left, level+1, sumofNodesAtLevel);
+        dfs(node.right, level+1, sumofNodesAtLevel);
     }
 }
