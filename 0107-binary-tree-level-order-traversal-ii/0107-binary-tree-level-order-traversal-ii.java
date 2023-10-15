@@ -18,6 +18,7 @@ class Solution {
         
         List<List<Integer>> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
+        Stack<List<Integer>> stack = new Stack<>();
         
         if(root==null)
             return res;
@@ -37,10 +38,11 @@ class Solution {
                 if(tempNode.right!=null)
                     queue.add(tempNode.right);
             }
-            res.add(list);
+           stack.add(list);
         }
         
-        Collections.reverse(res);
+        while(!stack.isEmpty())
+            res.add(stack.pop());
         
         return res;
     }
