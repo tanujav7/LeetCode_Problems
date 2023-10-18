@@ -14,35 +14,20 @@
  * }
  */
 class Solution {
-    
-    List<Integer> list = new ArrayList<>();
-    
-    public boolean findTarget(TreeNode root, int target) {
-        getValues_Inorder(root);
-        
-        int n = list.size();
-        int i = 0, j = n-1;
-        
-        while(i<j){
-            if(list.get(i)+list.get(j)==target)
-                return true;
-            
-            else if(list.get(i)+list.get(j)<target)
-                i++;
-            
-            else
-                j--;
-        }
-        
-        return false;
+    Set<Integer> set = new HashSet<>();
+    public boolean findTarget(TreeNode root, int k) {
+        return twoSum(root, k);
     }
     
-   void getValues_Inorder(TreeNode node){
-       if(node==null)
-           return;
-       
-       getValues_Inorder(node.left);
-       list.add(node.val);
-       getValues_Inorder(node.right);
-   }
+    boolean twoSum(TreeNode node, int k){
+        if(node==null)
+            return false;
+        
+        if(set.contains(k-node.val))
+            return true;
+        
+        set.add(node.val);
+        
+        return (twoSum(node.left, k) || twoSum(node.right, k));
+    }
 }
