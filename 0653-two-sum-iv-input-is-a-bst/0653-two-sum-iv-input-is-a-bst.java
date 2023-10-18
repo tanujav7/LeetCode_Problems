@@ -18,7 +18,7 @@ class Solution {
     List<Integer> list = new ArrayList<>();
     
     public boolean findTarget(TreeNode root, int target) {
-        getValues(root);
+        getValues_Inorder(root);
         
         int n = list.size();
         int i = 0, j = n-1;
@@ -37,12 +37,12 @@ class Solution {
         return false;
     }
     
-   void getValues(TreeNode node){
+   void getValues_Inorder(TreeNode node){
        if(node==null)
            return;
        
-       getValues(node.left);
+       getValues_Inorder(node.left);
        list.add(node.val);
-       getValues(node.right);
+       getValues_Inorder(node.right);
    }
 }
