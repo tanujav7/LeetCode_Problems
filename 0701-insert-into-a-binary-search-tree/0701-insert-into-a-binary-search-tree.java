@@ -23,25 +23,24 @@ class Solution {
         
         while(true){
             if(currentNode.val>val){
-                if(currentNode.left==null){
+                if(currentNode.left!=null)
+                    currentNode = currentNode.left;
+                else{
                     currentNode.left = new TreeNode(val);
                     break;
                 }
-                else{
-                    currentNode = currentNode.left;
-                }
             }
             
-            else{
-                if(currentNode.right==null){
+             else{
+                if(currentNode.right!=null)
+                    currentNode = currentNode.right;
+                else{
                     currentNode.right = new TreeNode(val);
                     break;
                 }
-                else{
-                    currentNode = currentNode.right;
-                }
             }
         }
+        
         
         return root;
     }
