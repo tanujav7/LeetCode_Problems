@@ -14,26 +14,30 @@
  * }
  */
 class Solution {
+    int resNode = 0;
     public int findBottomLeftValue(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+          int maxDepth = maxDepth(root);
+         findDeepestSum(root, 1, maxDepth);
+        return resNode;
+    }
+    
+    int maxDepth(TreeNode node){
+        if(node==null)
+            return 0;
         
-        int leftValue = 0;
+        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+    }
+    
+    void findDeepestSum(TreeNode node, int level, int maxDepth){
+        if(node==null)
+            return;
         
-        while(!queue.isEmpty()){
-            int size = queue.size();
-            leftValue = 0;
-            for(int i=0; i<size; i++){
-                TreeNode tempNode = queue.remove();
-                if(i==0)
-                    leftValue = tempNode.val;
-                if(tempNode.left!=null)
-                    queue.add(tempNode.left);
-                 if(tempNode.right!=null)
-                    queue.add(tempNode.right);
-            }
+        if(level==maxDepth){
+            resNode = node.val;
+            return;
         }
-        
-        return leftValue;
+            
+        findDeepestSum(node.right, level+1, maxDepth);
+        findDeepestSum(node.left, level+1, maxDepth);
     }
 }
