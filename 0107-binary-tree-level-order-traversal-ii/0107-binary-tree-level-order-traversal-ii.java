@@ -16,12 +16,12 @@
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         
-        List<List<Integer>> res = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> resList = new ArrayList<>();
         Stack<List<Integer>> stack = new Stack<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         
         if(root==null)
-            return res;
+            return resList;
         
         queue.add(root);
         
@@ -31,19 +31,17 @@ class Solution {
             for(int i=0; i<size; i++){
                 TreeNode tempNode = queue.remove();
                 list.add(tempNode.val);
-                
                 if(tempNode.left!=null)
                     queue.add(tempNode.left);
-                
                 if(tempNode.right!=null)
                     queue.add(tempNode.right);
             }
-           stack.add(list);
+            stack.add(list);
         }
         
         while(!stack.isEmpty())
-            res.add(stack.pop());
+            resList.add(stack.pop());
         
-        return res;
+        return resList;
     }
 }
