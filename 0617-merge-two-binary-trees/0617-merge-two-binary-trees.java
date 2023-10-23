@@ -15,22 +15,38 @@
  */
 class Solution {
     public TreeNode mergeTrees(TreeNode node1, TreeNode node2) {
-        
-        if(node1==null && node2==null)
-            return null;
-        
         if(node1==null)
             return node2;
         
-         if(node2==null)
-            return node1;
+        Stack<TreeNode[]> stack = new Stack<>();
         
-        node1.val += node2.val;
+        TreeNode res = node1;
         
-        node1.left = mergeTrees(node1.left, node2.left);
+        stack.push(new TreeNode[]{node1, node2});
         
-        node1.right = mergeTrees(node1.right, node2.right);
         
-        return node1;
+        while(!stack.isEmpty()){
+            TreeNode arr[] = stack.pop();
+            
+            if(arr[0]==null || arr[1]==null)
+                continue;
+            
+            arr[0].val = arr[0].val + arr[1].val;
+            
+            if(arr[0].left==null)
+                arr[0].left = arr[1].left;
+            
+            else
+                stack.push(new TreeNode[]{arr[0].left, arr[1].left});
+            
+             if(arr[0].right==null)
+                arr[0].right = arr[1].right;
+            
+            else
+                stack.push(new TreeNode[]{arr[0].right, arr[1].right});
+            
+        }
+        
+        return res;
     }
 }
