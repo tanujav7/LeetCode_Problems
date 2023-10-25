@@ -16,14 +16,12 @@
 class Solution {
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
         
-        List<Integer> l1 = new ArrayList<>();
-        List<Integer> l2 = new ArrayList<>();
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        getLeafNodes(root1, list1);
+        getLeafNodes(root2, list2);
         
-        getLeafNodes(root1, l1);
-        getLeafNodes(root2, l2);
-        
-        return l1.equals(l2);
-        
+        return list1.equals(list2);
     }
     
     void getLeafNodes(TreeNode node, List<Integer> list){
