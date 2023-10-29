@@ -5,8 +5,8 @@ class Solution {
         int n = needle.length();
         
         for(int i=0; i<m-n+1; i++){
-            String str = haystack.substring(i,i+n);
-            if(str.equals(needle))
+            String s = haystack.substring(i, i+n);
+            if(s.equals(needle))
                 return i;
         }
         
