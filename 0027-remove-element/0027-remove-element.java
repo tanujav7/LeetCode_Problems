@@ -1,17 +1,16 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
-      
-        int left = 0;
         
-        //In this left pointer will be pointing to the Non value(val) element whereas right pointer will traverse through the array.
+        int n = nums.length;
+        int j = 0;
         
-        for(int right=0; right<nums.length; right++){
-            if(nums[right]!=val){
-                nums[left] = nums[right];
-                left++;
-            }
+        for(int i=0; i<n; i++){
+            if(nums[i]!=val)
+                nums[j++] = nums[i];
+            else
+                continue;
         }
-       
-       return left;
+        
+        return j;
     }
 }
