@@ -1,41 +1,46 @@
 class Solution {
     public int myAtoi(String s) {
         
+  
+        
         s = s.trim();
         
-        if(s.isEmpty())
+              if(s.equals(""))
             return 0;
         
-        char flag = '+';
-        int n = s.length();
+        int sign = '+';
+        
         int i = 0;
         
-        if(s.charAt(0)=='+'){
-            flag = '+';
+        int n = s.length();
+        
+         if(s.charAt(0)=='-'){
+            sign = '-';
+            i++;
+         }
+        
+        else if(s.charAt(0)=='+'){
+            sign = '+';
             i++;
         }
         
-       else if(s.charAt(0)=='-'){
-            flag = '-';
-            i++;
-        }
-        
-        double res = 0;
+        double num = 0;
         
         while(i<n && (s.charAt(i)>='0' && s.charAt(i)<='9')){
-            res = res*10 + s.charAt(i)-'0';
+            num = num*10 + s.charAt(i)-'0';
             i++;
         }
         
-        if(flag=='-')
-            res = -res;
+    //    num = num * sign;
+        if(sign=='-')
+            num = -num;
         
-        if(res<Integer.MIN_VALUE)
-            return Integer.MIN_VALUE;
-        
-        if(res>Integer.MAX_VALUE)
+        if(num>Integer.MAX_VALUE)
             return Integer.MAX_VALUE;
         
-        return (int)(res);
+        if(num<Integer.MIN_VALUE)
+            return Integer.MIN_VALUE;
+        
+        return (int)(num);
     }
 }
