@@ -1,10 +1,10 @@
 class Solution {
     public int romanToInt(String s) {
         
-        int sum = 0;
-        int nums[] = new int[s.length()];
+        int n = s.length();
+        int nums[] = new int[n];
         
-        for(int i=0; i<s.length(); i++){
+        for(int i=0; i<n; i++){
             switch(s.charAt(i)){
                 case 'I' : nums[i] = 1;
                     break;
@@ -23,13 +23,15 @@ class Solution {
             }
         }
         
-        for(int i=0; i<nums.length-1; i++){
-            if(nums[i]<nums[i+1])
+        int sum = 0;
+        
+        for(int i=0; i<n-1; i++){
+            if(nums[i+1]>nums[i])
                 sum = sum - nums[i];
             else
                 sum = sum + nums[i];
         }
         
-        return sum+nums[nums.length-1];
+        return sum + nums[n-1];
     }
 }
