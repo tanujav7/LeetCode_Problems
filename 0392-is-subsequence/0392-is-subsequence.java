@@ -1,19 +1,15 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
         
-        //Two pointer initialization
-        
         int i = 0, j = 0;
+        int n1 = s.length(), n2 = t.length();
         
-        int s_len = s.length();
-        int t_len = t.length();
-        
-        while(i<s_len && j<t_len){
+        while(i<n1 && j<n2){
             if(s.charAt(i)==t.charAt(j))
                 i++;
             j++;
         }
         
-        return i==s_len;
+        return (i==n1);
     }
 }
