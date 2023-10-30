@@ -1,14 +1,14 @@
 class Solution {
-    public int[] twoSum(int[] numbers, int target) {
+    public int[] twoSum(int[] nums, int target) {
         
-        int n = numbers.length;
-        int i=0, j=n-1;
+        //Two pointer initialization
+        int n = nums.length;
+        int i = 0, j = n-1;
         
         while(i<j){
-            if(numbers[i]+numbers[j]==target)
-                return new int[] {i+1,j+1};
-            
-            else if(numbers[i]+numbers[j]<target)
+            if(nums[i]+nums[j]==target)
+                return new int[]{i+1, j+1};
+            else if(nums[i]+nums[j]<target)
                 i++;
             else
                 j--;
