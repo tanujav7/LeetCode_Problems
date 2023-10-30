@@ -5,7 +5,7 @@ class Solution {
         
         s = s.trim();
         
-              if(s.equals(""))
+        if(s.equals(""))
             return 0;
         
         int sign = '+';
@@ -31,7 +31,7 @@ class Solution {
             i++;
         }
         
-    //    num = num * sign;
+  
         if(sign=='-')
             num = -num;
         
