@@ -19,8 +19,8 @@ class Solution {
     }
     
     int sumNode(TreeNode node, int sum){
-        if(node==null)
-            return 0;
+      if(node==null)
+        return 0;
         
         sum = sum * 10 + node.val;
         
