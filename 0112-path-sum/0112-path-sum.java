@@ -15,22 +15,19 @@
  */
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        
-        return checkPathSum(root, targetSum, 0);
-        
+        return pathSum(root, 0, targetSum);
     }
     
-    boolean checkPathSum(TreeNode node, int targetSum, int currentSum){
-        
+    boolean pathSum(TreeNode node, int sum, int targetSum){
         if(node==null)
             return false;
         
-        currentSum += node.val;
+        sum += node.val;
         
-        if(node.left==null && node.right==null && currentSum==targetSum)
+        if(node.left==null && node.right==null && sum==targetSum)
             return true;
         
-        return (checkPathSum(node.left, targetSum, currentSum) || checkPathSum(node.right, targetSum, currentSum));
+        return pathSum(node.left, sum, targetSum) || pathSum(node.right, sum, targetSum);
         
     }
 }
