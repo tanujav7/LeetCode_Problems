@@ -14,20 +14,23 @@ class Solution {
         if(head==null || head.next==null)
             return null;
         
-        ListNode middleNode = findMiddle(head);
-        middleNode.next = middleNode.next.next;
+        int length = 0;
+        ListNode tempnode = head;
         
-        return head;
-    }
-    
-    ListNode findMiddle(ListNode head){
-        ListNode slow = head, fast = head.next;
-        
-        while(fast.next!=null && fast.next.next!=null){
-            slow = slow.next;
-            fast = fast.next.next;
+        while(tempnode!=null){
+            length++;
+            tempnode = tempnode.next;
         }
         
-        return slow;
+        int middleButOne = (length/2)-1;
+        
+        ListNode currentNode = head;
+        
+        for(int i=0; i<middleButOne; i++)
+            currentNode = currentNode.next;
+        
+        currentNode.next = currentNode.next.next;
+        
+        return head;
     }
 }
