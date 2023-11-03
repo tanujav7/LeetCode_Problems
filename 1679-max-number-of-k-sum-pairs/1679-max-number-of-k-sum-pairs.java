@@ -7,15 +7,15 @@ class Solution {
         int count = 0;
         
         while(i<j){
-            if(nums[i]+nums[j]==k){
+            if(nums[i]+nums[j]<k)
+                i++;
+            else if(nums[i]+nums[j]>k)
+                j--;
+            else{
                 count++;
                 i++;
                 j--;
             }
-            else if(nums[i]+nums[j]<k)
-                i++;
-            else
-                j--;
         }
         
         return count;
