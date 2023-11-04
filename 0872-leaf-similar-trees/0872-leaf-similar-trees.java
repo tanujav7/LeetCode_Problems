@@ -19,8 +19,8 @@ class Solution {
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
         
-       getLeafNodes(root1, list1);
-       getLeafNodes(root2, list2);
+        getLeafNodes(root1, list1);
+        getLeafNodes(root2, list2);
         
         return list1.equals(list2);
     }
