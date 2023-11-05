@@ -29,7 +29,6 @@ class Solution {
         
         if(node.left==null && node.right==null && sum==targetSum){
             resList.add(new ArrayList<>(list));
-           // return;
         }
         
         else{
