@@ -15,23 +15,25 @@
  */
 class Solution {
     public boolean isCompleteTree(TreeNode root) {
+        int totalNodes = countNodes(root);
+        return checkCompleteTree(root, 1, totalNodes);
+    }
+    
+    int countNodes(TreeNode node){
+        if(node==null)
+            return 0;
         
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        return 1 + countNodes(node.left) + countNodes(node.right);
+    }
+    
+    boolean checkCompleteTree(TreeNode node, int current, int totalNodes){
+        if(node==null)
+            return true;
         
-        while(!queue.isEmpty()){
-              TreeNode temp = queue.remove();
-                 if(temp==null)
-                    break;
-            queue.add(temp.left);
-            queue.add(temp.right);
-        }
-             
+        if(current>totalNodes)
+            return false;
         
         
-        while(!queue.isEmpty() && queue.peek()==null)
-            queue.poll();
-        
-        return queue.isEmpty();
+        return checkCompleteTree(node.left, 2 * current, totalNodes) && checkCompleteTree(node.right, 2 * current + 1, totalNodes);
     }
 }
