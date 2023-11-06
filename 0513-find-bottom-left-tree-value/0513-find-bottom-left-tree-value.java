@@ -14,26 +14,35 @@
  * }
  */
 class Solution {
+    int leftVal = 0;
     public int findBottomLeftValue(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
         
-        int leftVal = 0;
+        int maxDepth = maximumDepth(root);
+        leftMostVal(root, 1, maxDepth);
+        return leftVal;
+    }
+    
+    int maximumDepth(TreeNode node){
         
-        while(!queue.isEmpty()){
-            int size = queue.size();
-            for(int i=0; i<size; i++){
-                TreeNode temp = queue.remove();
-                if(i==0)
-                    leftVal = temp.val;
-                if(temp.left!=null)
-                    queue.add(temp.left);
-                if(temp.right!=null)
-                    queue.add(temp.right);
-            }
+        if(node==null)
+            return 0;
+        
+        return 1 + Math.max(maximumDepth(node.left), maximumDepth(node.right));
+        
+    }
+    
+    void leftMostVal(TreeNode node, int level, int maxDepth){
+        
+        if(node==null)
+            return;
+        
+        if(maxDepth==level){
+            leftVal = node.val;
+            return;
         }
         
-        return leftVal;
+        leftMostVal(node.right, level+1, maxDepth);
+        leftMostVal(node.left, level+1, maxDepth);
         
     }
 }
