@@ -3,7 +3,6 @@ class Solution {
         
         int n = matrix.length;
         
-        
         for(int i=0; i<n; i++){
             Set<Integer> row_set = new HashSet<>();
              Set<Integer> col_set = new HashSet<>();
