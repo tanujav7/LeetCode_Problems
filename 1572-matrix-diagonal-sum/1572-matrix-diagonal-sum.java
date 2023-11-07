@@ -1,21 +1,21 @@
 class Solution {
-    public int diagonalSum(int[][] matrix) {
+    public int diagonalSum(int[][] mat) {
         
         int sum = 0;
+        int n = mat.length;
+        int m = mat[0].length;
         
-        int n = matrix.length;
+        int j = 0;
         
         for(int i=0; i<n; i++){
-            //Add principal diagonal elements
-            sum = sum + matrix[i][i];
-            
-            //Add secondary diagonal elements
-            sum = sum + matrix[n-i-1][i];
+            sum += mat[i][j++];
+            sum += mat[n-i-1][i];
         }
         
-        if(n%2!=0)
-            sum = sum - matrix[n/2][n/2];
+        if(n%2==0)
+            return sum;
         
-        return sum;
+        else
+            return (sum-mat[n/2][n/2]);
     }
 }
