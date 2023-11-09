@@ -33,7 +33,7 @@ class Solution {
         
         while(!queue.isEmpty()){
             int size = queue.size();
-            for(int i=0; i<size; i++){
+           for(int i=0; i<size; i++){
                 Node temp = queue.remove();
                 
                 if(i<size-1)
@@ -44,7 +44,7 @@ class Solution {
                 
                 if(temp.right!=null)
                     queue.add(temp.right);
-            }
+           }
         }
         
         return root;
