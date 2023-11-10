@@ -8,21 +8,23 @@ class Solution {
         set.add('o');
         set.add('u');
         
+        int n = s.length();
         int count = 0;
+        int maxLen = Integer.MIN_VALUE;
         
         for(int i=0; i<k; i++){
             count += (set.contains(s.charAt(i))) ? 1 : 0;
         }
         
-        int max_vowels = count;
+        maxLen = count;
         
-        for(int i=k; i<s.length(); i++){
+        for(int i=k; i<n; i++){
             count += (set.contains(s.charAt(i))) ? 1 : 0;
             count -= (set.contains(s.charAt(i-k))) ? 1 : 0;
-            max_vowels = Math.max(max_vowels, count);
+            maxLen = Math.max(maxLen, count);
         }
         
+        return maxLen;
         
-        return max_vowels;
     }
 }
