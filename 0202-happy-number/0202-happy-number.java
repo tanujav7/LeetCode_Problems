@@ -2,11 +2,11 @@ class Solution {
     public boolean isHappy(int n) {
         
         Set<Integer> set = new HashSet<>();
-        
+      
         while(!set.contains(n)){
             set.add(n);
             
-            n = sumOfSquare(n);
+             n = getSquareNum(n);
             
             if(n==1)
                 return true;
@@ -15,15 +15,15 @@ class Solution {
         return false;
     }
     
-    int sumOfSquare(int num){
+    int getSquareNum(int n){
+        int sumSquare = 0;
         
-        int res = 0;
-        while(num!=0){
-            int rem = num%10;
-            res+=Math.pow(rem,2);
-            num = num/10;
+        while(n!=0){
+            int rem = n%10;
+            sumSquare += Math.pow(rem, 2);
+            n = n/10;
         }
         
-        return res;
+        return sumSquare;
     }
 }
