@@ -3,20 +3,23 @@ class Solution {
         
         Set<Integer> set = new HashSet<>();
         
-        for(int i:nums)
-            set.add(i);
+        for(int num : nums)
+            set.add(num);
         
+        int n = nums.length;
         int longestConsecutive = 0;
         
-        for(int i=0; i<nums.length; i++){
+        for(int i=0; i<n; i++){
             if(!set.contains(nums[i]-1)){
                 int currentNum = nums[i];
-                int consecutiveLength = 1;
+                int currentLength = 1;
+                
                 while(set.contains(currentNum+1)){
                     currentNum++;
-                    consecutiveLength++;
+                    currentLength++;
                 }
-                longestConsecutive = Math.max(consecutiveLength,longestConsecutive);
+                
+                longestConsecutive = Math.max(longestConsecutive, currentLength);
             }
         }
         
