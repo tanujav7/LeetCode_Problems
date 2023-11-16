@@ -1,24 +1,21 @@
 class Solution {
     public int majorityElement(int[] nums) {
         
-        //Moore's Voting Algorithms
+        int n = nums.length;
+        
+        int countMajority = 0;
         
         Arrays.sort(nums);
         
-        int n = nums.length;
-        
-        int midIndex = n/2;
-        
-        int count = 0;
+       int majorityElement = nums[n/2];
         
         for(int i=0; i<n; i++){
-            if(nums[i]==nums[midIndex])
-                count++;
+            if(nums[i]==majorityElement)
+                countMajority++;
         }
         
-        if(count>midIndex)
-            return nums[midIndex];
-        
+        if(countMajority>n/2)
+            return majorityElement;
         
         return nums[0];
     }
