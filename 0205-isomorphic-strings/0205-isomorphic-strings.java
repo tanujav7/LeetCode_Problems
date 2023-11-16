@@ -4,12 +4,19 @@ class Solution {
         Map<Character, Character> map_S = new HashMap<>();
         Map<Character, Character> map_T = new HashMap<>();
         
-        for(int i=0; i<s.length(); i++){
+        
+        if(s.length()!=t.length())
+            return false;
+        
+        int n = s.length();
+        
+        for(int i=0; i<n; i++){
             char s_ch = s.charAt(i);
             char t_ch = t.charAt(i);
             
             if(map_S.containsKey(s_ch) && !(map_S.get(s_ch).equals(t_ch)))
                 return false;
+            
             if(map_T.containsKey(t_ch) && !(map_T.get(t_ch).equals(s_ch)))
                 return false;
             
