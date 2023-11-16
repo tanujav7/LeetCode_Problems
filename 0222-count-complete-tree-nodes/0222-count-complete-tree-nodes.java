@@ -14,11 +14,14 @@
  * }
  */
 class Solution {
-    public int countNodes(TreeNode node) {
-        
+    public int countNodes(TreeNode root) {
+        return getNumberofNodes(root);
+    }
+    
+    int getNumberofNodes(TreeNode node){
         if(node==null)
             return 0;
         
-        return 1 + countNodes(node.left) + countNodes(node.right);
+        return 1 + getNumberofNodes(node.left) + getNumberofNodes(node.right);
     }
 }
