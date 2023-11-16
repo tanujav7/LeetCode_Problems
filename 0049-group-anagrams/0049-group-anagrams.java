@@ -11,8 +11,9 @@ class Solution {
             
             if(map.containsKey(str))
                 map.get(str).add(s);
+            
             else{
-                map.put(str,new ArrayList<>());
+                map.put(str, new ArrayList<>());
                 map.get(str).add(s);
             }
         }
