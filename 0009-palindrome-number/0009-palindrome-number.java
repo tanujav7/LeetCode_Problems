@@ -1,19 +1,19 @@
 class Solution {
     public boolean isPalindrome(int x) {
         
-        int tempNum = x;
-        int num = 0;
+        if(x<0)
+            return false;
         
-        while(tempNum>0){
-            int rem = tempNum%10;
-            num = num*10 +(rem);
-            tempNum = tempNum/10;
+        int tempNum = x;
+        
+        int reversedNum = 0;
+        
+        while(tempNum!=0){
+            int rem = tempNum % 10;
+            reversedNum = reversedNum * 10 + rem;
+            tempNum = tempNum / 10;
         }
         
-        if(num==x)
-            return true;
-        
-        else
-            return false;
+        return ( reversedNum == x );
     }
 }
