@@ -24,18 +24,18 @@ class Solution {
         if(node==null)
             return;
         
-        sum += node.val;
+        sum = sum + node.val;
+        
         list.add(node.val);
         
-        if(node.left==null && node.right==null && sum==targetSum){
+        if(node.left==null && node.right==null && sum==targetSum)
             resList.add(new ArrayList<>(list));
-        }
         
         else{
             getPathSum(node.left, sum, targetSum, list);
             getPathSum(node.right, sum, targetSum, list);
         }
-        
+            
         list.remove(list.size()-1);
     }
 }
