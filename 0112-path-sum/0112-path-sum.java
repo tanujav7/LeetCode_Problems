@@ -28,6 +28,5 @@ class Solution {
             return true;
         
         return (checkPathSum(node.left, sum, targetSum) || checkPathSum(node.right, sum, targetSum));
-        
     }
 }
