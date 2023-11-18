@@ -29,15 +29,17 @@ class Solution {
             List<Integer> list = new ArrayList<>();
             for(int i=0; i<size; i++){
                 TreeNode temp = queue.remove();
+                
                 list.add(temp.val);
+                
                 if(temp.left!=null)
-                    queue.add(temp.left);
+                   queue.add(temp.left);
+                
                 if(temp.right!=null)
-                    queue.add(temp.right);
+                   queue.add(temp.right);
             }
             resList.add(list);
         }
-        
         
         return resList;
     }
