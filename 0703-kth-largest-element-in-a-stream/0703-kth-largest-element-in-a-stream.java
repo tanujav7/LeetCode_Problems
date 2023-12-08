@@ -12,17 +12,13 @@ class KthLargest {
         for(int num : nums)
             heap.offer(num);
         
-        
-        while(heap.size() > k)
-            heap.poll();
-        
     }
     
     public int add(int val) {
         
         heap.offer(val);
         
-        if(heap.size()>k)
+        while(heap.size() > k)
             heap.poll();
         
         return heap.peek();
