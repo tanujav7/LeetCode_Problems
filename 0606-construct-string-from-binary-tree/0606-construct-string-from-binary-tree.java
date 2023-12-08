@@ -14,31 +14,31 @@
  * }
  */
 class Solution {
-    StringBuilder sb = new StringBuilder();
+    StringBuilder str = new StringBuilder();
     public String tree2str(TreeNode root) {
         return dfs(root);
     }
     
     String dfs(TreeNode node){
-       if(node==null)
-           return "";
+        if(node==null)
+            return "";
         
-        sb.append(node.val);
+        str.append(node.val);
         
         if(node.left!=null){
-            sb.append("(");
+            str.append("(");
             dfs(node.left);
-            sb.append(")");
+            str.append(")");
         }
         
         if(node.right!=null){
             if(node.left==null)
-                sb.append("()");
-            sb.append("(");
+                str.append("()");
+            str.append("(");
             dfs(node.right);
-            sb.append(")");
+            str.append(")");
         }
         
-        return sb.toString();
+        return str.toString();
     }
 }
