@@ -3,15 +3,12 @@ class Solution {
         
         Stack<Character> stack = new Stack<>();
         
-        for(char ch : s.toCharArray()){
-            boolean flag = true;
+        for(int i=0; i<s.length(); i++){
+            char ch = s.charAt(i);
             
-            while(!stack.isEmpty() && stack.peek()==ch){
+            if(!stack.isEmpty() && stack.peek()==ch)
                 stack.pop();
-                flag = false;
-            }
-            
-            if(flag)
+            else
                 stack.push(ch);
         }
         
@@ -21,5 +18,6 @@ class Solution {
             sb.append(stack.pop());
         
         return sb.reverse().toString();
+        
     }
 }
