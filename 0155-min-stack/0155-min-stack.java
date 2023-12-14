@@ -11,11 +11,12 @@ class MinStack {
     public void push(int val) {
         int min = val;
         
-        while(!minStack.isEmpty() && min>minStack.peek())
+        while(!minStack.isEmpty() && minStack.peek()<min)
             min = minStack.peek();
         
-        minStack.push(min);
         stack.push(val);
+        minStack.push(min);
+        
     }
     
     public void pop() {
