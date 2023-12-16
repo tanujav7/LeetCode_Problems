@@ -14,8 +14,8 @@ class Solution {
                     stack.pop();
                else if(ch==')' && stack.peek()=='(')
                     stack.pop();
-                else
-                    stack.push(ch);
+               else
+                  stack.push(ch);
             }
             
             else
