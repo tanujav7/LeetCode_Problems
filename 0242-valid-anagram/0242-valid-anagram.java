@@ -4,17 +4,18 @@ class Solution {
         if(s.length()!=t.length())
             return false;
         
-        char arr1[] = s.toCharArray();
-        char arr2[] = t.toCharArray();
+        int count[] = new int[26];
         
-        Arrays.sort(arr1);
+        for(char ch : s.toCharArray()){
+            count[ch-'a']++;
+        }
         
-        Arrays.sort(arr2);
+        for(char ch : t.toCharArray()){
+            if(count[ch-'a']==0)
+                return false;
+            count[ch-'a']--;
+        }
         
-        if(Arrays.equals(arr1, arr2)==true)
-            return true;
-        
-        else
-            return false;
+        return true;
     }
 }
