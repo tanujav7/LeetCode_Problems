@@ -2,45 +2,37 @@ class Solution {
     public String decodeString(String s) {
         
         Stack<Integer> numStack = new Stack<>();
-        Stack<Character> charStack = new Stack<>();
-        int num = 0;
+        Stack<String> strStack = new Stack<>();
         
-        for(int i=0; i<s.length(); i++){
+        int num = 0;
+        String res = "";
+        
+        for(char ch : s.toCharArray()){
+            if(Character.isDigit(ch))
+                num = num * 10 + (ch-'0');
             
-            char ch = s.charAt(i);
-            if(ch>='0' && ch<='9')
-                num = num*10 + (ch-'0');
+            else if(ch=='['){
+                numStack.push(num);
+                strStack.push(res);
+                num = 0;
+                res = "";
+            }
             
             else if(ch==']'){
-                int repeat = numStack.pop();
-                String str = "";
+                int k = numStack.pop();
+                String str = strStack.pop();
                 
-                while(charStack.peek()!='['){
-                    str = charStack.pop() + str;
-                }
+                for(int j=0; j<k; j++)
+                    str = str + res;
                 
-                charStack.pop();
-                
-                for(int j=0; j<repeat; j++){
-                    for(int k=0; k<str.length(); k++)
-                        charStack.push(str.charAt(k));
-                }
+                res = str;
             }
             
-               else{
-                if(num!=0)
-                numStack.push(num);
-                num = 0;
-                charStack.push(ch);
+            else{
+                res += ch;
             }
         }
         
-        
-        String result = "";
-        while (!charStack.isEmpty()) {
-            result = charStack.pop() + result;
-        }
-        return result;
-        
+        return res;
     }
 }
