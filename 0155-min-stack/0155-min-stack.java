@@ -2,7 +2,7 @@ class MinStack {
     
     Stack<Integer> stack;
     Stack<Integer> minStack;
-    
+
     public MinStack() {
         stack = new Stack<>();
         minStack = new Stack<>();
@@ -11,12 +11,11 @@ class MinStack {
     public void push(int val) {
         int min = val;
         
-        while(!minStack.isEmpty() && minStack.peek()<min)
+        if(!minStack.isEmpty() && minStack.peek()<min)
             min = minStack.peek();
         
-        stack.push(val);
         minStack.push(min);
-        
+        stack.push(val);
     }
     
     public void pop() {
