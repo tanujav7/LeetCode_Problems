@@ -5,20 +5,29 @@ class Solution {
         
         String arr[] = s.split(" ");
         
-        if(arr.length!=pattern.length())
-            return false;
-        
         int n = pattern.length();
+        
+        if(n!=arr.length)
+            return false;
         
         for(int i=0; i<n; i++){
             char ch = pattern.charAt(i);
-            if(map.containsKey(ch) && !(map.get(ch).equals(arr[i])))
+            String str = arr[i];
+            
+            if(map.containsKey(ch) && !(map.get(ch).equals(str))){
                 return false;
-            if(!map.containsKey(ch) && map.containsValue(arr[i]))
+            }
+            
+            if(!map.containsKey(ch) && map.containsValue(str)){
                 return false;
-            map.put(ch, arr[i]);
+            }
+            
+            else{
+                map.put(ch, str);
+            }
         }
         
         return true;
+        
     }
 }
