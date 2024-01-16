@@ -1,21 +1,22 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
         
+        int count[] = new int[26];
+        
         if(s.length()!=t.length())
             return false;
         
-        int count[] = new int[26];
-        
-        for(char ch : s.toCharArray()){
-            count[ch-'a']++;
+        for(int i=0; i<s.length(); i++){
+            count[s.charAt(i)-'a']++;
         }
         
-        for(char ch : t.toCharArray()){
-            if(count[ch-'a']==0)
+        for(int i=0; i<t.length(); i++){
+            if(count[t.charAt(i)-'a']==0)
                 return false;
-            count[ch-'a']--;
+            else
+                count[t.charAt(i)-'a']--;
         }
-        
+            
         return true;
     }
 }
