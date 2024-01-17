@@ -1,8 +1,6 @@
 class Solution {
     public boolean uniqueOccurrences(int[] arr) {
-        
-       
-        Map<Integer, Integer> map = new HashMap<>();
+         Map<Integer, Integer> map = new HashMap<>();
         
         int n = arr.length;
         
