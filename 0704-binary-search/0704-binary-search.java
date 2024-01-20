@@ -1,25 +1,23 @@
 class Solution {
     public int search(int[] nums, int target) {
         
-        int res = binarySearch(nums, 0, nums.length-1, target);
-        return res;
-    }
-    
-    int binarySearch(int arr[], int left, int right, int target){
+        int n = nums.length;
         
-        if(left>right)
-            return -1;
+        int low = 0, high = n-1;
         
-        int mid = left+(right-left)/2;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            
+            if(nums[mid]==target)
+                return mid;
+            
+            else if(nums[mid]<target)
+                low = mid+1;
+            
+            else
+                high = mid-1;
+        }
         
-        if(arr[mid]==target)
-            return mid;
-        
-        else if(arr[mid]>target)
-            return binarySearch(arr, left, mid-1, target);
-        
-        else
-             return binarySearch(arr, mid+1, right, target);
-        
+        return -1;
     }
 }
