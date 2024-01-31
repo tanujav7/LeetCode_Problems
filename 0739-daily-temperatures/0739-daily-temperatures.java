@@ -3,18 +3,23 @@ class Solution {
         
         int n = temperatures.length;
         
+        int arr[] = new int[n];
+        
         Stack<Integer> stack = new Stack<>();
         
-        int res[] = new int[n];
+        stack.push(0);
         
-        for(int i=0; i<n; i++){
+        for(int i=1; i<n; i++){
+            
             while(!stack.isEmpty() && temperatures[i]>temperatures[stack.peek()]){
-                int pop = stack.pop();
-                res[pop] = i-pop;
+                int index = stack.pop();
+                arr[index] = i-index;
             }
+            
             stack.push(i);
         }
         
-        return res;
+        return arr;
+        
     }
 }
