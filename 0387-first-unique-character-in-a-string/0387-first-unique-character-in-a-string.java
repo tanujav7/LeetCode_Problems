@@ -1,7 +1,6 @@
 class Solution {
     public int firstUniqChar(String s) {
-        
-     int freq[] = new int[26];
+         int freq[] = new int[26];
      int n = s.length();
         
        for(int i=0; i<n; i++){
