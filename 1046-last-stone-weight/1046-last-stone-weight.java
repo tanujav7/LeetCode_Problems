@@ -1,6 +1,5 @@
 class Solution {
     public int lastStoneWeight(int[] stones) {
-        
         PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> b-a);
         
         for(int num : stones)
@@ -15,6 +14,5 @@ class Solution {
         }
         
         return pq.size()==1 ? pq.peek() : 0;
-        
     }
 }
