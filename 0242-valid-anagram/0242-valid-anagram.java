@@ -1,23 +1,26 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
         
-        int countArr[] = new int[26];
-        
-        if(s.length()!=t.length())
+        if(s.length()!=t.length()){
             return false;
+        }
+        
+        
+        int charFreq[] = new int[26];
         
         for(int i=0; i<s.length(); i++){
-            countArr[s.charAt(i)-'a']++;
+            charFreq[s.charAt(i)-'a']++;
         }
-        
         
         for(int i=0; i<t.length(); i++){
-            if(countArr[t.charAt(i)-'a']==0)
-                return false;
-            else
-                countArr[t.charAt(i)-'a']--;
+            charFreq[t.charAt(i)-'a']--;
         }
         
+        for(int i=0; i<26; i++){
+            if(charFreq[i]!=0)
+                return false;
+        }
+    
         return true;
     }
 }
