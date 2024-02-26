@@ -7,15 +7,15 @@ class Solution {
         
         int n = arr.length;
         
-        StringBuilder sb = new StringBuilder();
+       StringBuilder sb = new StringBuilder();
         
         for(int i=n-1; i>=0; --i){
             if(!arr[i].equals(""))
-                sb.append(arr[i]).append(" ");
-            else
-                continue;
+            sb.append(arr[i]).append(" ");
         }
-
-        return sb.substring(0, sb.length()-1);
+        
+        String res = sb.substring(0, sb.length()-1);
+        return res;
+        
     }
 }
