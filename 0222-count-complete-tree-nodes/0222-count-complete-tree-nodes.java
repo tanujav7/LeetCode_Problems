@@ -22,6 +22,6 @@ class Solution {
         if(node==null)
             return 0;
         
-        return 1+numNodes(node.left)+numNodes(node.right);
+        return 1 + numNodes(node.left) + numNodes(node.right);
     }
 }
