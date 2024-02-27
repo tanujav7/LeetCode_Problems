@@ -17,13 +17,13 @@ class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         
         List<Integer> list = new ArrayList<>();
-        
         Stack<TreeNode> stack = new Stack<>();
         
         TreeNode current = root;
         
         if(root==null)
-            return new ArrayList<>();
+            return list;
+        
         
         while(current!=null || !stack.isEmpty()){
             while(current!=null){
