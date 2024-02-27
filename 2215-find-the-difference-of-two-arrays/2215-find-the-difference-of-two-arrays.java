@@ -1,23 +1,28 @@
 class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         
-        return Arrays.asList(getDifference(nums2, nums1), getDifference(nums1, nums2));
-        
+        return Arrays.asList(getDifference(nums1, nums2), getDifference(nums2, nums1));
     }
     
     List<Integer> getDifference(int nums1[], int nums2[]){
-        Set<Integer> set1 = new HashSet<>();
-        Set<Integer> set2 = new HashSet<>();
-        List<Integer> list = new ArrayList<>();
-        for(int n : nums1)
-            set1.add(n);
         
-        for(int i=0; i<nums2.length; i++){
-            if(!set1.contains(nums2[i]))
-                set2.add(nums2[i]);
+       
+        
+        Set<Integer> set = new HashSet<>();
+        
+         Set<Integer> resSet = new HashSet<>();
+        for(int num : nums2){
+            set.add(num);
         }
         
         
-        return new ArrayList<>(set2);
+        for(int i=0; i<nums1.length; i++){
+            if(!set.contains(nums1[i]))
+                resSet.add(nums1[i]);
+        }
+        
+        List<Integer> list = new ArrayList<>(resSet);
+        
+        return list;
     }
 }
