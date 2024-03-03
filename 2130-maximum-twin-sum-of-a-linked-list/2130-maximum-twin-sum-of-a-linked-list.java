@@ -11,30 +11,31 @@
 class Solution {
     public int pairSum(ListNode head) {
         
-        //1. Find the middle node
-        //2. Reverse the middleNode
-        //3. Compare the values
+        ListNode middleNode = middleofList(head);
         
-        ListNode middleNode = findMiddle(head);
         ListNode reversedNode = reverseList(middleNode);
         
-        int maxSum = 0;
+        int sum = 0, maxSum = 0;
         
-        while(reversedNode!=null){
-            int sum = head.val + reversedNode.val;
+        ListNode tempNode = head;
+        
+        while(reversedNode.next!=null){
+            sum = tempNode.val + reversedNode.val;
+            
             maxSum = Math.max(maxSum, sum);
-            head = head.next;
+            
+            tempNode = tempNode.next;
             reversedNode = reversedNode.next;
         }
         
         return maxSum;
-        
     }
     
-    ListNode findMiddle(ListNode head){
+    ListNode middleofList(ListNode head){
+       
         ListNode slow = head, fast = head;
         
-        while(fast!=null && fast.next!=null){
+        while(fast.next!=null && fast.next.next!=null){
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -42,15 +43,15 @@ class Solution {
         return slow;
     }
     
-    
     ListNode reverseList(ListNode head){
-        ListNode curr = head, prev = null, next = null;
         
-        while(curr!=null){
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+        ListNode current = head, next = null, prev = null;
+        
+        while(current!=null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
         
         return prev;
