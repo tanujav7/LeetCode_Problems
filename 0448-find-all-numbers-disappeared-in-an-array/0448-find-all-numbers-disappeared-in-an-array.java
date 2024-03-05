@@ -8,9 +8,8 @@ class Solution {
         for(int i=0; i<n; i++){
             int num = Math.abs(nums[i])-1;
             
-            if(nums[num]>0){
+            if(nums[num]>0)
                 nums[num] = -1 * nums[num];
-            }
         }
         
         for(int i=0; i<n; i++){
@@ -18,6 +17,8 @@ class Solution {
                 list.add(i+1);
         }
         
+        
         return list;
+        
     }
 }
