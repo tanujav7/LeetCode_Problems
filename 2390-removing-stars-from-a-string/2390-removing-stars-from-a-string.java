@@ -3,24 +3,27 @@ class Solution {
         
         Stack<Character> stack = new Stack<>();
         
-        for(int i=0; i<s.length(); i++){
-            char ch = s.charAt(i);
-            
-            if(!stack.isEmpty() && ch=='*')
+        int n = s.length();
+        
+        for(int i=0; i<n; i++){
+            if(s.charAt(i)=='*')
                 stack.pop();
             
             else
-                stack.push(ch);
+                stack.push(s.charAt(i));
         }
         
         StringBuilder sb = new StringBuilder();
         
+ 
+        
         while(!stack.isEmpty()){
             sb.append(stack.pop());
         }
-            
         
-        return sb.reverse().toString();
+        String res = new String(sb.reverse());
+        
+        return res;
         
     }
 }
