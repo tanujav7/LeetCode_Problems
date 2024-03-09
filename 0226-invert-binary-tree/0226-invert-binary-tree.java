@@ -16,21 +16,31 @@
 class Solution {
     public TreeNode invertTree(TreeNode root) {
         
-        invertBinaryTree(root);
+        Queue<TreeNode> queue = new LinkedList<>();
         
-        return root;
+        queue.add(root);
+        
+        if(root==null)
+            return null;
+        
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            
+            for(int i=0; i<size; i++){
+                TreeNode current = queue.remove();
+                
+                swapNode(current);
+                
+                if(current.left!=null)
+                    queue.add(current.left);
+                
+                if(current.right!=null)
+                    queue.add(current.right);
+            }
+        }
+        
+         return root;
     }
-    
-    void invertBinaryTree(TreeNode node){
-        if(node==null)
-            return;
-        
-        swapNode(node);
-        
-        invertBinaryTree(node.left);
-        invertBinaryTree(node.right);
-    }
-    
     
     void swapNode(TreeNode node){
         TreeNode tempNode = node.left;
