@@ -16,21 +16,25 @@
 class Solution {
     public TreeNode invertTree(TreeNode root) {
         
-        if(root==null)
-            return null;
-        
-        swap(root);
-        
-        invertTree(root.left);
-        
-        invertTree(root.right);
+        invertBinaryTree(root);
         
         return root;
     }
     
-    void swap(TreeNode node){
-        TreeNode temp = node.left;
+    void invertBinaryTree(TreeNode node){
+        if(node==null)
+            return;
+        
+        swapNode(node);
+        
+        invertBinaryTree(node.left);
+        invertBinaryTree(node.right);
+    }
+    
+    
+    void swapNode(TreeNode node){
+        TreeNode tempNode = node.left;
         node.left = node.right;
-        node.right = temp;
+        node.right = tempNode;
     }
 }
