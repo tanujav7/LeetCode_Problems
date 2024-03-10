@@ -19,20 +19,21 @@ class Solution {
         List<Integer> l1 = new ArrayList<>();
         List<Integer> l2 = new ArrayList<>();
         
-        getLeafNodes(root1, l1);
-        getLeafNodes(root2, l2);
+        getLeaves(root1, l1);
+        getLeaves(root2, l2);
         
         return l1.equals(l2);
     }
     
-    void getLeafNodes(TreeNode node, List<Integer> list){
+    void getLeaves(TreeNode node, List<Integer> list){
         if(node==null)
             return;
         
         if(node.left==null && node.right==null)
             list.add(node.val);
         
-        getLeafNodes(node.left, list);
-        getLeafNodes(node.right, list);
+        getLeaves(node.left, list);
+        getLeaves(node.right, list);
+        
     }
 }
