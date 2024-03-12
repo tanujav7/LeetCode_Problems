@@ -18,9 +18,9 @@ class Solution {
         return checkSymmetric(root, root);
     }
     
-    boolean checkSymmetric(TreeNode p, TreeNode q){
+     public boolean checkSymmetric(TreeNode p, TreeNode q) {
         if(p==null && q==null)
-            return true;
+           return true;
         
         if(p==null || q==null)
             return false;
@@ -29,6 +29,5 @@ class Solution {
             return false;
         
         return (checkSymmetric(p.left, q.right) && checkSymmetric(p.right, q.left));
-        
     }
 }
