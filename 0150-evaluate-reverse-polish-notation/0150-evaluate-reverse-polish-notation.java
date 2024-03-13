@@ -3,36 +3,38 @@ class Solution {
         
         Stack<Integer> stack = new Stack<>();
         
-        for(String token : tokens){
+          for(int i=0; i<tokens.length; i++){
+              String token = tokens[i];
+              
             if(token.equals("+")){
-               int a = stack.pop();
-               int b = stack.pop(); 
+                int a = stack.pop();
+                int b = stack.pop();
                 stack.push(a+b);
             }
             
             else if(token.equals("-")){
-               int b = stack.pop();
-               int a = stack.pop(); 
-                stack.push(a-b);
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(b-a);
             }
             
-           else if(token.equals("*")){
-               int a = stack.pop();
-               int b = stack.pop(); 
-                stack.push(a*b);
+             else if(token.equals("*")){
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(b*a);
             }
             
-            else if(token.equals("/")){
-               int a = stack.pop();
-               int b = stack.pop(); 
+             else if(token.equals("/")){
+                int a = stack.pop();
+                int b = stack.pop();
                 stack.push(b/a);
             }
             
             else{
-                stack.push(Integer.valueOf(token));
+                stack.push(Integer.parseInt(token));
             }
         }
         
-        return stack.peek();
+        return stack.pop();
     }
 }
