@@ -37,7 +37,7 @@ class Solution {
            for(int i=0; i<size; i++){
                  temp = queue.remove();
                 
-                if(i<size-1)
+               // if(i<size-1)
                 temp.next = queue.peek();
                 
                 if(temp.left!=null)
