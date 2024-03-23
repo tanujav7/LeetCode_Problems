@@ -10,8 +10,7 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
-        
-        ListNode p1 = head;
+                ListNode p1 = head;
         ListNode middleNode = middleOfTheList(head);
         ListNode p2 = reverseList(middleNode.next);
         middleNode.next = null;
