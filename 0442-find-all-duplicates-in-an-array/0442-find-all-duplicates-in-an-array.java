@@ -6,12 +6,12 @@ class Solution {
         int n = nums.length;
         
         for(int i=0; i<n; i++){
-            int num = Math.abs(nums[i])-1;
+            int num = Math.abs(nums[i]) - 1;
             
             if(nums[num]<0)
                 list.add(Math.abs(nums[i]));
             
-            if(nums[num]>0)
+            else
                 nums[num] = -1 * nums[num];
         }
         
