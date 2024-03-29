@@ -3,27 +3,28 @@ class Solution {
         
         Queue<Integer> queue = new LinkedList<>();
         
-        queue.add(0);
-        
         int n = rooms.size();
         
         boolean visited[] = new boolean[n];
+        
+        queue.add(0);
         
         visited[0] = true;
         
         while(!queue.isEmpty()){
             int node = queue.remove();
+            
             for(int ele : rooms.get(node)){
                 if(visited[ele]==false){
-                    visited[ele] = true;
                     queue.add(ele);
+                    visited[ele] = true;
                 }
             }
         }
         
         
-        for(boolean vis : visited){
-            if(vis==false)
+        for(boolean v : visited){
+            if(v==false)
                 return false;
         }
         
