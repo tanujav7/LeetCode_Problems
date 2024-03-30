@@ -6,28 +6,27 @@ class Solution {
         int n = graph.length;
         int src = 0;
         int dest = n-1;
+        List<Integer> path = new ArrayList<>();
+        path.add(0);
         
-        boolean visited[] = new boolean[n];
-        
-        getPaths(graph, src, dest, visited, new ArrayList<>());
+        getPaths(graph, src, dest, path);
         return resList;
     }
     
-    void getPaths(int graph[][], int src, int dest, boolean visited[], List<Integer> path){
-        visited[src] = true;
-        path.add(src);
-        
+    void getPaths(int graph[][], int src, int dest, List<Integer> path){
+       
         if(src==dest){
             resList.add(new ArrayList<>(path));
+            return;
         }
         
-        for(int ele : graph[src]){
-            if(!visited[ele]){
-                getPaths(graph, ele, dest, visited, path);
-            }
+        else{
+              for(int ele : graph[src]){
+                  path.add(ele);
+                  getPaths(graph, ele, dest, path);
+                  path.remove(path.size()-1);
+              }
         }
-        
-        visited[src] = false;
-        path.remove(path.size()-1);
+       
     }
 }
