@@ -1,7 +1,6 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        
-        Map<Character, Character> map_S = new HashMap<>();
+         Map<Character, Character> map_S = new HashMap<>();
         Map<Character, Character> map_T = new HashMap<>();
         
         
