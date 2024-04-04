@@ -2,26 +2,28 @@ class Solution {
     List<List<Integer>> resList;
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         resList = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
-        path.add(0);
-        dfs(graph, path, 0, graph.length-1);
+        int n = graph.length;
+        boolean visited[] = new boolean[n];
+        dfs(graph, new ArrayList<>(), visited, 0, n-1);
         return resList;
     }
     
-    void dfs(int graph[][], List<Integer> path, int src, int dest){
+    void dfs(int graph[][], List<Integer> path, boolean visited[], int src, int dest){
+        visited[src] = true;
+        path.add(src);
+        
         if(src==dest){
             resList.add(new ArrayList<>(path));
             return;
         }
         
         else{
-            
             for(int ele : graph[src]){
-                path.add(ele);
-                dfs(graph, path, ele, dest);
+                dfs(graph, path, visited, ele, dest);
+            
+                visited[src] = false;
                 path.remove(path.size()-1);
             }
-            
         }
     }
 }
