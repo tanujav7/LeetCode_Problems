@@ -1,26 +1,28 @@
 class Solution {
     public int findCircleNum(int[][] isConnected) {
+        
         int n = isConnected.length;
-        boolean visited[] = new boolean[n];
         
         int countComponents = 0;
+        
+        boolean visited[] = new boolean[n];
         
         for(int i=0; i<n; i++){
             if(visited[i]==false){
                 countComponents++;
-                dfs(isConnected, visited, i, n);
-            }
+                bfs(isConnected, visited, i, n);
+            } 
         }
         
         return countComponents;
     }
     
-    void dfs(int isConnected[][], boolean visited[], int index, int n){
+    void bfs(int adjMatrix[][], boolean visited[], int index, int n){
         visited[index] = true;
         
         for(int i=0; i<n; i++){
-            if(visited[i]==false && isConnected[index][i]==1)
-            dfs(isConnected, visited, i, n);
+            if(adjMatrix[index][i]==1 && visited[i]==false)
+                bfs(adjMatrix, visited, i, n);
         }
     }
 }
