@@ -1,9 +1,8 @@
 class Solution {
     public int romanToInt(String s) {
         
-        int n = s.length();
-        
         int i = 0;
+        int n = s.length();
         
         int nums[] = new int[n];
         
@@ -16,7 +15,7 @@ class Solution {
                 case 'X' : nums[i++] = 10;
                     break;
                 case 'L' : nums[i++] = 50;
-                    break;
+                    break;    
                 case 'C' : nums[i++] = 100;
                     break;
                 case 'D' : nums[i++] = 500;
@@ -30,12 +29,11 @@ class Solution {
         
         for(int j=0; j<n-1; j++){
             if(nums[j+1]>nums[j])
-                sum -= nums[j];
+                sum = sum - nums[j];
             else
-                sum += nums[j];
+                sum = sum + nums[j];
         }
         
-        return sum+nums[n-1];
-        
+        return sum + nums[n-1];
     }
 }
