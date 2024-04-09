@@ -2,6 +2,7 @@ class Solution {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
         
         int len = flowerbed.length;
+        
         int count = 0;
         
         for(int i=0; i<len; i++){
@@ -18,6 +19,7 @@ class Solution {
                 }
             }
         }
+        
         
         return count>=n;
     }
