@@ -11,33 +11,33 @@ class RandomizedSet {
     }
     
     public boolean insert(int val) {
+        
         if(map.containsKey(val))
-        return false;
-
+            return false;
+        
         map.put(val, list.size());
         list.add(val);
+        
         return true;
-     }
+    }
     
     public boolean remove(int val) {
         
         if(!map.containsKey(val))
-        return false;
+            return false;
         
         int index = map.get(val);
         int lastElement = list.get(list.size()-1);
         map.put(lastElement, index);
         list.set(index, lastElement);
-
-        //Remove the given value from List and Map
+        
         map.remove(val);
         list.remove(list.size()-1);
-
         return true;
-
     }
     
     public int getRandom() {
+        
         int index = random.nextInt(list.size());
         return list.get(index);
     }
