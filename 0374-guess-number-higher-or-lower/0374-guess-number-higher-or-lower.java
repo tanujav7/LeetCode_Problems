@@ -10,24 +10,24 @@
 public class Solution extends GuessGame {
     public int guessNumber(int n) {
         
-        int left = 1, right = n;
+        int low = 1, high = n;
         
-        while(left<=right){
+        while(low<=high){
             
-            int mid = left+(right-left)/2;
+            int mid = low + (high-low)/2;
             
-            int guess = guess(mid);
+            int pick = guess(mid);
             
-            if(guess==0)
+            if(pick==0)
                 return mid;
             
-            else if(guess==-1)
-                right = mid-1;
+            else if(pick==1)
+                low = mid+1;
             
             else
-                left = mid+1;
+                high = mid-1;
         }
         
-        return -1;
+        return 1;
     }
 }
