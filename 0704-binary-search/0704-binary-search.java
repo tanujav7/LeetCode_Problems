@@ -3,22 +3,23 @@ class Solution {
         
         int n = nums.length;
         
-        int low = 0, high = n-1;
+        int res = binarySearch(nums, 0, n-1, target);
         
-        while(low<=high){
-            
-            int mid = low+(high-low)/2;
-            
-            if(nums[mid]==target)
-                return mid;
-            
-            else if(nums[mid]<target)
-                low = mid+1;
-            
-            else
-                high = mid-1;
-        }
+        return res;
+    }
+    
+    int binarySearch(int nums[], int low, int high, int target){
+        if(low>high)
+            return -1;
         
-        return -1;
+        int mid = low+(high-low)/2;
+        
+        if(nums[mid]==target)
+            return mid;
+        
+        else if(nums[mid]<target)
+            return binarySearch(nums, mid+1, high, target);
+        
+        return binarySearch(nums, low, mid-1, target);
     }
 }
