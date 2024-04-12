@@ -3,37 +3,37 @@ class Solution {
         
         List<Integer> list = new ArrayList<>();
         
-        int row_Begin = 0;
-        int col_Begin = 0;
+        int row_begin = 0, row_end = matrix.length-1;
+        int col_begin = 0, col_end = matrix[0].length-1;
         
-        int row_End = matrix.length-1;
-        int col_End = matrix[0].length-1;
-        
-        
-        while(row_Begin<=row_End && col_Begin<=col_End){
-            for(int i=col_Begin; i<=col_End; i++)
-                list.add(matrix[row_Begin][i]);
-            row_Begin++;
+        while(row_begin<=row_end && col_begin<=col_end){
             
-            for(int i=row_Begin; i<=row_End; i++)
-                list.add(matrix[i][col_End]);
-            col_End--;
-            
-           
-            if(row_Begin<=row_End){
-                for(int i=col_End; i>=col_Begin; --i)
-                list.add(matrix[row_End][i]);
-             
+            for(int i=col_begin; i<=col_end; i++){
+                list.add(matrix[row_begin][i]);
             }
-             row_End--;
+            row_begin++;
             
-               if(col_Begin<=col_End){
-                for(int i=row_End; i>=row_Begin; --i)
-                list.add(matrix[i][col_Begin]);
+             for(int i=row_begin; i<=row_end; i++){
+                list.add(matrix[i][col_end]);
             }
-             col_Begin++;
+            col_end--;
+            
+            
+            if(row_begin<=row_end){
+                 for(int i=col_end; i>=col_begin; --i){
+                   list.add(matrix[row_end][i]);
+                }
+              
+            }
+             row_end--;
+            
+            if(col_begin<=col_end){
+                 for(int i=row_end; i>=row_begin; --i){
+                   list.add(matrix[i][col_begin]);
+                }
+            }
+             col_begin++;
         }
-        
         
         return list;
     }
