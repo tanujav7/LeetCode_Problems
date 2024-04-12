@@ -3,10 +3,11 @@ class Solution {
         
         int n = nums.length;
         
-        int low = 0, high = n-1;
+        int low = 0, high = n;
         
-        while(low<=high){
-            int mid = low+(high-low)/2;
+        while(low<high){
+            
+            int mid = low + (high-low)/2;
             
             if(nums[mid]==target)
                 return mid;
@@ -15,7 +16,7 @@ class Solution {
                 low = mid+1;
             
             else
-                high = mid-1;
+                high = mid;
         }
         
         return low;
