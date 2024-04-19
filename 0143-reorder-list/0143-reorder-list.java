@@ -10,33 +10,33 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
-                ListNode p1 = head;
-        ListNode middleNode = middleOfTheList(head);
-        ListNode p2 = reverseList(middleNode.next);
+        
+        ListNode middleNode = middleofList(head);
+        ListNode reversedNode = reverseList(middleNode.next);
         middleNode.next = null;
+        ListNode p1 = head, p2 = reversedNode;
         
         ListNode dummyHead = new ListNode(0);
-        ListNode currentNode = dummyHead;
+        ListNode current = dummyHead;
         
         while(p1!=null || p2!=null){
             if(p1!=null){
-                currentNode.next = p1;
+                current.next = p1;
                 p1 = p1.next;
-                currentNode = currentNode.next;
+                current = current.next;
             }
+            
             if(p2!=null){
-                currentNode.next = p2;
+                current.next = p2;
                 p2 = p2.next;
-                currentNode = currentNode.next;
+                current = current.next;
             }
         }
-        currentNode.next = null;
         
         head = dummyHead.next;
     }
     
-    
-    ListNode middleOfTheList(ListNode head){
+    ListNode middleofList(ListNode head){
         ListNode slow = head, fast = head;
         
         while(fast!=null && fast.next!=null){
@@ -48,15 +48,15 @@ class Solution {
     }
     
     ListNode reverseList(ListNode head){
-        ListNode currentNode = head, nextNode = null, prevNode = null;
+        ListNode prev = null, current = head, next = null;
         
-        while(currentNode!=null){
-            nextNode = currentNode.next;
-            currentNode.next = prevNode;
-            prevNode = currentNode;
-            currentNode = nextNode;
+        while(current!=null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
         
-        return prevNode;
+        return prev;
     }
 }
