@@ -1,31 +1,31 @@
 class Solution {
     public int findMin(int[] nums) {
         int n = nums.length;
-        int res = findMinimum(nums, 0, n-1);
         
-        if(res==-1)
+        int pivot = findPivot(nums, 0, n-1);
+        
+        if(pivot==-1)
             return nums[0];
         
-        return nums[res];
+        return nums[pivot];
     }
     
-    int findMinimum(int arr[], int start, int end){
+    int findPivot(int nums[], int start, int end){
         if(start>end)
             return -1;
         
-        int mid = start+(end-start)/2;
+        int mid = start + (end - start)/2;
         
-        if(mid>start && arr[mid-1]>arr[mid])
-            return mid;
-        
-        else if(mid<end && arr[mid+1]<arr[mid])
+        if(mid<end && nums[mid+1]<nums[mid])
             return mid+1;
         
-        else if(arr[0]<=arr[mid])
-            return findMinimum(arr, mid+1, end);
+        else if(mid>start && nums[mid-1]>nums[mid])
+            return mid;
+        
+        else if(nums[0]<=nums[mid])
+            return findPivot(nums, mid+1, end);
         
         else
-            return findMinimum(arr, start, mid-1);
-        
+            return findPivot(nums, start, mid-1);
     }
 }
