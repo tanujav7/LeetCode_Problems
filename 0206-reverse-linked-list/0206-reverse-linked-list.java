@@ -21,6 +21,5 @@ class Solution {
         }
         
         return prev;
-        
     }
 }
