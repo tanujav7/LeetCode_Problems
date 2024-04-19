@@ -12,40 +12,40 @@
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         
-        int lA = 0, lB = 0;
+        int lenA = 0, lenB = 0;
         
         ListNode tempA = headA, tempB = headB;
         
         while(tempA!=null){
-            lA = lA + 1;
             tempA = tempA.next;
+            lenA++;
         }
         
         while(tempB!=null){
-            lB = lB + 1;
             tempB = tempB.next;
+            lenB++;
+        }
+        
+        ListNode pA = headA, pB = headB;
+        
+        int diff = Math.abs(lenA-lenB);
+        
+        if(lenA>lenB){
+            while(diff-->0)
+                pA = pA.next;
+        }
+        
+         if(lenB>lenA){
+            while(diff-->0)
+                pB = pB.next;
         }
         
         
-        int diff = Math.abs(lA-lB);
-        
-        if(lA>lB){
-            while(diff-->0){
-                headA = headA.next;
-            }
+        while(pA!=pB){
+            pA = pA.next;
+            pB = pB.next;
         }
         
-        else if(lB>lA){
-            while(diff-->0){
-                headB = headB.next;
-            }
-        }
-        
-        while(headA!=headB){
-            headA = headA.next;
-            headB = headB.next;
-        }
-        
-        return headA;
+        return pA;
     }
 }
