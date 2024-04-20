@@ -15,13 +15,16 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        return numNodes(root);
+        
+        int totalNodes = getTotalNodes(root);
+        
+        return totalNodes;
     }
     
-    int numNodes(TreeNode node){
+    int getTotalNodes(TreeNode node){
         if(node==null)
             return 0;
         
-        return 1 + numNodes(node.left) + numNodes(node.right);
+        return 1 + getTotalNodes(node.left) + getTotalNodes(node.right);
     }
 }
