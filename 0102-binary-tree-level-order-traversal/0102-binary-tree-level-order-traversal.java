@@ -20,6 +20,7 @@ class Solution {
         
         Queue<TreeNode> queue = new LinkedList<>();
         
+        
         if(root==null)
             return resList;
         
@@ -27,20 +28,18 @@ class Solution {
         
         while(!queue.isEmpty()){
             int size = queue.size();
-            
             List<Integer> list = new ArrayList<>();
             for(int i=0; i<size; i++){
-                TreeNode current = queue.remove();
+                TreeNode node = queue.remove();
                 
-                list.add(current.val);
+                list.add(node.val);
                 
-                if(current.left!=null)
-                    queue.add(current.left);
+                if(node.left!=null)
+                    queue.add(node.left);
                 
-                if(current.right!=null)
-                    queue.add(current.right);
+                if(node.right!=null)
+                    queue.add(node.right);
             }
-            
             resList.add(list);
         }
         
