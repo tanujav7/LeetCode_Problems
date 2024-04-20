@@ -15,15 +15,16 @@
  */
 class Solution {
     int res = 0;
+    
     public int diameterOfBinaryTree(TreeNode root) {
         getDiameter(root);
+        
         return res;
     }
     
     int getDiameter(TreeNode node){
-        
         if(node==null)
-           return 0;
+            return 0;
         
         int left = getDiameter(node.left);
         int right = getDiameter(node.right);
@@ -31,6 +32,5 @@ class Solution {
         res = Math.max(res, left+right);
         
         return 1 + Math.max(left, right);
-        
     }
 }
