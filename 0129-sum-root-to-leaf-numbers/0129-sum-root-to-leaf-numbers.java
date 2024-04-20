@@ -15,18 +15,21 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
+        
         return getSumNumbers(root, 0);
     }
     
-    int getSumNumbers(TreeNode node, int currentSum){
+    int getSumNumbers(TreeNode node, int sum){
+        
         if(node==null)
             return 0;
         
-        currentSum = currentSum * 10 + node.val;
+        sum = sum * 10 + node.val;
         
         if(node.left==null && node.right==null)
-            return currentSum;
+            return sum;
         
-        return (getSumNumbers(node.left, currentSum) + getSumNumbers(node.right, currentSum));
+        
+        return (getSumNumbers(node.left, sum) + getSumNumbers(node.right, sum));
     }
 }
