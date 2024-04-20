@@ -15,23 +15,25 @@
  */
 class Solution {
     List<List<Integer>> resList = new ArrayList<>();
-    
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         
         getPathSum(root, 0, targetSum, new ArrayList<>());
+        
         return resList;
     }
     
     void getPathSum(TreeNode node, int currentSum, int targetSum, List<Integer> list){
-       if(node==null)
-           return;
         
-        currentSum += node.val;
+        if(node==null)
+            return;
         
         list.add(node.val);
         
+        currentSum += node.val;
+        
         if(node.left==null && node.right==null && currentSum==targetSum){
             resList.add(new ArrayList<>(list));
+           // return;
         }
         
         else{
