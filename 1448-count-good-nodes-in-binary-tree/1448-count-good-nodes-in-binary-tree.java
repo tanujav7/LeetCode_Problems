@@ -16,22 +16,23 @@
 class Solution {
     int count = 0;
     public int goodNodes(TreeNode root) {
-        int maxVal = Integer.MIN_VALUE;
-         countGoodNodes(root, maxVal);
+        
+        countGoodNodes(root, root.val);
         return count;
+        
     }
     
-    void countGoodNodes(TreeNode node, int maxVal){
+    void countGoodNodes(TreeNode node, int val){
         if(node==null)
             return;
         
-        if(node.val>=maxVal){
-            maxVal = node.val;
+        if(node.val>=val){
+            val = node.val;
             count++;
         }
         
-        countGoodNodes(node.left, maxVal);
-        countGoodNodes(node.right, maxVal);
-        
+        countGoodNodes(node.left, val);
+        countGoodNodes(node.right, val);
+            
     }
 }
