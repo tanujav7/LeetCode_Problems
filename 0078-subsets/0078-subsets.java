@@ -3,6 +3,7 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         resList = new ArrayList<>();
         backTrack(nums, 0, nums.length, new ArrayList<>());
+        
         return resList;
     }
     
