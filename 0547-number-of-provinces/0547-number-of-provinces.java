@@ -3,26 +3,27 @@ class Solution {
         
         int n = isConnected.length;
         
-        int countComponents = 0;
+        int countProvinces = 0;
         
-        boolean visited[] = new boolean[n];
+        int visited[] = new int[n];
         
         for(int i=0; i<n; i++){
-            if(visited[i]==false){
-                countComponents++;
-                bfs(isConnected, visited, i, n);
-            } 
+            if(visited[i]==0){
+                dfs(isConnected, visited, i, n);
+                countProvinces++;
+            }
         }
         
-        return countComponents;
+        return countProvinces;
     }
     
-    void bfs(int adjMatrix[][], boolean visited[], int index, int n){
-        visited[index] = true;
+    void dfs(int graph[][], int visited[], int u, int n){
+        
+        visited[u] = 1;
         
         for(int i=0; i<n; i++){
-            if(adjMatrix[index][i]==1 && visited[i]==false)
-                bfs(adjMatrix, visited, i, n);
+            if(graph[u][i]==1 && visited[i]==0)
+                dfs(graph, visited, i, n);
         }
     }
 }
