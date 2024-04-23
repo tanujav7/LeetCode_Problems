@@ -5,7 +5,7 @@ class Solution {
         
         List<int[]> merged = new ArrayList<>();
         
-        for(int[] interval : intervals){
+        for(int interval[] : intervals){
             if(merged.isEmpty() || merged.getLast()[1]<interval[0])
                 merged.add(interval);
             else
