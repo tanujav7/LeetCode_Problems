@@ -16,15 +16,9 @@
 class Solution {
     public int countNodes(TreeNode root) {
         
-        int totalNodes = getTotalNodes(root);
-        
-        return totalNodes;
-    }
-    
-    int getTotalNodes(TreeNode node){
-        if(node==null)
+        if(root==null)
             return 0;
         
-        return 1 + getTotalNodes(node.left) + getTotalNodes(node.right);
+        return (1 + countNodes(root.left) + countNodes(root.right));
     }
 }
