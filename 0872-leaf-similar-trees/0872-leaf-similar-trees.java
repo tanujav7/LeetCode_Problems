@@ -15,16 +15,17 @@
  */
 class Solution {
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
         
         getLeafNodes(root1, list1);
         getLeafNodes(root2, list2);
         
-        int j = 0;
-        
         if(list1.size()!=list2.size())
             return false;
+        
+        int j = 0;
         
         for(int k : list1){
             if(k!=list2.get(j))
@@ -46,5 +47,6 @@ class Solution {
         
         getLeafNodes(node.left, list);
         getLeafNodes(node.right, list);
+        
     }
 }
