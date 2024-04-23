@@ -17,7 +17,6 @@ class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
         
         return checkPathSum(root, 0, targetSum);
-        
     }
     
     boolean checkPathSum(TreeNode node, int currentSum, int targetSum){
@@ -30,8 +29,6 @@ class Solution {
             return true;
         }
         
-       
-       return (checkPathSum(node.left, currentSum, targetSum) || checkPathSum(node.right, currentSum, targetSum));
-        
+        return (checkPathSum(node.left, currentSum, targetSum) || checkPathSum(node.right, currentSum, targetSum));
     }
 }
