@@ -14,8 +14,8 @@ class Solution {
         if(head==null || head.next==null)
             return null;
         
-       
         ListNode temp = head;
+        
         int length = 0;
         
         while(temp!=null){
@@ -25,13 +25,13 @@ class Solution {
         
         int middleButOne = (length/2)-1;
         
-        ListNode pointer = head;
+        temp = head;
         
         while(middleButOne-->0){
-            pointer = pointer.next;
+            temp = temp.next;
         }
         
-        pointer.next = pointer.next.next;
+        temp.next = temp.next.next;
         
         return head;
     }
