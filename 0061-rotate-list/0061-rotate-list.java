@@ -14,9 +14,8 @@ class Solution {
         if(head==null)
             return null;
         
-        int len = 0;
-        
         ListNode temp = head;
+        int len = 0;
         
         while(temp!=null){
             len++;
@@ -32,8 +31,8 @@ class Solution {
         }
         
         while(fast.next!=null){
-            slow = slow.next;
             fast = fast.next;
+            slow = slow.next;
         }
         
         fast.next = head;
