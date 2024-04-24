@@ -12,28 +12,25 @@ class Solution {
     public ListNode partition(ListNode head, int x) {
         
         ListNode lessHead = new ListNode(0);
-        ListNode lessNode = lessHead;
-        ListNode moreHead = new ListNode(0);
-        ListNode moreNode = moreHead;
+        ListNode highHead = new ListNode(0);
         
+        ListNode less = lessHead, high = highHead;
         
-        ListNode tempNode = head;
+        ListNode temp = head;
         
-        while(tempNode!=null){
-            if(tempNode.val<x){
-                lessNode.next = new ListNode(tempNode.val);
-                lessNode = lessNode.next;
+        while(temp!=null){
+            if(temp.val<x){
+                less.next = new ListNode(temp.val);
+                less = less.next;
             }
-            
             else{
-                moreNode.next = new ListNode(tempNode.val);
-                moreNode = moreNode.next;
+                high.next = new ListNode(temp.val);
+                high = high.next;
             }
-            
-            tempNode = tempNode.next;
+            temp = temp.next;
         }
         
-        lessNode.next = moreHead.next;
+        less.next = highHead.next;
         
         return lessHead.next;
     }
