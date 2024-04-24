@@ -1,15 +1,14 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-         Map<Character, Character> map_S = new HashMap<>();
+        
+        Map<Character, Character> map_S = new HashMap<>();
         Map<Character, Character> map_T = new HashMap<>();
         
-        
-        if(s.length()!=t.length())
+        if(s.length()!=t.length()){
             return false;
+        }
         
-        int n = s.length();
-        
-        for(int i=0; i<n; i++){
+        for(int i=0; i<s.length(); i++){
             char s_ch = s.charAt(i);
             char t_ch = t.charAt(i);
             
