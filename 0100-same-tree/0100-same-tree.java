@@ -16,6 +16,10 @@
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         
+        return checkSameTree(p, q);
+    }
+    
+    boolean checkSameTree(TreeNode p, TreeNode q){
         if(p==null && q==null)
             return true;
         
@@ -26,7 +30,6 @@ class Solution {
             return false;
         
         
-        return (isSameTree(p.left, q.left) && isSameTree(p.right, q.right));
-
+        return (checkSameTree(p.left, q.left) && checkSameTree(p.right, q.right));
     }
 }
