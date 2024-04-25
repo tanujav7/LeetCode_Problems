@@ -21,14 +21,15 @@ class Solution {
     }
     
     int getSumNumbers(TreeNode node, int sum){
+        
         if(node==null)
             return 0;
         
         sum = sum * 10 + node.val;
         
-        if(node.left==null && node.right==null){
+        if(node.left==null && node.right==null)
             return sum;
-        }
+        
         
         return (getSumNumbers(node.left, sum) + getSumNumbers(node.right, sum));
     }
