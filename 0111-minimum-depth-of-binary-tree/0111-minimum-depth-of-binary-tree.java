@@ -16,16 +16,20 @@
 class Solution {
     public int minDepth(TreeNode root) {
         
-        if(root==null)
+        return minimumDepth(root);
+    }
+    
+    int minimumDepth(TreeNode node){
+        if(node==null)
             return 0;
         
-        if(root.left==null)
-            return 1 + minDepth(root.right);
+        if(node.left==null)
+            return 1 + minimumDepth(node.right);
         
-         if(root.right==null)
-            return 1 + minDepth(root.left);
+        if(node.right==null)
+            return 1 + minimumDepth(node.left);
         
         
-        return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+        return 1 + Math.min(minimumDepth(node.left), minimumDepth(node.right));
     }
 }
