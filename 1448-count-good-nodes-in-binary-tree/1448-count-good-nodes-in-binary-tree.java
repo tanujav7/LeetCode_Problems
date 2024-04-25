@@ -15,11 +15,10 @@
  */
 class Solution {
     int count = 0;
+    
     public int goodNodes(TreeNode root) {
-        
         countGoodNodes(root, root.val);
         return count;
-        
     }
     
     void countGoodNodes(TreeNode node, int val){
@@ -33,6 +32,5 @@ class Solution {
         
         countGoodNodes(node.left, val);
         countGoodNodes(node.right, val);
-            
     }
 }
