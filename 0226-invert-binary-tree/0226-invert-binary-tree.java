@@ -18,6 +18,7 @@ class Solution {
         
         getInvertTree(root);
         return root;
+        
     }
     
     void getInvertTree(TreeNode node){
@@ -25,9 +26,9 @@ class Solution {
             return;
         
         swap(node);
-        
         getInvertTree(node.left);
         getInvertTree(node.right);
+        
     }
     
     void swap(TreeNode node){
