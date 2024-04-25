@@ -16,17 +16,18 @@
 class Solution {
     public TreeNode invertTree(TreeNode root) {
         
-        invert(root);
+        getInvertTree(root);
         return root;
     }
     
-    void invert(TreeNode node){
+    void getInvertTree(TreeNode node){
         if(node==null)
             return;
         
         swap(node);
-        invert(node.left);
-        invert(node.right);
+        
+        getInvertTree(node.left);
+        getInvertTree(node.right);
     }
     
     void swap(TreeNode node){
