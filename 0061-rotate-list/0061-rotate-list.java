@@ -18,8 +18,8 @@ class Solution {
         int len = 0;
         
         while(temp!=null){
-            len++;
             temp = temp.next;
+            len++;
         }
         
         k = k % len;
@@ -31,8 +31,8 @@ class Solution {
         }
         
         while(fast.next!=null){
-            fast = fast.next;
             slow = slow.next;
+            fast = fast.next;
         }
         
         fast.next = head;
