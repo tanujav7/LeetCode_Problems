@@ -16,10 +16,12 @@
 class Solution {
     List<String> list = new ArrayList<>();
     public List<String> binaryTreePaths(TreeNode root) {
+        
         if(root==null)
             return list;
         
         getPaths(root, "");
+        
         return list;
     }
     
@@ -29,10 +31,8 @@ class Solution {
         
         s = s + node.val;
         
-        if(node.left==null && node.right==null){
+        if(node.left==null && node.right==null)
             list.add(s);
-            return;
-        }
         
         getPaths(node.left, s+"->");
         getPaths(node.right, s+"->");
