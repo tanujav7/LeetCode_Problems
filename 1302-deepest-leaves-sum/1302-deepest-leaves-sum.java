@@ -14,33 +14,27 @@
  * }
  */
 class Solution {
-    int sum = 0;
-    
     public int deepestLeavesSum(TreeNode root) {
-        int maxDepth = maxDepth(root);
         
-        findDeepestSum(root, 0, maxDepth);
+        int sum = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
         
-        return sum;
-    }
-    
-    int maxDepth(TreeNode node){
-        if(node==null)
-            return 0;
-        
-        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
-    }
-    
-    int findDeepestSum(TreeNode node, int len, int maxDepth){
-        if(node==null)
-            return 0;
-        
-        len = len + 1;
-        
-        if(node.left==null && node.right==null && len==maxDepth){
-            sum += node.val;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            sum = 0;
+            for(int i=0; i<size; i++){
+                TreeNode currentNode = queue.remove();
+                sum = sum + currentNode.val;
+                
+                if(currentNode.left!=null)
+                    queue.add(currentNode.left);
+                
+                if(currentNode.right!=null)
+                    queue.add(currentNode.right);
+            }
         }
         
-        return (findDeepestSum(node.left, len, maxDepth) + findDeepestSum(node.right, len, maxDepth));
+        return sum;
     }
 }
