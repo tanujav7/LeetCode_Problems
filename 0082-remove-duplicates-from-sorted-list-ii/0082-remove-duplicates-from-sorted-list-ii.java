@@ -15,10 +15,8 @@ class Solution {
             return head;
         
         ListNode dummyHead = new ListNode(0);
-        ListNode prevNode = dummyHead;
-        
         ListNode currentNode = head;
-        
+        ListNode prevNode = dummyHead;
         
         while(currentNode!=null && currentNode.next!=null){
             if(currentNode.next!=null && currentNode.val==currentNode.next.val){
@@ -27,10 +25,12 @@ class Solution {
                     prevNode.next = currentNode.next;
                 }
             }
+            
             else{
                 prevNode.next = currentNode;
                 prevNode = prevNode.next;
             }
+            
             currentNode = currentNode.next;
         }
         
