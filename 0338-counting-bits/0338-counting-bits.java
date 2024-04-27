@@ -1,28 +1,29 @@
 class Solution {
     public int[] countBits(int n) {
         
-        int len = n+1;
-        int arr[] = new int[len];
+        int arr[] = new int[n+1];
         
         for(int i=0; i<=n; i++){
-            arr[i] = binary(i);
+            int oneCount = getOneCount(i);
+            arr[i] = oneCount;
         }
         
         return arr;
     }
     
-    int binary(int num){
-        int bin[] = new int[35];
-        int index = 0;
-        int count = 0;
+    int getOneCount(int n){
+        int res[] = new int[10005];
+        int i = 0;
         
-        while(num!=0){
-            bin[index++] = num%2;
-            num = num/2;
+        while(n>0){
+            res[i++] = n % 2;
+            n = n/2;
         }
         
-        for(int i=0; i<35; i++){
-            if(bin[i]==1)
+        int count = 0;
+        
+        for(int k : res){
+            if(k==1)
                 count++;
         }
         
