@@ -1,15 +1,14 @@
 class Solution {
     List<String> resList;
     public List<String> letterCombinations(String digits) {
-        
-       
         resList = new ArrayList<>();
+        int n = digits.length();
         
-         if(digits.isEmpty())
+        if(n==0)
             return resList;
         
-        int n = digits.length();
         backTrack(new StringBuilder(), n, 0, digits);
+        
         return resList;
     }
     
@@ -20,7 +19,6 @@ class Solution {
             resList.add(sb.toString());
             return;
         }
-        
         
         for(char ch : digitsToLetters[digits.charAt(index)-'0'].toCharArray()){
             sb.append(ch);
