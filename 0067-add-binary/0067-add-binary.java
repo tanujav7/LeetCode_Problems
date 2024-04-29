@@ -10,18 +10,16 @@ class Solution {
         int carry = 0;
         
         while(i>=0 || j>=0 || carry>0){
-            
             if(i>=0)
-            carry += (a.charAt(i--)-'0');
+                carry += (a.charAt(i--)-'0');
             
             if(j>=0)
-            carry += (b.charAt(j--)-'0');
+                carry += (b.charAt(j--)-'0');
             
             sb.append(carry%2);
             
             carry = carry/2;
         }
-        
         
         return sb.reverse().toString();
     }
