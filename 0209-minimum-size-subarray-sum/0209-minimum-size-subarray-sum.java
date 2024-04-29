@@ -1,10 +1,13 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         
-        int j = 0;
+        int sum = 0;
+        
         int n = nums.length;
         
-        int sum = 0, minSubarray = Integer.MAX_VALUE;
+        int j = 0;
+        
+        int minSubarray = Integer.MAX_VALUE;
         
         for(int i=0; i<n; i++){
             sum = sum + nums[i];
