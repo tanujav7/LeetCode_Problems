@@ -7,19 +7,20 @@ class Solution {
         
         int carry = 0;
         
+        
         for(int i=n-1; i>=0; --i){
             int currentSum = digits[i] + 1;
             
             if(currentSum>9){
-                carry = 1;
-                digits[i] = currentSum % 10;
                 newDigits[i+1] = currentSum % 10;
+                digits[i] = currentSum % 10;
+                carry = 1;
             }
             
             else{
-                carry = 0;
-                digits[i] = currentSum;
                 newDigits[i+1] = currentSum;
+                digits[i] = currentSum;
+                carry = 0;
                 break;
             }
         }
