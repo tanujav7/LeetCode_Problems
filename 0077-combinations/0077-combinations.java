@@ -6,13 +6,13 @@ class Solution {
         return resList;
     }
     
-    void backTrack(int n, int k, int num, List<Integer>list){
+    void backTrack(int n, int k, int ind, List<Integer> list){
         if(list.size()==k){
             resList.add(new ArrayList<>(list));
             return;
         }
         
-        for(int j=num; j<=n; j++){
+        for(int j=ind; j<=n; j++){
             list.add(j);
             backTrack(n, k, j+1, list);
             list.remove(list.size()-1);
