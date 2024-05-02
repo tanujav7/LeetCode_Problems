@@ -9,17 +9,18 @@ class Solution {
         if(low>high)
             return -1;
         
-        int mid = low + (high-low)/2;
+        int mid = low+(high-low)/2;
         
-        if(nums[mid]<target)
-            return binarySearch(nums, mid+1, high, target);
-        
-        else if(nums[mid]==target)
+        if(nums[mid]==target)
             return mid;
+
+        else if(nums[mid]>target)
+            return binarySearch(nums, low, mid-1, target);
         
         else
-           return binarySearch(nums, low, mid-1, target);
+             return binarySearch(nums, mid+1, high, target);
     }
+    
     
     int findPivot(int nums[], int start, int end){
         if(start>end)
@@ -27,11 +28,11 @@ class Solution {
         
         int mid = start + (end-start)/2;
         
+        if(mid>start && nums[mid]<nums[mid-1])
+            return mid;
+        
         if(mid<end && nums[mid+1]<nums[mid])
             return mid+1;
-        
-        else if(mid>start && nums[mid-1]>nums[mid])
-            return mid;
         
         if(nums[0]<=nums[mid])
             return findPivot(nums, mid+1, end);
@@ -41,20 +42,22 @@ class Solution {
     }
     
     
-    int findKey(int nums[], int low, int high, int target){
-        int pivot = findPivot(nums, low, high);
+    int findKey(int nums[], int start, int end, int target){
+        if(start>end)
+            return -1;
+        
+        int pivot = findPivot(nums, start, end);
         
         if(pivot==-1)
-            return binarySearch(nums, low, high, target);
+            return binarySearch(nums, start, end, target);
         
         if(nums[pivot]==target)
             return pivot;
         
         if(nums[0]<=target)
-            return binarySearch(nums, low, pivot-1, target);
-            
-        else
-            return binarySearch(nums, pivot+1, high, target);
+            return binarySearch(nums, start, pivot, target);
         
+        else
+            return binarySearch(nums, pivot+1, end, target);
     }
 }
