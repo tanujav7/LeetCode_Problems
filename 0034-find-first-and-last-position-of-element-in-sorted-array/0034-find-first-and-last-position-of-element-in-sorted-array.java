@@ -1,61 +1,42 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-                int res[] = {-1,-1};
         
-         res[0] = firstOcurrence(nums,target);
-         res[1] = lastOcurrence(nums,target);
+        int res[] = {-1, -1};
+        int n = nums.length;
         
-        return res;
-    }
-    
-    int firstOcurrence(int arr[], int target){
-        
-        int low = 0;
-        int high = arr.length-1;
-        int res = -1;
+        int low = 0, high = n-1;
         
         while(low<=high){
+            int mid = low + (high-low)/2;
             
-            int mid = low+(high-low)/2;
-            
-            if(arr[mid]==target){
-                res = mid;
+            if(nums[mid]==target){
+                res[0] = mid;
                 high = mid-1;
             }
-           
-            else if(arr[mid]<target)
+            
+            else if(nums[mid]<target)
                 low = mid+1;
             
             else
                 high = mid-1;
-           
         }
         
-        return res;
-    }
-    
-    
-    int lastOcurrence(int arr[], int target){
-        
-        int low = 0;
-        int high = arr.length-1;
-        int res = -1;
+        low = 0;
+        high = n-1;
         
         while(low<=high){
+            int mid = low + (high-low)/2;
             
-            int mid = low+(high-low)/2;
-            
-            if(arr[mid]==target){
-                res = mid;
+            if(nums[mid]==target){
+                res[1] = mid;
                 low = mid+1;
             }
-           
-            else if(arr[mid]<target)
+            
+            else if(nums[mid]<target)
                 low = mid+1;
             
             else
                 high = mid-1;
-           
         }
         
         return res;
