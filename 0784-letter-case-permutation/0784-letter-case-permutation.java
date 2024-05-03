@@ -1,28 +1,28 @@
 class Solution {
-    List<String> resList;
-    
+    List<String> list;
     public List<String> letterCasePermutation(String s) {
-        resList = new ArrayList<>();
+        list = new ArrayList<>();
         StringBuilder sb = new StringBuilder(s);
-        backTrack(s, sb, 0);
-        return resList;
+        letterCasePermutation(s, sb, 0);
+        return list;
     }
     
-    void backTrack(String s, StringBuilder sb, int index){
-        if(index==s.length()){
-            resList.add(sb.toString());
+    void letterCasePermutation(String s, StringBuilder sb, int i){
+        if(i==s.length()){
+            list.add(sb.toString());
             return;
         }
         
-        if(Character.isAlphabetic(s.charAt(index))){
-            if(Character.isUpperCase(s.charAt(index)))
-                sb.setCharAt(index, Character.toLowerCase(s.charAt(index)));
+        if(Character.isAlphabetic(s.charAt(i))){
+            if(Character.isUpperCase(s.charAt(i)))
+               sb.setCharAt(i, Character.toLowerCase(s.charAt(i)));
             else
-                sb.setCharAt(index, Character.toUpperCase(s.charAt(index)));
+               sb.setCharAt(i, Character.toUpperCase(s.charAt(i)));
             
-            backTrack(s,sb,index+1);
-            sb.setCharAt(index, s.charAt(index));
+            letterCasePermutation(s, sb, i+1);
+            sb.setCharAt(i, s.charAt(i));
         }
-         backTrack(s,sb,index+1);
+        
+        letterCasePermutation(s, sb, i+1);
     }
 }
