@@ -14,19 +14,23 @@
  * }
  */
 class Solution {
-    Set<Integer> set = new HashSet<>();
+    Set<Integer> set;
     public boolean findTarget(TreeNode root, int k) {
-       return checkTarget(root, k);
+        set = new HashSet<>();
+        return findTwoSum(root, k);
     }
-      boolean checkTarget(TreeNode node, int k){
-          if(node==null)
-              return false;
-          
-          if(set.contains(k-node.val))
-              return true;
-          
-          set.add(node.val);
-          
-          return (checkTarget(node.left, k) || checkTarget(node.right, k));
-      }
+    
+    boolean findTwoSum(TreeNode node, int k){
+        if(node==null)
+            return false;
+        
+        
+        if(set.contains(k-node.val))
+            return true;
+        
+        set.add(node.val);
+        
+        return (findTwoSum(node.left, k) || findTwoSum(node.right, k));
+        
+    }
 }
