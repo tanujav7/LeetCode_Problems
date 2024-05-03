@@ -15,22 +15,21 @@
  */
 class Solution {
     Set<Integer> set;
+    
     public boolean findTarget(TreeNode root, int k) {
         set = new HashSet<>();
-        return findTwoSum(root, k);
+       return getTwoSum(root, k);
     }
     
-    boolean findTwoSum(TreeNode node, int k){
+    boolean getTwoSum(TreeNode node, int k){
         if(node==null)
             return false;
-        
         
         if(set.contains(k-node.val))
             return true;
         
         set.add(node.val);
         
-        return (findTwoSum(node.left, k) || findTwoSum(node.right, k));
-        
+        return (getTwoSum(node.left, k) || getTwoSum(node.right, k));
     }
 }
