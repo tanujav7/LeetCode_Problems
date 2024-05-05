@@ -3,17 +3,23 @@ class Solution {
         int i = 0;
         int j = people.length-1;
         
-        int count = 0;
-        
         Arrays.sort(people);
+        
+        int count = 0;
         
         while(i<=j){
             count++;
-            if(people[i] + people[j] <= limit)
+            
+            if(people[i]+people[j]<=limit){
                 i++;
-            j--;
+                j--;
+            }
+            
+            else if(people[i]+people[j]>limit)
+                j--;
         }
-        
+            
+    
         return count;
     }
 }
