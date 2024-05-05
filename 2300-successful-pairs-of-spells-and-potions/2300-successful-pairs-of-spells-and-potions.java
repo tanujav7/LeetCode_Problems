@@ -1,33 +1,39 @@
 class Solution {
     public int[] successfulPairs(int[] spells, int[] potions, long success) {
         
-        int n = spells.length;
-        int m = potions.length;
+        int sLen = spells.length;
         
-        int res[] = new int[n];
+        int pLen = potions.length;
+        
+        int res[] = new int[sLen];
         
         Arrays.sort(potions);
         
-        
-        for(int i=0; i<n; i++){
-           int low = 0;
-           int high = m-1;
-            int mid = 0;
-            while(low<=high){
-                mid = low + (high-low)/2;
-                
-                long mul = (long)potions[mid] * spells[i];
-                
-                if(mul>=success)
-                    high = mid-1;
-                
-                else
-                    low = mid+1;
-            }
-            
-            res[i] = m-low;
+        for(int i=0; i<sLen; i++){
+            int getCount = getCount(potions, spells[i], pLen, success);
+            res[i] = getCount;
         }
         
         return res;
+    }
+    
+    int getCount(int potions[], int num, int n, long success){
+        int low = 0;
+        int high = n-1;
+        int mid = 0;
+        
+        while(low<=high){
+             mid = low + (high-low)/2;
+            
+            long mul = (long)num * potions[mid];
+            
+            if(mul<success)
+                low = mid+1;
+            
+            else
+                high = mid-1;
+        }
+        
+        return n-low;
     }
 }
