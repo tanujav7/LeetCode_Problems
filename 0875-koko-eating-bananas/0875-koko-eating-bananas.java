@@ -1,29 +1,25 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         
+        int max = Integer.MIN_VALUE;
+        
         int n = piles.length;
         
-        int MAX = Integer.MIN_VALUE;
         
         for(int i=0; i<n; i++){
-            if(piles[i]>=MAX)
-                MAX = piles[i];
+            if(piles[i]>=max)
+                max = piles[i];
         }
-            
-        
-       
-        //Binary Search
-        
-        int low = 1, high = MAX;
+          
+        int low = 1, high = max;
         
         while(low<=high){
             int mid = low + (high-low)/2;
             
             int k = getSpeed(piles, n, mid);
             
-            if(k<=h){
+            if(k<=h)
                 high = mid-1;
-            }
             
             else
                 low = mid+1;
@@ -36,9 +32,9 @@ class Solution {
         int totalHr = 0;
         
         for(int i=0; i<n; i++){
-            totalHr += Math.ceil((double)(piles[i]) / (double)(num));
+              totalHr += Math.ceil((double)(piles[i])/(double)(num));
         }
         
-        return totalHr;
+        return (int)totalHr;
     }
 }
