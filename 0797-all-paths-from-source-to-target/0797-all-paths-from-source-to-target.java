@@ -6,29 +6,28 @@ class Solution {
         int n = graph.length;
         int dest = graph.length-1;
         
-        int visited[] = new int[10005];
         
-        dfs(graph, n, src, dest, visited, new ArrayList<>());
+        List<Integer> path = new ArrayList<>();
+        
+        path.add(0);
+        
+        dfs(graph, n, src, dest, path);
         
         return resList;
     }
     
-    void dfs(int graph[][], int n, int src, int dest, int visited[], List<Integer> path){
-        path.add(src);
-        visited[src] = 1;
-        
+    void dfs(int graph[][], int n, int src, int dest, List<Integer> path){
+
         if(src==dest){
             resList.add(new ArrayList<>(path));
-            //return;
         }
         
         for(int ele : graph[src]){
-          if(visited[ele]==0)
-             dfs(graph, n, ele, dest, visited, path);
+             path.add(ele);
+             dfs(graph, n, ele, dest, path);
+             path.remove(path.size()-1);
         }
-               
+     
         
-        path.remove(path.size()-1);
-        visited[src] = 0;
     }
 }
