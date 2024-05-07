@@ -2,20 +2,21 @@ class Solution {
     public int numIslands(char[][] grid) {
         
         int row = grid.length;
+        
         int col = grid[0].length;
         
-        int numIslands = 0;
+        int countIslands = 0;
         
         for(int i=0; i<row; i++){
             for(int j=0; j<col; j++){
                 if(grid[i][j]=='1'){
-                    numIslands++;
+                    countIslands++;
                     dfs(grid, i, j);
                 }
             }
         }
         
-        return numIslands;
+        return countIslands;
     }
     
     void dfs(char grid[][], int i, int j){
@@ -24,9 +25,10 @@ class Solution {
         
         grid[i][j] = '2';
         
-         dfs(grid, i+1, j);
-         dfs(grid, i-1, j);
-         dfs(grid, i, j+1);
-         dfs(grid, i, j-1);
+        dfs(grid, i, j+1);
+        dfs(grid, i, j-1);
+        dfs(grid, i+1, j);
+        dfs(grid, i-1, j);
+        
     }
 }
