@@ -20,6 +20,7 @@ class Solution {
 
         if(src==dest){
             resList.add(new ArrayList<>(path));
+            return;
         }
         
         for(int ele : graph[src]){
@@ -28,6 +29,5 @@ class Solution {
              path.remove(path.size()-1);
         }
      
-        
     }
 }
