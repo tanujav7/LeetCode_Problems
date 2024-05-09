@@ -1,17 +1,29 @@
 class Solution {
     public String longestCommonPrefix(String[] strs) {
+        return longestCommonPrefix(strs, 0, strs.length-1);
+    }
+    
+    String longestCommonPrefix(String strs[], int low, int high){
+        if(low==high)
+            return strs[low];
         
-        String prefix = strs[0];
+        int mid = low + (high-low)/2;
         
-        for(int i=1; i<strs.length; i++){
-            while(strs[i].indexOf(prefix)!=0){
-                prefix = prefix.substring(0, prefix.length()-1);
-                
-                if(prefix.equals(""))
-                    return "";
-            }
+        String leftLCP = longestCommonPrefix(strs, low, mid);
+        
+        String rightLCP = longestCommonPrefix(strs, mid+1, high);
+        
+        return lcp(leftLCP, rightLCP);
+    }
+    
+    String lcp(String left, String right){
+        int min = Math.min(left.length(), right.length());
+        
+        for(int i=0; i<min; i++){
+            if(left.charAt(i)!=right.charAt(i))
+                return left.substring(0, i);
         }
         
-        return prefix;
+        return left.substring(0, min);
     }
 }
