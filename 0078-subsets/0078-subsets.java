@@ -2,22 +2,22 @@ class Solution {
     List<List<Integer>> resList;
     public List<List<Integer>> subsets(int[] nums) {
         resList = new ArrayList<>();
-        int n = nums.length;
-        backTrack(nums, n, 0, new ArrayList<>());
+        
+        backTrack(nums, nums.length, 0, new ArrayList<>());
         return resList;
     }
     
-    void backTrack(int nums[], int n, int i, List<Integer>path){
+    void backTrack(int nums[], int n, int i, List<Integer> list){
         if(i==n){
-            resList.add(new ArrayList<>(path));
+            resList.add(new ArrayList<>(list));
             return;
         }
         
         else{
-            path.add(nums[i]);
-            backTrack(nums, n, i+1, path);
-            path.remove(path.size()-1);
-            backTrack(nums, n, i+1, path);
+            list.add(nums[i]);
+            backTrack(nums, n, i+1, list);
+            list.remove(list.size()-1);
+             backTrack(nums, n, i+1, list);
         }
     }
 }
