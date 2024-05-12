@@ -15,16 +15,14 @@
  */
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        
         return checkPathSum(root, 0, targetSum);
-        
     }
     
     boolean checkPathSum(TreeNode node, int currentSum, int targetSum){
         if(node==null)
             return false;
         
-        currentSum = currentSum + node.val;
+        currentSum += node.val;
         
         if(node.left==null && node.right==null && currentSum==targetSum)
             return true;
