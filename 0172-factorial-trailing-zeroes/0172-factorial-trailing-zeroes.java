@@ -6,7 +6,6 @@ class Solution {
         for(int i=5; n/i>=1; i=i*5){
             count += n/i;
         }
-            
         
         return count;
     }
