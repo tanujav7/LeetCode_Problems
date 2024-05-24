@@ -3,34 +3,34 @@ class Solution {
         
         int n = digits.length;
         
-        int newDigits[] = new int[n+1];
-        
         int carry = 0;
         
+        int newDigits[] = new int[n+1];
+        
         for(int i=n-1; i>=0; --i){
-            int currentNum = digits[i] + 1;
+            int currSum = digits[i] + 1;
             
-            if(currentNum>9){
-                newDigits[i+1] = currentNum % 10;
-                digits[i] = currentNum % 10;
+            if(currSum>9){
+                newDigits[i+1] = currSum % 10;
+                digits[i] = currSum % 10;
                 carry = 1;
             }
             
             else{
-                newDigits[i+1] = currentNum;
-                digits[i] = currentNum;
+                newDigits[i+1] = currSum;
+                digits[i] = currSum;
                 carry = 0;
                 break;
             }
         }
         
+        
         if(carry==0)
             return digits;
         
-        else{
-            newDigits[0] = 1;
-            return newDigits;
-        }
-            
+        newDigits[0] = 1;
+        
+        return newDigits;
     }
+    
 }
