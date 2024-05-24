@@ -5,9 +5,9 @@ class Solution {
         int n = needle.length();
         
         for(int i=0; i<m-n+1; i++){
-            String str = haystack.substring(i, i+n);
+            String comp = haystack.substring(i, i+n);
             
-            if(str.equals(needle))
+            if(comp.equals(needle))
                 return i;
         }
         
