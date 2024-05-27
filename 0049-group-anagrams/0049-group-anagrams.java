@@ -6,9 +6,7 @@ class Solution {
         for(String str : strs){
             char arr[] = str.toCharArray();
             Arrays.sort(arr);
-            
             String s = new String(arr);
-            
             if(map.containsKey(s)){
                 map.get(s).add(str);
             }
