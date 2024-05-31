@@ -17,20 +17,24 @@ class Solution {
     int count = 0;
     
     public int goodNodes(TreeNode root) {
-        countGoodNodes(root, root.val);
+        
+        getGoodNodes(root, root.val);
+        
         return count;
     }
     
-    void countGoodNodes(TreeNode node, int val){
+    
+    void getGoodNodes(TreeNode node, int val){
         if(node==null)
             return;
         
         if(node.val>=val){
             val = node.val;
-            count++;
+             count++;
         }
+            
+        getGoodNodes(node.left, val);
+        getGoodNodes(node.right, val);
         
-        countGoodNodes(node.left, val);
-        countGoodNodes(node.right, val);
     }
 }
