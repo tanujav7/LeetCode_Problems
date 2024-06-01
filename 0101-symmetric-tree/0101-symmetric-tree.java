@@ -15,12 +15,12 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        return checkSymmetric(root, root);
+        return checkSymmetric(root.left, root.right);
     }
     
-     public boolean checkSymmetric(TreeNode p, TreeNode q) {
+    boolean checkSymmetric(TreeNode p, TreeNode q){
         if(p==null && q==null)
-           return true;
+            return true;
         
         if(p==null || q==null)
             return false;
@@ -28,6 +28,6 @@ class Solution {
         if(p.val!=q.val)
             return false;
         
-        return (checkSymmetric(p.left, q.right) && checkSymmetric(p.right, q.left));
+        return (checkSymmetric(p.left, q.right) && checkSymmetric(q.left, p.right));
     }
 }
