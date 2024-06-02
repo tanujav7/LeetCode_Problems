@@ -7,16 +7,15 @@ class Solution {
         
         int res[] = new int[n];
         
+        
         for(int i=0; i<n; i++){
             
-            
             while(!stack.isEmpty() && temperatures[stack.peek()]<temperatures[i]){
-                res[stack.peek()] = i-stack.peek();
-                stack.pop();
+                int num = stack.pop();
+                res[num] = i-num;
             }
-                  
-                stack.push(i);
             
+            stack.push(i);
         }
         
         return res;
