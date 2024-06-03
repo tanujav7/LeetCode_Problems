@@ -1,12 +1,11 @@
 class Solution {
     public String simplifyPath(String path) {
         
-        Stack<String> stack = new Stack<>();
-        
         String arr[] = path.split("/");
         
+        Stack<String> stack = new Stack<>();
+        
         for(int i=0; i<arr.length; i++){
-            
             if(arr[i].equals("") || arr[i].equals("."))
                 continue;
             
@@ -22,14 +21,13 @@ class Solution {
         if(stack.isEmpty())
             return "/";
         
-        
         String res = "";
         
         while(!stack.isEmpty()){
             res = "/" + stack.pop() + res;
         }
         
-        return res;
         
+        return res;
     }
 }
