@@ -6,7 +6,7 @@ class Solution {
         for(char ch : s.toCharArray()){
             if(stack.isEmpty())
                 stack.add(ch);
-            else if(!stack.isEmpty()){
+            else{
                 if(ch==']' && stack.peek()=='[')
                     stack.pop();
                 
