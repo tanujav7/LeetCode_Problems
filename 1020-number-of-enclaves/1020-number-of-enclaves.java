@@ -6,19 +6,19 @@ class Solution {
         
         int count = 0;
         
-        //First row and last row
         for(int j=0; j<col; j++){
             if(grid[0][j]==1)
                 dfs(grid, 0, j);
+            
             if(grid[row-1][j]==1)
                 dfs(grid, row-1, j);
         }
         
         
-         //First column and last column
-        for(int j=0; j<row; j++){
+         for(int j=0; j<row; j++){
             if(grid[j][0]==1)
                 dfs(grid, j, 0);
+            
             if(grid[j][col-1]==1)
                 dfs(grid, j, col-1);
         }
@@ -39,12 +39,13 @@ class Solution {
         if(i<0 || j<0 || i>=grid.length || j>=grid[0].length || grid[i][j]==0 || grid[i][j]==2)
             return;
         
+        
         grid[i][j] = 2;
         
-        dfs(grid, i, j+1);
-        dfs(grid, i, j-1);
-        dfs(grid, i+1, j);
-        dfs(grid, i-1, j);
-        
+         dfs(grid, i+1, j);
+         dfs(grid, i-1, j);
+         dfs(grid, i, j+1);
+         dfs(grid, i, j-1);
     }
+    
 }
