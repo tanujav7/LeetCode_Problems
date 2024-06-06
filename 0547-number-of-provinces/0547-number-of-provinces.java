@@ -1,29 +1,29 @@
 class Solution {
     public int findCircleNum(int[][] isConnected) {
         
-        int count = 0;
-        
         int n = isConnected.length;
         
-        int visited[] = new int[300];
+        int visited[] = new int[n];
         
+        int count = 0;
         
         for(int i=0; i<n; i++){
             if(visited[i]==0){
-                count++;
-                dfs(isConnected, n, visited, i);
+              dfs(isConnected, i, visited, n);
+              count++;
             }
         }
         
         return count;
     }
     
-    void dfs(int graph[][], int n, int visited[], int u){
+    void dfs(int grid[][], int u, int visited[], int n){
+        
         visited[u] = 1;
         
         for(int i=0; i<n; i++){
-            if(graph[u][i]==1 && visited[i]==0)
-                dfs(graph, n, visited, i);
+            if(grid[u][i]==1 && visited[i]==0)
+                dfs(grid, i, visited, n);
         }
     }
 }
