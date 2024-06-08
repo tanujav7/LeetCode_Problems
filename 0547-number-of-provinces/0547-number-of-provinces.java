@@ -9,21 +9,20 @@ class Solution {
         
         for(int i=0; i<n; i++){
             if(visited[i]==0){
-              dfs(isConnected, i, visited, n);
-              count++;
+                dfs(isConnected, visited, i, n);
+                count++;
             }
         }
         
         return count;
     }
     
-    void dfs(int grid[][], int u, int visited[], int n){
-        
+    void dfs(int isConnected[][], int visited[], int u, int n){
         visited[u] = 1;
         
-        for(int i=0; i<n; i++){
-            if(grid[u][i]==1 && visited[i]==0)
-                dfs(grid, i, visited, n);
-        }
+         for(int i=0; i<n; i++){
+            if(isConnected[u][i]==1 && visited[i]==0)
+             dfs(isConnected, visited, i, n);
+         }
     }
 }
