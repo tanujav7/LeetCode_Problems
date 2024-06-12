@@ -5,13 +5,13 @@ class Solution {
         
         int count0 = 0, count1 = 0, count2 = 0;
         
-        for(int num : nums){
-            switch(num){
+        for(int i=0; i<n; i++){
+            switch(nums[i]){
                 case 0 : count0++;
                     break;
-                 case 1 : count1++;
+                case 1 : count1++;
                     break;
-                 case 2 : count2++;
+                case 2 : count2++;
                     break;
             }
         }
