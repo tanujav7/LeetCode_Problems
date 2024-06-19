@@ -30,8 +30,10 @@ class Solution {
         
         if(root==null)
             return null;
+        
         while(!queue.isEmpty()){
             int size = queue.size();
+            
             for(int i=0; i<size; i++){
                 Node node = queue.remove();
                 
@@ -49,13 +51,3 @@ class Solution {
         return root;
     }
 }
-
-
-
-
-
-
-
-
-
-
