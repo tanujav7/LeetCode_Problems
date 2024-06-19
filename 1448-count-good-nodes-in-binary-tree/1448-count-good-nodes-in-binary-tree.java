@@ -15,26 +15,23 @@
  */
 class Solution {
     int count = 0;
-    
     public int goodNodes(TreeNode root) {
-        
         getGoodNodes(root, root.val);
-        
         return count;
     }
-    
     
     void getGoodNodes(TreeNode node, int val){
         if(node==null)
             return;
         
         if(node.val>=val){
-            val = node.val;
-             count++;
+           val = node.val;
+           count++;
         }
-            
+           
+        
+        
         getGoodNodes(node.left, val);
         getGoodNodes(node.right, val);
-        
     }
 }
