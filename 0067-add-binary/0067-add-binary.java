@@ -13,15 +13,10 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         
         while(i>=0 || j>=0 || carry>0){
-            if(i>=0)
-            n1 = (a.charAt(i--)-'0');
-            else
-            n1 = 0;
+         
+            n1 = (i>=0) ? (a.charAt(i--)-'0') : 0;
             
-            if(j>=0)
-            n2 = (b.charAt(j--)-'0');
-            else
-            n2 = 0;
+            n2 = (j>=0) ? (b.charAt(j--)-'0') : 0;
             
             int sum = n1 + n2 + carry;
             
