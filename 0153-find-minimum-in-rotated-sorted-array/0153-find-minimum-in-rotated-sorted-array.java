@@ -1,12 +1,17 @@
 class Solution {
     public int findMin(int[] nums) {
         
-        int res = getPivotPoint(nums, 0, nums.length-1);
+        int n = nums.length;
+       int res = findMin(nums, 0, n-1);
         
-        return res==-1 ? nums[0] : res;
+        if(res==-1)
+            return nums[0];
+        
+        else
+            return res;
     }
     
-    int getPivotPoint(int nums[], int start, int end){
+    int findMin(int nums[], int start, int end){
         if(start>end)
             return -1;
         
@@ -19,9 +24,10 @@ class Solution {
             return nums[mid];
         
         else if(nums[0]<=nums[mid])
-            return getPivotPoint(nums, mid+1, end);
-            
+            return findMin(nums, mid+1, end);
+        
         else
-            return getPivotPoint(nums, start, mid-1);
+            return findMin(nums, start, mid-1);
+        
     }
 }
