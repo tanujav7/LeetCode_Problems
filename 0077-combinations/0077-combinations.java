@@ -6,7 +6,7 @@ class Solution {
     }
     
     void backTrack(int n, int k, int i, List<Integer> list){
-        if(k==list.size()){
+        if(list.size()==k){
             resList.add(new ArrayList<>(list));
             return;
         }
