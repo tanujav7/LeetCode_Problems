@@ -3,10 +3,14 @@ class Solution {
         
         s = s.trim();
         
+        int n = s.length();
+        
         int count = 0;
         
-        for(int i=s.length()-1; i>=0; --i){
-            if(s.charAt(i)==' ')
+        String arr[] = s.split("");
+            
+        for(int i=arr.length-1; i>=0; --i){
+            if(arr[i].equals(" "))
                 break;
             else
                 count++;
