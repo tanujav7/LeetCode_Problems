@@ -3,12 +3,16 @@ class Solution {
         
         int i = 0, j = 0;
         
-        while(i<s.length() && j<t.length()){
+        int s_len = s.length();
+        
+        int t_len = t.length();
+        
+        while(i<s_len && j<t_len){
             if(s.charAt(i)==t.charAt(j))
                 i++;
             j++;
         }
         
-        return i==s.length();
+        return i==s_len;
     }
 }
