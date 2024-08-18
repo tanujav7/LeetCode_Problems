@@ -12,29 +12,34 @@ class Solution {
         set.add('I');
         set.add('O');
         set.add('U');
-
+        
         
         char arr[] = s.toCharArray();
         
-        int i = 0, j = arr.length-1;
+        int n = arr.length;
+        
+        
+        int i=0, j=n-1;
+        
         
         while(i<=j){
             char ch1 = arr[i];
             char ch2 = arr[j];
             
-            if(!set.contains(ch1))
-                i++;
             
-            else if(!set.contains(ch2))
-                j--;
-            
-            else{
+            if(set.contains(ch1) && set.contains(ch2)){
                 char temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
                 i++;
                 j--;
             }
+            
+            else if(!set.contains(ch1))
+                i++;
+            
+            else
+                j--;
         }
         
         String str = new String(arr);
