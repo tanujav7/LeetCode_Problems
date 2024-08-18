@@ -4,9 +4,10 @@ class Solution {
         Set<Integer> set = new HashSet<>();
         
         while(!set.contains(n)){
+            
             set.add(n);
             
-            int num = getSquareOfDigits(n);
+            int num = getSq(n);
             
             if(num==1)
                 return true;
@@ -17,15 +18,19 @@ class Solution {
         return false;
     }
     
-    int getSquareOfDigits(int num){
-        int sum = 0;
+    
+    int getSq(int num){
         
-        while(num>0){
+        int temp = num;
+         
+        int sq = 0;
+        
+        while(num!=0){
             int rem = num % 10;
-            sum = rem * rem + sum;
+            sq += rem * rem;
             num = num/10;
         }
         
-        return sum;
+        return sq;
     }
 }
