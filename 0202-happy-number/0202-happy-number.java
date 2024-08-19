@@ -18,17 +18,13 @@ class Solution {
         return false;
     }
     
-    
-    int getSq(int num){
+    int getSq(int n){
+        int rem = 0, sq = 0;
         
-        int temp = num;
-         
-        int sq = 0;
-        
-        while(num!=0){
-            int rem = num % 10;
+        while(n!=0){
+            rem = n % 10;
             sq += rem * rem;
-            num = num/10;
+            n = n/10;
         }
         
         return sq;
