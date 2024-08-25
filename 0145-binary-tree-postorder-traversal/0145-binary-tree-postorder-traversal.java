@@ -15,8 +15,7 @@
  */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        
-        List<Integer> resList = new ArrayList<>();
+          List<Integer> resList = new ArrayList<>();
         Stack<TreeNode> s1 = new Stack<>();
         Stack<TreeNode> s2 = new Stack<>();
         
@@ -42,6 +41,5 @@ class Solution {
             resList.add(s2.pop().val);
         
         return resList;
-        
     }
 }
