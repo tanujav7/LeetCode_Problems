@@ -3,16 +3,12 @@ class Solution {
         
         String res = "";
         
-        int len1 = word1.length();
-        
-        int len2 = word2.length();
-        
         int i = 0, j = 0;
         
-        while(i<len1 || j<len2){
-            if(i<len1)
+        while(i<word1.length() || j<word2.length()){
+            if(i<word1.length())
                 res = res + word1.charAt(i++);
-            if(j<len2)
+            if(j<word2.length())
                 res = res + word2.charAt(j++);
         }
         
