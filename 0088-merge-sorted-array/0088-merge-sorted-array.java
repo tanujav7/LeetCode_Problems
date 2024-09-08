@@ -1,6 +1,5 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        
         m = m-1;
         n = n-1;
         
@@ -17,12 +16,14 @@ class Solution {
         }
         
         
-        while(m>=0){
-            nums1[len--] = nums1[m--];
+       while(m>=0){
+           nums1[len--] = nums1[m--];
         }
         
-         while(n>=0){
+        
+        while(n>=0){
             nums1[len--] = nums2[n--];
-        }
+         }
+            
     }
 }
