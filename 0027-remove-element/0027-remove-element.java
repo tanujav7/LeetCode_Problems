@@ -3,16 +3,16 @@ class Solution {
         
         int n = nums.length;
         
-        int j = 0;
+        int i = 0;
         
-        for(int i=0; i<n; i++){
-            if(nums[i]!=val){
+        for(int j=0; j<n; j++){
+            if(nums[j]!=val){
                 swap(nums, i, j);
-                j++;
+                i++;
             }
         }
         
-        return j;
+        return i;
     }
     
     void swap(int nums[], int i, int j){
