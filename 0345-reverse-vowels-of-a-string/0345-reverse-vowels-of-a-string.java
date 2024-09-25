@@ -13,37 +13,31 @@ class Solution {
         set.add('O');
         set.add('U');
         
+        int i = 0, j = s.length()-1;
         
         char arr[] = s.toCharArray();
         
-        int n = arr.length;
-        
-        
-        int i=0, j=n-1;
-        
-        
-        while(i<=j){
-            char ch1 = arr[i];
-            char ch2 = arr[j];
-            
-            
-            if(set.contains(ch1) && set.contains(ch2)){
+        while(i<j){
+            if(!set.contains(arr[i]))
+                i++;
+            else if(!set.contains(arr[j]))
+                j--;
+            else{
                 char temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
                 i++;
                 j--;
             }
-            
-            else if(!set.contains(ch1))
-                i++;
-            
-            else
-                j--;
         }
         
-        String str = new String(arr);
+        String res = "";
         
-        return str;
+        
+        for(int k=0; k<arr.length; k++)
+            res = res + arr[k];
+        
+        return res;
+        
     }
 }
