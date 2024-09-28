@@ -9,6 +9,7 @@ class Solution {
         
         Set<Integer> set = new HashSet<>(map.values());
         
-        return map.size()==set.size();
+        return set.size()==map.size();
+        
     }
 }
