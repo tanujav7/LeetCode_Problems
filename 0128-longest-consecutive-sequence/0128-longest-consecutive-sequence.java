@@ -5,27 +5,25 @@ class Solution {
         
         Set<Integer> set = new HashSet<>();
         
-        
-        for(int i=0; i<n; i++){
-            set.add(nums[i]);
+        for(int num : nums){
+            set.add(num);
         }
         
-        int longestSequence = 0;
+        int longestConsecutive = 0;
         
         for(int i=0; i<n; i++){
             if(!set.contains(nums[i]-1)){
-                int num = nums[i];
-                int sequenceLength = 1;
-                while(set.contains(num+1)){
-                    num = num+1;
-                    sequenceLength++;
+                int currentNum = nums[i];
+                int length = 1;
+                while(set.contains(currentNum+1)){
+                    length++;
+                    currentNum += 1;
                 }
                 
-                longestSequence = Math.max(longestSequence, sequenceLength);
+                longestConsecutive = Math.max(longestConsecutive, length);
             }
         }
         
-        
-        return longestSequence;
+        return longestConsecutive;
     }
 }
