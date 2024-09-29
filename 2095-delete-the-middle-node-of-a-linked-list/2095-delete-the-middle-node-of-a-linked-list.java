@@ -14,24 +14,24 @@ class Solution {
         if(head==null || head.next==null)
             return null;
         
-        ListNode temp = head;
+        ListNode tempNode = head;
+        int len = 0;
         
-        int length = 0;
-        
-        while(temp!=null){
-            temp = temp.next;
-            length++;
+        while(tempNode!=null){
+            tempNode = tempNode.next;
+            len++;
         }
         
-        int middleButOne = (length/2)-1;
+        int middleButOne = (len/2) - 1;
         
-        temp = head;
+        ListNode pointer = head;
         
-        while(middleButOne-->0){
-            temp = temp.next;
+        
+        while(middleButOne--!=0){
+            pointer = pointer.next;
         }
         
-        temp.next = temp.next.next;
+        pointer.next = pointer.next.next;
         
         return head;
     }
