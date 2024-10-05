@@ -25,19 +25,17 @@ class Solution {
         if(root==null)
             return resList;
         
+        
         while(!queue.isEmpty()){
             int size = queue.size();
             List<Integer> list = new ArrayList<>();
             for(int i=0; i<size; i++){
-                TreeNode node = queue.remove();
-                
-                if(node.left!=null)
-                    queue.add(node.left);
-                
-                if(node.right!=null)
-                    queue.add(node.right);
-                
-                list.add(node.val);
+                TreeNode current = queue.remove();
+                list.add(current.val);
+                if(current.left!=null)
+                    queue.add(current.left);
+                if(current.right!=null)
+                    queue.add(current.right);
             }
             resList.add(list);
         }
