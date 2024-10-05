@@ -22,22 +22,25 @@ class Solution {
         
         queue.add(root);
         
+        
         if(root==null)
             return list;
+        
         
         while(!queue.isEmpty()){
             int size = queue.size();
             for(int i=0; i<size; i++){
-                TreeNode node = queue.remove();
+                TreeNode current = queue.remove();
                 
                 if(i==0)
-                    list.add(node.val);
+                list.add(current.val);
+            
+                if(current.right!=null)
+                    queue.add(current.right);
                 
-                if(node.right!=null)
-                    queue.add(node.right);
-                
-                if(node.left!=null)
-                    queue.add(node.left);
+                if(current.left!=null)
+                    queue.add(current.left);
+            
             }
         }
         
