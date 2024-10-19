@@ -9,12 +9,10 @@ class Solution {
         String res = "";
         
         while(i<len1 || j<len2){
-            if(i<len1){
+            if(i<len1)
                 res = res + word1.charAt(i++);
-            }
-             if(j<len2){
+            if(j<len2)
                 res = res + word2.charAt(j++);
-            }
         }
         
         return res;
