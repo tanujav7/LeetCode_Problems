@@ -5,15 +5,17 @@ class Solution {
         
         String arr[] = s.split(" ");
         
-        StringBuilder sb = new StringBuilder();
+        int n = arr.length;
         
-        for(int i=arr.length-1; i>=0; --i){
+        String res = "";
+        
+        for(int i=n-1; i>=0; --i){
             if(arr[i].equals(""))
                 continue;
             else
-                sb.append(arr[i]).append(" ");
+                res = res + arr[i] + " ";
         }
         
-        return sb.substring(0, sb.length()-1);
+        return res.substring(0, res.length()-1);
     }
 }
