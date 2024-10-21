@@ -11,27 +11,27 @@
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
         
-        if(head==null || head.next==null)
+        if(head.next==null || head==null)
             return null;
         
-        ListNode tempNode = head;
         int len = 0;
+        ListNode tempHead = head;
         
-        while(tempNode!=null){
-            tempNode = tempNode.next;
+        while(tempHead!=null){
             len++;
+            tempHead = tempHead.next;
         }
         
-        int middleButOne = (len/2) - 1;
         
-        ListNode pointer = head;
+        int midNode = (len/2)-1;
         
+        ListNode temp = head;
         
-        while(middleButOne--!=0){
-            pointer = pointer.next;
+        while(midNode-->0){
+            temp = temp.next;
         }
         
-        pointer.next = pointer.next.next;
+        temp.next = temp.next.next;
         
         return head;
     }
