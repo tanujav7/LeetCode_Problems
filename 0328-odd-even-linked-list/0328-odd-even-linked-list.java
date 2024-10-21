@@ -8,15 +8,14 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
 class Solution {
     public ListNode oddEvenList(ListNode head) {
         
         if(head==null)
             return null;
         
-        ListNode oddHead = head, evenHead = head.next;
-        ListNode odd = head, even = head.next;
+        ListNode evenHead = head.next, oddHead = head;
+        ListNode even = head.next, odd = head;
         
         while(even!=null && even.next!=null){
             odd.next = even.next;
