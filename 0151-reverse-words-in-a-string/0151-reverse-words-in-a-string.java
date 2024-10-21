@@ -2,7 +2,6 @@ class Solution {
     public String reverseWords(String s) {
         
         s = s.trim();
-        
         String arr[] = s.split(" ");
         
         int n = arr.length;
