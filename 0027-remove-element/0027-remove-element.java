@@ -5,19 +5,15 @@ class Solution {
         
         int i = 0;
         
-        for(int j=0; j<n; j++){
+        for(int j = 0; j<n; j++){
             if(nums[j]!=val){
-                swap(nums, i, j);
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
                 i++;
             }
         }
         
         return i;
-    }
-    
-    void swap(int nums[], int i, int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
     }
 }
