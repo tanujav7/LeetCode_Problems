@@ -18,10 +18,12 @@ class Solution {
         
         List<Integer> list = new ArrayList<>();
         
+        
         if(root==null)
             return list;
         
         Queue<TreeNode> queue = new LinkedList<>();
+        
         queue.add(root);
         
         while(!queue.isEmpty()){
@@ -34,10 +36,8 @@ class Solution {
                 if(current.right!=null)
                     queue.add(current.right);
                 
-                if(current.left!=null)
+                 if(current.left!=null)
                     queue.add(current.left);
-                
-                 
             }
         }
         
