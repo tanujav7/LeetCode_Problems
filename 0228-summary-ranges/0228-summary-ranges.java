@@ -5,19 +5,16 @@ class Solution {
         int n = nums.length;
         
         for(int i=0; i<n; i++){
-            int start = nums[i];
+            int num = nums[i];
             
-            while(i+1<n && nums[i+1]==nums[i]+1){
+            while(i+1<n && nums[i+1]==nums[i]+1)
                 i++;
-            }
             
-            int end = nums[i];
-            
-            if(start==end)
-                list.add(""+start);
+            if(num!=nums[i])
+                list.add(num+"->"+nums[i]);
             
             else
-                list.add(start+"->"+end);
+                list.add(""+num);
         }
         
         return list;
