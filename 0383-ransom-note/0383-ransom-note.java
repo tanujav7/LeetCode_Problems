@@ -9,7 +9,6 @@ class Solution {
         
         for(int i=0; i<ransomNote.length(); i++){
             char ch = ransomNote.charAt(i);
-            
             int count = map.containsKey(ch) ? map.get(ch)-1 : -1;
             
             if(count==-1)
