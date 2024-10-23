@@ -4,29 +4,26 @@ class Solution {
         Set<Integer> set = new HashSet<>();
         
         while(!set.contains(n)){
-            
             set.add(n);
             
-            int num = getSq(n);
+            n = getSquare(n);
             
-            if(num==1)
+            if(n==1)
                 return true;
-            
-            n = num;
         }
         
         return false;
     }
     
-    int getSq(int n){
-        int rem = 0, sq = 0;
+    int getSquare(int num){
+        int res = 0;
         
-        while(n!=0){
-            rem = n % 10;
-            sq += rem * rem;
-            n = n/10;
+        while(num!=0){
+            int rem = num % 10;
+            res = rem * rem + res;
+            num = num/10;
         }
         
-        return sq;
+        return res;
     }
 }
