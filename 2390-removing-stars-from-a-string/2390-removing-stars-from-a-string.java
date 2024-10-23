@@ -4,19 +4,20 @@ class Solution {
         Stack<Character> stack = new Stack<>();
         
         for(char ch : s.toCharArray()){
-            if(ch=='*')
+            if(!stack.isEmpty() && ch=='*'){
                 stack.pop();
-            else
+            }
+            else{
                 stack.push(ch);
+            }
         }
-        
-        StringBuilder sb = new StringBuilder();
         
         String res = "";
         
-        while(!stack.isEmpty())
-            sb.append(stack.pop());
+        while(!stack.isEmpty()){
+            res = stack.pop() + res;
+        }
         
-        return sb.reverse().toString();
+        return res;
     }
 }
