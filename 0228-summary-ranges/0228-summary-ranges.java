@@ -1,9 +1,8 @@
 class Solution {
     public List<String> summaryRanges(int[] nums) {
         
-        int n = nums.length;
-        
         List<String> list = new ArrayList<>();
+        int n = nums.length;
         
         for(int i=0; i<n; i++){
             int num = nums[i];
@@ -12,11 +11,13 @@ class Solution {
                 i++;
             }
             
-            if(num!=nums[i])
+            if(num!=nums[i]){
                 list.add(num+"->"+nums[i]);
+            }
             
-            else
-                list.add(""+num);
+            else{
+                list.add(""+nums[i]);
+            }
         }
         
         return list;
