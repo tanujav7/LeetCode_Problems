@@ -11,11 +11,10 @@
 class Solution {
     public ListNode partition(ListNode head, int x) {
         
-        ListNode lessHead = new ListNode(0);
         ListNode moreHead = new ListNode(0);
+        ListNode lessHead = new ListNode(0);
         
-        ListNode less = lessHead;
-        ListNode more = moreHead;
+        ListNode less = lessHead, more = moreHead;
         
         ListNode temp = head;
         
@@ -31,9 +30,9 @@ class Solution {
             }
             temp = temp.next;
         }
-        
-        less.next = moreHead.next;
-        
+    
+         less.next = moreHead.next;
+    
         return lessHead.next;
     }
 }
