@@ -7,8 +7,7 @@ class Solution {
             map.put(ch, map.getOrDefault(ch, 0)+1);
         }
         
-        for(int i=0; i<ransomNote.length(); i++){
-            char ch = ransomNote.charAt(i);
+        for(char ch : ransomNote.toCharArray()){
             int count = map.containsKey(ch) ? map.get(ch)-1 : -1;
             
             if(count==-1)
@@ -18,5 +17,6 @@ class Solution {
         }
         
         return true;
+            
     }
 }
