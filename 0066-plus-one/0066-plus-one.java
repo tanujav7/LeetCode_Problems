@@ -1,36 +1,35 @@
 class Solution {
     public int[] plusOne(int[] digits) {
         
-        int n = digits.length;
+        int len = digits.length;
+        
+        int res[] = new int[len+1];
+        
+        int i = 0;
         
         int carry = 0;
         
-        int newDigits[] = new int[n+1];
-        
-        for(int i=n-1; i>=0; --i){
-            int currSum = digits[i] + 1;
-            
-            if(currSum>9){
-                newDigits[i+1] = currSum % 10;
-                digits[i] = currSum % 10;
-                carry = 1;
-            }
-            
-            else{
-                newDigits[i+1] = currSum;
-                digits[i] = currSum;
+        for(i=len-1; i>=0; --i){
+            int currentNum = digits[i] + 1;
+            if(currentNum<=9){
+                digits[i] = currentNum;
                 carry = 0;
                 break;
             }
+            
+            else{
+                res[i+1] = currentNum % 10;
+                digits[i] = currentNum % 10;
+                carry = currentNum / 10;
+            }
         }
         
+        res[0] = carry;
+  
         
         if(carry==0)
-            return digits;
+        return digits;
         
-        newDigits[0] = 1;
-        
-        return newDigits;
+        return res;
     }
-    
 }
