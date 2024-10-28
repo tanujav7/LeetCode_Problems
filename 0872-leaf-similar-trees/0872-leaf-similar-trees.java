@@ -25,19 +25,17 @@ class Solution {
             return false;
         
         for(int i=0; i<l1.size(); i++){
-            if(!l1.get(i).equals(l2.get(i)))
+            if(!l1.equals(l2))
                 return false;
         }
-        
-        
         
         return true;
     }
     
     void getLeafNodes(TreeNode node, List<Integer> list){
-        
         if(node==null)
             return;
+        
         
         if(node.left==null && node.right==null){
             list.add(node.val);
@@ -46,6 +44,5 @@ class Solution {
         
         getLeafNodes(node.left, list);
         getLeafNodes(node.right, list);
-        
     }
 }
