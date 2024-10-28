@@ -3,7 +3,7 @@ class Solution {
         
         int n = nums.length;
         
-        if(k>n)
+        if(k>=n)
             k = k % n;
         
         reverse(nums, 0, n-1);
