@@ -24,6 +24,6 @@ class Solution {
         if(root.right==null)
             return 1 + minDepth(root.left);
         
-        return 1 + Math.min(minDepth(root.left), (minDepth(root.right)));
+        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
     }
 }
