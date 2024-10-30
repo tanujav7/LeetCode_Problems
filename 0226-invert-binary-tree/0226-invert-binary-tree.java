@@ -15,9 +15,7 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        
         invert(root);
-        
         return root;
     }
     
@@ -26,14 +24,12 @@ class Solution {
             return;
         
         swap(node);
-        
         invert(node.left);
         invert(node.right);
+        
     }
     
-    
     void swap(TreeNode node){
-        
         TreeNode temp = node.left;
         node.left = node.right;
         node.right = temp;
