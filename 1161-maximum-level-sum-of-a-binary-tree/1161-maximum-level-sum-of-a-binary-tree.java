@@ -17,17 +17,15 @@ class Solution {
     List<Integer> list = new ArrayList<>();
     public int maxLevelSum(TreeNode root) {
         dfs(root, 0, list);
-        
         int val = Integer.MIN_VALUE;
-        int index = 0;
+        int maxIndex = 0;
         for(int i=0; i<list.size(); i++){
             if(val<list.get(i)){
                 val = list.get(i);
-                index = i+1;
+                maxIndex = i+1;
             }
         }
-        
-        return index;
+        return maxIndex;
     }
     
     void dfs(TreeNode node, int depth, List<Integer> list){
