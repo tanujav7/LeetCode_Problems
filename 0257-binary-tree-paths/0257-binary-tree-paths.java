@@ -16,7 +16,6 @@
 class Solution {
     List<String> list = new ArrayList<>();
     public List<String> binaryTreePaths(TreeNode root) {
-        
         dfs(root, "");
         return list;
     }
@@ -25,10 +24,10 @@ class Solution {
         if(node==null)
             return;
         
-        s = s + ""+node.val + "->";
+        s = s + "" + node.val + "->";
         
         if(node.left==null && node.right==null){
-        list.add(s.substring(0, s.length()-2));
+            list.add(s.substring(0, s.length()-2));
         }
         
         dfs(node.left, s);
