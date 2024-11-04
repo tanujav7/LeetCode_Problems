@@ -28,6 +28,7 @@ class Solution {
         if(p.val!=q.val)
             return false;
         
-        return (checkSymmetric(p.left, q.right) && checkSymmetric(p.right, q.left));
+        
+        return (checkSymmetric(p.left, q.right) && checkSymmetric(q.left, p.right));
     }
 }
