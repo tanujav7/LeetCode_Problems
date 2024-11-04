@@ -26,7 +26,6 @@ class Solution {
         swap(node);
         invert(node.left);
         invert(node.right);
-        
     }
     
     void swap(TreeNode node){
