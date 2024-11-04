@@ -14,35 +14,35 @@
  * }
  */
 class Solution {
+    List<Integer> list = new ArrayList<>();
     public int maxLevelSum(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        dfs(root, 0, list);
         
-        int maxLevel = 1;
-        int maxSum = Integer.MIN_VALUE;
-        int currentLevel = 1;
-        
-        while(!queue.isEmpty()){
-            int size = queue.size();
-            int sum = 0;
-            for(int i=0; i<size; i++){
-                TreeNode currentNode = queue.remove();
-                sum += currentNode.val;
-                
-                if(currentNode.left!=null)
-                    queue.add(currentNode.left);
-                
-                 if(currentNode.right!=null)
-                    queue.add(currentNode.right);
+        int val = Integer.MIN_VALUE;
+        int index = 0;
+        for(int i=0; i<list.size(); i++){
+            if(val<list.get(i)){
+                val = list.get(i);
+                index = i+1;
             }
-            
-            if(sum>maxSum){
-                maxSum = sum;
-                maxLevel = currentLevel;
-            }
-            currentLevel++;
         }
         
-        return maxLevel;
+        return index;
+    }
+    
+    void dfs(TreeNode node, int depth, List<Integer> list){
+        if(node==null)
+            return;
+        
+        if(list.size()==depth){
+            list.add(node.val);
+        }
+        
+        else{
+            list.set(depth, list.get(depth) + node.val);
+        }
+        
+        dfs(node.left, depth+1, list);
+        dfs(node.right, depth+1, list);
     }
 }
