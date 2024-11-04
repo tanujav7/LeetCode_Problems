@@ -21,6 +21,8 @@ class Solution {
         
         queue.add(root);
         
+        Stack<List<Integer>> stack = new Stack<>();
+        
         if(root==null)
             return resList;
         
@@ -37,10 +39,12 @@ class Solution {
                     queue.add(current.right);
                 
             }
-            resList.add(list);
+           stack.add(list);
         }
         
-        Collections.reverse(resList);
+        while(!stack.isEmpty()){
+            resList.add(stack.pop());
+        }
         
         return resList;
     }
