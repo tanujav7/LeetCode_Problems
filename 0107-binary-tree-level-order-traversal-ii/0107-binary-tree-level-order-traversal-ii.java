@@ -17,38 +17,30 @@ class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         
         List<List<Integer>> resList = new ArrayList<>();
-        Stack<List<Integer>> stack = new Stack<>();
-        
         Queue<TreeNode> queue = new LinkedList<>();
+        
+        queue.add(root);
         
         if(root==null)
             return resList;
         
-        queue.add(root);
-        
         while(!queue.isEmpty()){
             int size = queue.size();
             List<Integer> list = new ArrayList<>();
-    
             for(int i=0; i<size; i++){
                 TreeNode current = queue.remove();
-                
                 list.add(current.val);
-                
                 if(current.left!=null)
                     queue.add(current.left);
                 
                 if(current.right!=null)
                     queue.add(current.right);
+                
             }
-            
-            stack.add(list);
+            resList.add(list);
         }
         
-        
-        while(!stack.isEmpty()){
-            resList.add(stack.pop());
-        }
+        Collections.reverse(resList);
         
         return resList;
     }
