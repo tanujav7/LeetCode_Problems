@@ -23,11 +23,13 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-        if(root==null)
-            return null;
         
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
+        
+        if(root==null)
+            return null;
+        
         
         while(!queue.isEmpty()){
             int size = queue.size();
@@ -36,6 +38,7 @@ class Solution {
                 
                 if(i<size-1)
                     currentNode.next = queue.peek();
+                
                 if(currentNode.left!=null)
                     queue.add(currentNode.left);
                 
