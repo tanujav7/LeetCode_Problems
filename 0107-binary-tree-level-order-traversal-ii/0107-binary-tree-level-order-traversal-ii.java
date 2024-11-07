@@ -18,15 +18,15 @@ class Solution {
         
         List<List<Integer>> resList = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
-        Stack<List<Integer>> stack = new Stack<>();
         queue.add(root);
+        Stack<List<Integer>> stack = new Stack<>();
         
         if(root==null)
             return resList;
         
         while(!queue.isEmpty()){
             int size = queue.size();
-            List<Integer> list = new Stack<>();
+            List<Integer> list = new ArrayList<>();
             for(int i=0; i<size; i++){
                 TreeNode currentNode = queue.remove();
                 list.add(currentNode.val);
@@ -38,7 +38,6 @@ class Solution {
             }
             stack.add(list);
         }
-        
         
         while(!stack.isEmpty()){
             resList.add(stack.pop());
