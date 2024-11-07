@@ -18,11 +18,9 @@ class Solution {
         
         List<List<Integer>> resList = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
-        
         queue.add(root);
-        
         int level = 1;
-        
+    
         if(root==null)
             return resList;
         
@@ -30,26 +28,24 @@ class Solution {
             int size = queue.size();
             List<Integer> list = new ArrayList<>();
             for(int i=0; i<size; i++){
-                TreeNode temp = queue.remove();
+                TreeNode currentNode = queue.remove();
+                list.add(currentNode.val);
                 
-                if(level%2==0)
-                    list.add(0, temp.val);
+                if(currentNode.left!=null)
+                    queue.add(currentNode.left);
                 
-                else
-                    list.add(temp.val);
-                
-                if(temp.left!=null)
-                    queue.add(temp.left);
-                
-                 if(temp.right!=null)
-                    queue.add(temp.right);
+                if(currentNode.right!=null)
+                    queue.add(currentNode.right);
             }
             
+            if(level%2==0)
+              Collections.reverse(list);
+            
             resList.add(list);
+                
             level++;
         }
         
         return resList;
-        
     }
 }
