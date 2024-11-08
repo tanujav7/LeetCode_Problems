@@ -23,19 +23,20 @@ class Solution {
             return;
         
         while(!stack.isEmpty()){
-            TreeNode current = stack.pop();
+            TreeNode currentNode = stack.pop();
             
-            if(current.right!=null)
-                stack.push(current.right);
+            if(currentNode.right!=null)
+                stack.push(currentNode.right);
             
-            if(current.left!=null)
-                stack.push(current.left);
+            if(currentNode.left!=null)
+                stack.push(currentNode.left);
             
             if(!stack.isEmpty())
-            current.right = stack.peek();
+                currentNode.right = stack.peek();
             
-            current.left = null;
-            
+            currentNode.left = null;
         }
+        
+        
     }
 }
