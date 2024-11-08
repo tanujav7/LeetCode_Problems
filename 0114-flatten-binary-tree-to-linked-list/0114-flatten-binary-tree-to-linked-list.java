@@ -26,15 +26,16 @@ class Solution {
             TreeNode currentNode = stack.pop();
             
             if(currentNode.right!=null)
-                stack.push(currentNode.right);
+                stack.add(currentNode.right);
             
             if(currentNode.left!=null)
-                stack.push(currentNode.left);
+                stack.add(currentNode.left);
             
             if(!stack.isEmpty())
                 currentNode.right = stack.peek();
             
             currentNode.left = null;
+            
         }
         
         
