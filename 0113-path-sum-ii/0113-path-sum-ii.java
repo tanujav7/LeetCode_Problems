@@ -14,9 +14,8 @@
  * }
  */
 class Solution {
-    List<List<Integer>> resList;
+    List<List<Integer>> resList = new ArrayList<>();
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        resList = new ArrayList<>();
         dfs(root, 0, targetSum, new ArrayList<>());
         return resList;
     }
