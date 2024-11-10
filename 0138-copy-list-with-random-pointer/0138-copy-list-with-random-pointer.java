@@ -25,14 +25,14 @@ class Solution {
             currentNode = currentNode.next;
         }
         
-        
         currentNode = head;
         
         while(currentNode!=null){
-            map.get(currentNode).next = map.get(currentNode.next);
-            map.get(currentNode).random = map.get(currentNode.random);
-            currentNode = currentNode.next;
+           map.get(currentNode).next = map.get(currentNode.next);
+           map.get(currentNode).random = map.get(currentNode.random);
+           currentNode = currentNode.next;
         }
+        
         
         return map.get(head);
     }
