@@ -18,17 +18,21 @@ class Solution {
         
         List<List<Integer>> resList = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
+        
         queue.add(root);
-        int level = 1;
-    
+        
         if(root==null)
             return resList;
         
+        int level = 1;
+        
         while(!queue.isEmpty()){
-            int size = queue.size();
             List<Integer> list = new ArrayList<>();
+            int size = queue.size();
+            
             for(int i=0; i<size; i++){
                 TreeNode currentNode = queue.remove();
+                
                 list.add(currentNode.val);
                 
                 if(currentNode.left!=null)
@@ -39,10 +43,10 @@ class Solution {
             }
             
             if(level%2==0)
-              Collections.reverse(list);
+                Collections.reverse(list);
             
             resList.add(list);
-                
+            
             level++;
         }
         
