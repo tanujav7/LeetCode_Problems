@@ -1,8 +1,8 @@
 class Solution {
     public void rotate(int[][] matrix) {
         
-        int row = matrix.length;
         int n = matrix.length;
+        int row = matrix.length;
         int col = matrix[0].length;
         
         for(int i=0; i<row; i++){
@@ -20,7 +20,6 @@ class Solution {
                 matrix[i][n-1-j] = temp;
             }
         }
-        
         
     }
 }
