@@ -1,8 +1,8 @@
 class Solution {
     public void setZeroes(int[][] matrix) {
         
-        Set<Integer> rows = new HashSet<>();
-        Set<Integer> cols = new HashSet<>();
+        Set<Integer> row = new HashSet<>();
+        Set<Integer> col = new HashSet<>();
         
         int m = matrix.length;
         int n = matrix[0].length;
@@ -10,17 +10,16 @@ class Solution {
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 if(matrix[i][j]==0){
-                    rows.add(i);
-                    cols.add(j);
+                    row.add(i);
+                    col.add(j);
                 }
             }
         }
         
          for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
-                if(rows.contains(i) || cols.contains(j)){
+                if(row.contains(i) || col.contains(j))
                     matrix[i][j] = 0;
-                }
             }
         }
     }
