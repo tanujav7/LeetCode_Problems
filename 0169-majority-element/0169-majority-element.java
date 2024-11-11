@@ -3,21 +3,20 @@ class Solution {
         
         int n = nums.length;
         
-        Map<Integer, Integer> map = new HashMap<>();
+        int count = 0, majorityElement = nums[0];
         
         for(int num : nums){
-            map.put(num, map.getOrDefault(num, 0)+1);
-        }
-        
-        
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
-            Integer key = entry.getKey();
-            Integer val = entry.getValue();
+            if(count==0){
+               majorityElement = num;
+            }
             
-            if(val>(n/2))
-                return key;
+            if(num==majorityElement)
+                count++;
+            
+            else
+                count--;
         }
         
-        return 0;
+        return majorityElement;
     }
 }
