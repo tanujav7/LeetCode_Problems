@@ -18,37 +18,34 @@ class Solution {
         int len = 0;
         
         while(temp!=null){
-            len++;
             temp = temp.next;
+            len++;
         }
         
-     
-        k = k % len;
-        
-        if(k==0)
+        if(k==len || k % len ==0)
             return head;
         
+        if(k>len)
+            k = k % len;
         
-        ListNode slow = head, fast = head;
+        ListNode fast = head, slow = head;
         
-        for(int i=0; i<k; i++){
+        while(k-->0){
             fast = fast.next;
         }
         
-        // if(fast.next==null)
-        //     return head;
         
+            
         while(fast.next!=null){
-            slow = slow.next;
             fast = fast.next;
+            slow = slow.next;
         }
         
         ListNode res = slow.next;
-        
+        slow.next = null;
         fast.next = head;
         
-        slow.next = null;
-        
         return res;
+        
     }
 }
