@@ -22,28 +22,26 @@ class Solution {
             len++;
         }
         
-        if(k==len || k % len ==0)
+        if(k%len==0)
             return head;
         
-        if(k>len)
-            k = k % len;
+         if(k>len)
+            k = k%len;
         
-        ListNode fast = head, slow = head;
+        ListNode slow = head, fast = head;
         
         while(k-->0){
             fast = fast.next;
         }
         
-        
-            
         while(fast.next!=null){
-            fast = fast.next;
             slow = slow.next;
+            fast = fast.next;
         }
         
         ListNode res = slow.next;
-        slow.next = null;
         fast.next = head;
+        slow.next = null;
         
         return res;
         
