@@ -22,11 +22,11 @@ class Solution {
             len++;
         }
         
-        if(k%len==0)
-            return head;
+        if(k>len)
+            k = k % len;
         
-         if(k>len)
-            k = k%len;
+        if(k==0 || k==len)
+            return head;
         
         ListNode slow = head, fast = head;
         
@@ -34,14 +34,15 @@ class Solution {
             fast = fast.next;
         }
         
+        
         while(fast.next!=null){
             slow = slow.next;
             fast = fast.next;
         }
         
         ListNode res = slow.next;
-        fast.next = head;
         slow.next = null;
+        fast.next = head;
         
         return res;
         
