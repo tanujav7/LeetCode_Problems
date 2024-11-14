@@ -3,21 +3,20 @@ class Solution {
         
         Stack<Character> stack = new Stack<>();
         
-        for(char ch : s.toCharArray()){
-            if(!stack.isEmpty() && ch=='*'){
+        for(int i=0; i<s.length(); i++){
+            char ch = s.charAt(i);
+            if(ch=='*')
                 stack.pop();
-            }
-            else{
+            else
                 stack.push(ch);
-            }
         }
         
-        String res = "";
+        StringBuilder res = new StringBuilder();
         
         while(!stack.isEmpty()){
-            res = stack.pop() + res;
+            res = res.append(stack.pop());
         }
         
-        return res;
+        return res.reverse().toString();
     }
 }
