@@ -3,8 +3,8 @@ class Solution {
         
         int count = 0;
         
-        for(int i=5; n/i>=1; i=i*5){
-            count += n/i;
+        for(int i=n; i>=1; i = i/5){
+            count += (i/5);
         }
         
         return count;
