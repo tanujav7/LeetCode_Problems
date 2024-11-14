@@ -1,12 +1,20 @@
 class Solution {
     public int singleNumber(int[] nums) {
         
-        int sum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
         
-        for(int i=0; i<nums.length; i++){
-            sum = sum ^ nums[i];
+        for(int num : nums){
+            map.put(num, map.getOrDefault(num, 0)+1);
         }
         
-        return sum;
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            Integer key = entry.getKey();
+            Integer val = entry.getValue();
+            
+            if(val==1)
+                return key;
+        }
+        
+        return -1;
     }
 }
