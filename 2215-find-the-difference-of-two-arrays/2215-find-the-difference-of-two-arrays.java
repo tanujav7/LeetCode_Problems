@@ -6,23 +6,19 @@ class Solution {
     
     List<Integer> getDifference(int nums1[], int nums2[]){
         
-       
-        
         Set<Integer> set = new HashSet<>();
+        Set<Integer> res = new HashSet<>();
+       // List<Integer> list = new ArrayList<>();
         
-         Set<Integer> resSet = new HashSet<>();
         for(int num : nums2){
             set.add(num);
         }
         
-        
         for(int i=0; i<nums1.length; i++){
             if(!set.contains(nums1[i]))
-                resSet.add(nums1[i]);
+                res.add(nums1[i]);
         }
         
-        List<Integer> list = new ArrayList<>(resSet);
-        
-        return list;
+        return new ArrayList<>(res);
     }
 }
