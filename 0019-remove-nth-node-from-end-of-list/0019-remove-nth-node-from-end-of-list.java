@@ -14,15 +14,15 @@ class Solution {
         if(head==null || head.next==null)
             return null;
         
-        ListNode temp = head;
+        ListNode tempHead = head;
         int len = 0;
         
-        while(temp!=null){
-            temp = temp.next;
+        while(tempHead!=null){
             len++;
+            tempHead = tempHead.next;
         }
         
-        int diff = len - n;
+        int diff = len-n;
         
         if(diff==0)
             return head.next;
