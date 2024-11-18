@@ -16,11 +16,11 @@
 class Solution {
     int count = 0;
     public int goodNodes(TreeNode root) {
-        countGoodNodes(root, root.val);
+        getCountGoodNodes(root, root.val);
         return count;
     }
     
-    void countGoodNodes(TreeNode node, int maxVal){
+    void getCountGoodNodes(TreeNode node, int maxVal){
         if(node==null)
             return;
         
@@ -29,7 +29,8 @@ class Solution {
             count++;
         }
         
-        countGoodNodes(node.left, maxVal);
-        countGoodNodes(node.right, maxVal);
+        getCountGoodNodes(node.left, maxVal);
+        getCountGoodNodes(node.right, maxVal);
     }
+    
 }
