@@ -16,11 +16,11 @@
 class Solution {
     List<List<Integer>> resList = new ArrayList<>();
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        dfs(root, 0, targetSum, new ArrayList<>());
+        getPathSum(root, 0, targetSum, new ArrayList<>());
         return resList;
     }
     
-    void dfs(TreeNode node, int currentSum, int targetSum, List<Integer> list){
+    void getPathSum(TreeNode node, int currentSum, int targetSum, List<Integer>list){
         if(node==null)
             return;
         
@@ -32,9 +32,9 @@ class Solution {
             resList.add(new ArrayList<>(list));
         }
         
-        dfs(node.left, currentSum, targetSum, list);
-        dfs(node.right, currentSum, targetSum, list);
-        
+        getPathSum(node.left, currentSum, targetSum, list);
+        getPathSum(node.right, currentSum, targetSum, list);
         list.remove(list.size()-1);
+        
     }
 }
