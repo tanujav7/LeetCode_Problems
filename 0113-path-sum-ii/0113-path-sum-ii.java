@@ -31,6 +31,7 @@ class Solution {
         if(node.left==null && node.right==null && currentSum==targetSum){
             resList.add(new ArrayList<>(list));
         }
+        
         getPathSum(node.left, currentSum, targetSum, list);
         getPathSum(node.right, currentSum, targetSum, list);
         
