@@ -20,7 +20,7 @@ class Solution {
         return resList;
     }
     
-    void getPathSum(TreeNode node, int currentSum, int targetSum, List<Integer>list){
+    void getPathSum(TreeNode node, int currentSum, int targetSum, List<Integer> list){
         if(node==null)
             return;
         
@@ -31,10 +31,9 @@ class Solution {
         if(node.left==null && node.right==null && currentSum==targetSum){
             resList.add(new ArrayList<>(list));
         }
-        
         getPathSum(node.left, currentSum, targetSum, list);
         getPathSum(node.right, currentSum, targetSum, list);
-        list.remove(list.size()-1);
         
+        list.remove(list.size()-1);
     }
 }
