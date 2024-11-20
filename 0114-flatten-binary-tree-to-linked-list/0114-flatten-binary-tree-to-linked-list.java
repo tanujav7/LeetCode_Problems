@@ -14,16 +14,26 @@
  * }
  */
 class Solution {
-    TreeNode prevNode = null;
-    public void flatten(TreeNode node) {
-        
-        if(node==null)
+    public void flatten(TreeNode root) {
+        if(root==null)
             return;
         
-        flatten(node.right);
-        flatten(node.left);
-        node.right = prevNode;
-        prevNode = node;
-        node.left = null;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        
+        while(!stack.isEmpty()){
+            TreeNode currentNode = stack.pop();
+            
+            if(currentNode.right!=null)
+                stack.push(currentNode.right);
+            
+            if(currentNode.left!=null)
+                stack.push(currentNode.left);
+            
+              if(!stack.isEmpty())
+                currentNode.right = stack.peek();
+            
+            currentNode.left = null;
+        }
     }
 }
