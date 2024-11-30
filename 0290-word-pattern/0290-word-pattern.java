@@ -5,10 +5,13 @@ class Solution {
         
         String arr[] = s.split(" ");
         
-        if(pattern.length()!=arr.length)
-            return false;
+        int n = pattern.length();
         
-        for(int i=0; i<pattern.length(); i++){
+        if(n!=arr.length){
+            return false;
+        }
+        
+        for(int i=0; i<n; i++){
             char ch = pattern.charAt(i);
             
             if(map.containsKey(ch) && !map.get(ch).equals(arr[i]))
