@@ -25,7 +25,6 @@ class Solution {
             currentNode = currentNode.next;
         }
         
-        
         currentNode = head;
         
         while(currentNode!=null){
