@@ -3,25 +3,21 @@ class Solution {
         
         Map<Character, Character> map_S = new HashMap<>();
         Map<Character, Character> map_T = new HashMap<>();
-        int s_len = s.length();
         
-        int t_len = t.length();
-        
-        if(s_len!=t_len)
+        if(s.length()!=t.length()){
             return false;
+        }
         
-        for(int i=0; i<s_len; i++){
-            char ch_S = s.charAt(i);
-            char ch_T = t.charAt(i);
-            
-            if(map_S.containsKey(ch_S) && !map_S.get(ch_S).equals(ch_T))
+        for(int i=0; i<s.length(); i++){
+            char ch_s = s.charAt(i);
+            char ch_t = t.charAt(i);
+            if(map_S.containsKey(ch_s) && !map_S.get(ch_s).equals(ch_t))
                 return false;
-            
-            if(map_T.containsKey(ch_T) && !map_T.get(ch_T).equals(ch_S))
+            if(map_T.containsKey(ch_t) && !map_T.get(ch_t).equals(ch_s))
                 return false;
-            
-            map_S.put(ch_S, ch_T);
-            map_T.put(ch_T, ch_S);
+            map_S.put(ch_s, ch_t);
+            map_T.put(ch_t, ch_s);
+
         }
         
         return true;
