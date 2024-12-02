@@ -2,10 +2,9 @@ class Solution {
     List<List<Integer>> resList = new ArrayList<>();
     List<Integer> list = new ArrayList<>();
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-        
         int n = graph.length;
         
-        int visited[] = new int[n];
+        int visited[] = new int[10001];
         
         int src = 0;
         
@@ -20,19 +19,16 @@ class Solution {
         list.add(src);
         visited[src] = 1;
         
-        if(src==dest){
+        if(src==dest)
             resList.add(new ArrayList<>(list));
+        
+        for(int adj : graph[src]){
+            if(visited[adj]==0)
+                getPaths(graph, adj, dest, visited, n);
         }
-        
-        
-        for(int adj:graph[src]){
-             if(visited[adj]==0)
-                 getPaths(graph, adj, dest, visited, n);
-        }
-        
         
         visited[src] = 0;
-        list.remove(list.size()-1);
         
+        list.remove(list.size()-1);
     }
 }
