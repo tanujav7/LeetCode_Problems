@@ -1,6 +1,5 @@
 class Solution {
     public int search(int[] nums, int target) {
-        
         int n = nums.length;
         return binarySearch(nums, 0, n-1, target);
     }
@@ -11,15 +10,13 @@ class Solution {
         
         int mid = low+(high-low)/2;
         
-        if(nums[mid]<target)
-           return binarySearch(nums, mid+1, high, target);
-        
-       else if(nums[mid]>target)
-           return binarySearch(nums, low, mid-1, target);
-        
-        else
+        if(nums[mid]==target)
             return mid;
         
-     
+        else if(nums[mid]<target)
+            return binarySearch(nums, mid+1, high, target);
+        
+        else
+            return binarySearch(nums, low, mid-1, target);
     }
 }
