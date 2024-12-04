@@ -9,11 +9,11 @@ class Solution {
             arr[i] = String.valueOf(nums[i]);
         }
         
-        Arrays.sort(arr, (s1, s2) -> (s2+s1).compareTo(s1+s2));
+        Arrays.sort(arr, (s1, s2)->(s2+s1).compareTo((s1+s2)));
         
         StringBuilder sb = new StringBuilder();
         
-        for(String s : arr){
+        for(String s:arr){
             sb.append(s);
         }
         
