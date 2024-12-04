@@ -1,13 +1,13 @@
 class RandomizedSet {
 
     List<Integer> list;
-    Map<Integer, Integer> map;
     Random random;
+    Map<Integer, Integer> map;
     
     public RandomizedSet() {
-        list = new ArrayList<>();
         map = new HashMap<>();
         random = new Random();
+        list = new ArrayList<>();
     }
     
     public boolean insert(int val) {
@@ -27,11 +27,9 @@ class RandomizedSet {
         int index = map.get(val);
         list.set(index, lastElement);
         map.put(lastElement, index);
-        map.remove(val);
         list.remove(list.size()-1);
-        
+        map.remove(val);
         return true;
-        
     }
     
     public int getRandom() {
