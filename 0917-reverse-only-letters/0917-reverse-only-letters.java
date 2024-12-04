@@ -1,20 +1,36 @@
 class Solution {
     public String reverseOnlyLetters(String s) {
         
-        StringBuilder str = new StringBuilder();
-        int j = s.length()-1;
+        int pointer = 0;
         
-        for(int i=0; i<s.length(); i++){
-            if(Character.isLetter(s.charAt(i))){
-                while(!Character.isLetter(s.charAt(j)))
-                    j--;
-                str.append(s.charAt(j--));
+        int i = 0, j = s.length()-1;
+        
+        char arr[] = s.toCharArray();
+        
+        while(i<j){
+            
+            if (Character.isLetter(arr[i]) && Character.isLetter(arr[j])) {
+                // Swap the letters
+                char temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
             }
-            else{
-                str.append(s.charAt(i));
+            
+            while(i<s.length() && j>=0 && Character.isLetter(arr[i])==false){
+                i++;
             }
+                
+            while(i<s.length() && j>=0 && Character.isLetter(arr[j])==false){
+                j--;
+            }
+            
         }
         
-        return str.toString();
+        
+        String res = new String(arr);
+        
+        return res;
     }
 }
