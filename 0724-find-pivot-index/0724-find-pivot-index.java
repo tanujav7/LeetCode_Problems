@@ -6,19 +6,19 @@ class Solution {
         int sum = 0;
         
         for(int i=0; i<n; i++){
-            sum += nums[i];
+            sum = sum + nums[i];
         }
         
-        
-        int leftSum = 0, rightSum = 0;
+        int leftSum = 0;
         
         for(int i=0; i<n; i++){
-            leftSum += nums[i];
+            leftSum = leftSum + nums[i];
             
-            if(leftSum == sum)
+            if(sum==leftSum){
                 return i;
+            }
             
-            sum = sum - nums[i]; 
+            sum = sum - nums[i];
         }
         
         return -1;
