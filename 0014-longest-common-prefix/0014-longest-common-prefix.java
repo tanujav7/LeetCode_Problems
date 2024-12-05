@@ -3,14 +3,19 @@ class Solution {
         
         String prefix = strs[0];
         
-        for(int i=1; i<strs.length; i++){
+        int n = strs.length;
+        
+        for(int i=1; i<n; i++){
             String str = strs[i];
-            
-            while(str.indexOf(prefix)!=0){
-                prefix = prefix.substring(0, prefix.length()-1);
-                if(prefix.equals(""))
-                    return "";
+            int j = 0;
+            while(j<str.length() && j<prefix.length() && str.charAt(j)==prefix.charAt(j)){
+                j++;
             }
+            
+            prefix = prefix.substring(0, j);
+            
+            if(prefix.equals(""))
+                return "";
         }
         
         return prefix;
