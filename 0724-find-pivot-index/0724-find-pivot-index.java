@@ -11,14 +11,13 @@ class Solution {
         
         int leftSum = 0;
         
-        for(int i=0; i<n; i++){
+         for(int i=0; i<n; i++){
             leftSum = leftSum + nums[i];
-            
-            if(sum==leftSum){
-                return i;
-            }
-            
-            sum = sum - nums[i];
+             
+             if(leftSum==sum)
+                 return i;
+             
+             sum = sum - nums[i];
         }
         
         return -1;
