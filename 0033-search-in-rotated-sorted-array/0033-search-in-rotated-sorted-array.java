@@ -28,10 +28,10 @@ class Solution {
         
         int mid = start+(end-start)/2;
         
-        if(mid<end && nums[mid+1]<nums[mid])
+        if(mid+1<=end && nums[mid+1]<nums[mid])
             return mid+1;
         
-        if(mid>start && nums[mid-1]>nums[mid])
+        if(mid-1>=start && nums[mid-1]>nums[mid])
             return mid;
         
         if(nums[0]<=nums[mid]){
