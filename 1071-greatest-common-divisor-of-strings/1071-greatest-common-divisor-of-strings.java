@@ -5,16 +5,18 @@ class Solution {
             return "";
         
         int n1 = str1.length();
+        
         int n2 = str2.length();
         
-        int GCDLength = findGCD(n1,n2);
-        return str1.substring(0,GCDLength);
+        int gcdLen = getGCD(n1, n2);
+        
+        return str1.substring(0, gcdLen);
     }
     
-    int findGCD(int x, int y){
+    int getGCD(int x, int y){
         if(y==0)
             return x;
-        else
-            return findGCD(y,x%y);
+        
+        return getGCD(y, x%y);
     }
 }
