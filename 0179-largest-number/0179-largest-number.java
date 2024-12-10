@@ -13,12 +13,12 @@ class Solution {
         
         StringBuilder sb = new StringBuilder();
         
-        if(arr[0].equals("0"))
-            return "0";
-        
         for(int i=0; i<n; i++){
             sb.append(arr[i]);
         }
+        
+        if(arr[0].equals("0"))
+            return "0";
         
         return sb.toString();
     }
