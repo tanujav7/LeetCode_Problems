@@ -1,16 +1,16 @@
 class Solution {
-    public String gcdOfStrings(String str1, String str2) {
+    public String gcdOfStrings(String s1, String s2) {
         
-        if(!(str1+str2).equals(str2+str1))
+        if(!(s1+s2).equals(s2+s1))
             return "";
         
-        int n1 = str1.length();
+        int s1_len = s1.length();
         
-        int n2 = str2.length();
+        int s2_len = s2.length();
         
-        int gcdLen = getGCD(n1, n2);
+        int gcdLen = getGCD(s1_len, s2_len);
         
-        return str1.substring(0, gcdLen);
+        return s1.substring(0, gcdLen);
     }
     
     int getGCD(int x, int y){
