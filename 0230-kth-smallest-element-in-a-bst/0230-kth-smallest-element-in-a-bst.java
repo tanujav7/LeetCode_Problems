@@ -14,17 +14,17 @@
  * }
  */
 class Solution {
-    List<Integer> list;
+    List<Integer> list = new ArrayList<>();
     public int kthSmallest(TreeNode root, int k) {
-        
-        list = new ArrayList<>();
-        
         inorderTraversal(root);
+        for(int i=0; i<list.size(); i++){
+            if(i+1==k)
+                return list.get(i);
+        }
         
-        return list.get(k-1);
+        return -1;
     }
-    
-    void inorderTraversal(TreeNode node){
+     void inorderTraversal(TreeNode node){
         if(node==null)
             return;
         
