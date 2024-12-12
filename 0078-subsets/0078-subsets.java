@@ -6,17 +6,17 @@ class Solution {
         return resList;
     }
     
-    void backTrack(int nums[], int ind, int n, List<Integer> list){
-        if(ind==n){
+    void backTrack(int nums[], int index, int n, List<Integer> list){
+        if(index==n){
             resList.add(new ArrayList<>(list));
             return;
         }
         
         else{
-            list.add(nums[ind]);
-            backTrack(nums, ind+1, n, list);
+            list.add(nums[index]);
+            backTrack(nums, index+1, n, list);
             list.remove(list.size()-1);
-            backTrack(nums, ind+1, n, list);
+            backTrack(nums, index+1, n, list);
         }
     }
 }
