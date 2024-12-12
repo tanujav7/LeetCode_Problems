@@ -5,7 +5,6 @@ class Solution {
             return "";
         
         int s1_len = s1.length();
-        
         int s2_len = s2.length();
         
         int gcdLen = getGCD(s1_len, s2_len);
