@@ -5,20 +5,22 @@ class Solution {
         return findKey(nums, 0, n-1, target);
     }
     
-    int binarySearch(int nums[], int left, int right, int target){
-        if(left>right)
+    int binarySearch(int nums[], int low, int high, int target){
+        if(low>high)
             return -1;
         
-        int mid = left + (right-left)/2;
+        int mid = low + (high-low)/2;
         
-        if(nums[mid]==target)
+        if(nums[mid]==target){
             return mid;
+        }
         
-        else if(nums[mid]<target)
-            return binarySearch(nums, mid+1, right, target);
+        else if(nums[mid]<target){
+            return binarySearch(nums, mid+1, high, target);
+        }
         
         else
-            return binarySearch(nums, left, mid-1, target);
+            return binarySearch(nums, low, mid-1, target);
     }
     
     int findPivot(int nums[], int start, int end){
@@ -27,36 +29,36 @@ class Solution {
         
         int mid = start + (end-start)/2;
         
-        if(mid+1<=end && nums[mid+1]<nums[mid])
+        if(mid+1<end && nums[mid]>nums[mid+1])
             return mid+1;
         
-        if(mid-1>=start && nums[mid-1]>nums[mid])
+        else if(mid-1>=0 && nums[mid]<nums[mid-1])
             return mid;
         
-        if(nums[0]<=nums[mid])
+        else if(nums[0]<=nums[mid])
             return findPivot(nums, mid+1, end);
-            
+        
         else
             return findPivot(nums, start, mid-1);
     }
-    
-    
-    int findKey(int nums[], int left, int right, int target){
-        if(left>right)
+    int findKey(int nums[], int low, int high, int target){
+        if(low>high)
             return -1;
         
-        int pivot = findPivot(nums, left, right);
+        int pivot = findPivot(nums, low, high);
         
         if(pivot==-1)
-            return binarySearch(nums, left, right, target);
+            return binarySearch(nums, low, high, target);
         
         if(nums[pivot]==target)
             return pivot;
         
-        if(nums[0]<=target)
-            return binarySearch(nums, left, pivot, target);
+        if(nums[0]<=target){
+            return binarySearch(nums, low, pivot-1, target);
+        }
         
-        else
-            return binarySearch(nums, pivot+1, right, target);
+        else{
+            return binarySearch(nums, pivot+1, high, target);
+        }
     }
 }
