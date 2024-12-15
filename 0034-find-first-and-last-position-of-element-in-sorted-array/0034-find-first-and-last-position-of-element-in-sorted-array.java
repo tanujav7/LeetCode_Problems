@@ -1,9 +1,8 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         
-        int n = nums.length;
-        
         int res[] = {-1, -1};
+        int n = nums.length;
         
         int low = 0, high = n-1;
         
@@ -23,8 +22,8 @@ class Solution {
         }
         
         
-         low = 0;
-         high = n-1;
+        low = 0;
+        high = n-1;
         
         while(low<=high){
             int mid = low + (high-low)/2;
