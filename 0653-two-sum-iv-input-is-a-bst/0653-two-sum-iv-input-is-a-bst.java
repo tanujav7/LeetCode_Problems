@@ -16,31 +16,29 @@
 class Solution {
     List<Integer> list = new ArrayList<>();
     public boolean findTarget(TreeNode root, int k) {
-        
-        inorderTraversal(root);
-        int i=0, j=list.size()-1;
+        inOrderTraversal(root);
+        int i = 0, j = list.size()-1;
         
         while(i<j){
-            if(list.get(i)+list.get(j)==k)
+            if(list.get(i) + list.get(j) == k)
                 return true;
             
-           else if(list.get(i)+list.get(j) < k)
+            else if(list.get(i) + list.get(j) < k)
                 i++;
             
             else
                 j--;
-            
         }
         
         return false;
     }
     
-    void inorderTraversal(TreeNode node){
+    void inOrderTraversal(TreeNode node){
         if(node==null)
             return;
         
-        inorderTraversal(node.left);
+        inOrderTraversal(node.left);
         list.add(node.val);
-        inorderTraversal(node.right);
+        inOrderTraversal(node.right);
     }
 }
