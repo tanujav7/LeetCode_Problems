@@ -14,31 +14,16 @@
  * }
  */
 class Solution {
-    List<Integer> list = new ArrayList<>();
+    Set<Integer> set = new HashSet<>();
     public boolean findTarget(TreeNode root, int k) {
-        inOrderTraversal(root);
-        int i = 0, j = list.size()-1;
+        if(root==null)
+            return false;
         
-        while(i<j){
-            if(list.get(i) + list.get(j) == k)
-                return true;
-            
-            else if(list.get(i) + list.get(j) < k)
-                i++;
-            
-            else
-                j--;
-        }
+        if(set.contains(k-root.val))
+            return true;
         
-        return false;
-    }
-    
-    void inOrderTraversal(TreeNode node){
-        if(node==null)
-            return;
+        set.add(root.val);
         
-        inOrderTraversal(node.left);
-        list.add(node.val);
-        inOrderTraversal(node.right);
+        return findTarget(root.left, k) || findTarget(root.right, k);
     }
 }
