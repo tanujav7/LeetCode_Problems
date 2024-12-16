@@ -14,19 +14,16 @@
  * }
  */
 class Solution {
-    int sum = 0;
+    int val = 0;
     public TreeNode bstToGst(TreeNode root) {
-        dfs(root);
-        return root;
-    }
-    
-    void dfs(TreeNode node){
-        if(node==null)
-            return;
+        if(root==null)
+            return null;
         
-        dfs(node.right);
-        sum = sum + node.val;
-        node.val = sum;
-        dfs(node.left);
+        bstToGst(root.right);
+        root.val = root.val + val;
+        val = root.val;
+        bstToGst(root.left);
+        
+        return root;
     }
 }
